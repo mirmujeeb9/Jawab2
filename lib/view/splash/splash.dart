@@ -71,7 +71,7 @@ class _MyCustomSplashScreenState extends State<MyCustomSplashScreen>
     Timer(Duration.zero, () async {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       String? value = prefs.getString('token');
-      // prefs.clear();
+      prefs.clear();
       if (value != null) {
         // StaticData.token = value;
         // getuser();

@@ -36,22 +36,33 @@ class Button extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomContainer(
-      onTap: onTap,
       width: width ?? ScreenUtil().screenWidth,
       height: height ?? 50.w,
-      borderRadius: borderRadius ?? 60.r,
-      color: color ?? primaryColor,
-      borderColor: borderColor ?? Colors.transparent,
-      borderWidth: borderWidth ?? 0.w,
-      child: child ??
-          Center(
-            child: TextWidget(
-              text: text ?? '',
-              fontSize: fontsize ?? 16.sp,
-              color: textColor ?? whiteColor,
-              fontWeight: fontWeight ?? FontWeight.w600,
+      child: ElevatedButton(
+        onPressed: onTap,
+        style: ElevatedButton.styleFrom(
+          foregroundColor: textColor ?? Colors.white,
+          backgroundColor: color ?? primaryColor,
+          elevation: 0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(borderRadius ?? 60.r),
+            side: BorderSide(
+              color: borderColor ?? Colors.transparent,
+              width: borderWidth ?? 0,
             ),
           ),
+        ),
+        child: child ??
+            Center(
+              child: Text(
+                text ?? '',
+                style: TextStyle(
+                  fontSize: fontsize ?? 16.sp,
+                  fontWeight: fontWeight ?? FontWeight.w600,
+                ),
+              ),
+            ),
+      ),
     );
   }
 }

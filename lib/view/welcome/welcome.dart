@@ -68,7 +68,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   height: 20.h,
                 ),
                 Button(
-                  color: primaryColor.withOpacity(0.3),
+                  color: primaryColor.withOpacity(0.2),
                   onTap: () {},
                   width: 335.w,
                   textColor: primaryColor,
