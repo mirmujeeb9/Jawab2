@@ -77,7 +77,7 @@ class CustomTextFormField extends StatelessWidget {
       obscureText: obsecure ?? false,
       style: TextStyle(
         fontSize: fontSize ?? 15.sp,
-        fontFamily: fontFamily ?? 'Cairo',
+        fontFamily: fontFamily ?? 'Poppins',
         fontWeight: fontWeight ?? FontWeight.w400,
         color: Colors.black,
       ),
@@ -85,7 +85,7 @@ class CustomTextFormField extends StatelessWidget {
       decoration: InputDecoration(
         errorStyle: TextStyle(
           color: Colors.red,
-          fontFamily: fontFamily ?? 'Cairo',
+          fontFamily: fontFamily ?? 'Poppins',
           fontSize: 10.sp,
         ),
         prefixIcon: prefixIcon,
@@ -97,7 +97,7 @@ class CustomTextFormField extends StatelessWidget {
             EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
         hintStyle: TextStyle(
             color: Colors.grey,
-            fontFamily: fontFamily ?? 'Cairo',
+            fontFamily: fontFamily ?? 'Poppins',
             fontSize: hintTextSize ?? 14.sp,
             fontWeight: hintFontWeight ?? FontWeight.w400),
         hintText: hint,
@@ -124,94 +124,4 @@ class CustomTextFormField extends StatelessWidget {
       ),
     );
   }
-}
-
-class AppTextField extends StatelessWidget {
-  final TextEditingController controller;
-  final String hint;
-
-  final double contentPadding;
-  // final double borderRadius;
-  final Color borderColor;
-  final Color focusBorderColor;
-  final Color errorBorderColor;
-  final TextInputType keyboardType;
-  final String? Function(String?)? validator;
-  final bool? psdObs;
-  final String? obscuringCharacter;
-  final Widget? suffix;
-  final Widget? prefix;
-  void Function()? onTap;
-  void Function(String)? onChanged;
-  final double? margin;
-  // final String label;
-  final Iterable<String>? autofillHints;
-  final TapRegionCallback? onTapOutside;
-  final TextInputAction? textInputAction;
-
-  AppTextField(
-      {super.key,
-      required this.hint,
-      required this.controller,
-      this.suffix,
-      this.prefix,
-      this.onTap,
-      this.onChanged,
-      required this.borderColor,
-      required this.focusBorderColor,
-      // required this.label,
-      // required this.borderRadius,
-      this.obscuringCharacter,
-      this.errorBorderColor = Colors.red,
-      this.contentPadding = 10,
-      this.validator,
-      this.keyboardType = TextInputType.text,
-      this.psdObs,
-      this.margin,
-      this.autofillHints,
-      this.onTapOutside,
-      this.textInputAction});
-
-  @override
-  Widget build(BuildContext context) {
-    return TextFormField(
-      onTap: onTap,
-      controller: controller,
-      autovalidateMode: AutovalidateMode.onUserInteraction,
-      autofillHints: autofillHints,
-      keyboardType: keyboardType,
-      onChanged: onChanged,
-      obscureText: psdObs ?? false,
-      obscuringCharacter: obscuringCharacter ?? '•',
-      decoration: InputDecoration(
-        hintText: hint,
-
-        hintStyle: const TextStyle(
-          color: Color(0xffBBBBBC),
-          fontWeight: FontWeight.normal,
-        ),
-        // label: Text(label),
-        contentPadding: EdgeInsets.all(contentPadding),
-        border: InputBorder.none,
-        suffixIcon: suffix,
-        prefixIcon: prefix,
-        filled: true,
-        fillColor: Colors.white,
-        // suffixIconColor: onPrimary,
-        enabledBorder: _outlineInputBorder(borderColor),
-        focusedBorder: _outlineInputBorder(focusBorderColor),
-        errorBorder: _outlineInputBorder(errorBorderColor),
-        focusedErrorBorder: _outlineInputBorder(errorBorderColor),
-      ),
-      validator: validator,
-      textInputAction: textInputAction,
-      onTapOutside: onTapOutside ?? (_) => FocusScope.of(context).unfocus(),
-    );
-  }
-}
-
-OutlineInputBorder _outlineInputBorder(borderColor) {
-  return OutlineInputBorder(
-      borderSide: BorderSide(color: borderColor),
-      borderRadius: BorderRadius.circular(10.r));
 }

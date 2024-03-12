@@ -1,4 +1,4 @@
-import 'package:alxza/signin_page/signin_page.dart';
+import 'package:alxza/view/auth/login/signin_page.dart';
 import 'package:alxza/widget/button.dart';
 import 'package:alxza/widget/colors.dart';
 import 'package:flutter/material.dart';
@@ -73,7 +73,7 @@ class _Welcome01ScreenState extends State<Welcome01Screen> {
                   padding: EdgeInsets.only(bottom: 50.h),
                   child: Button(
                     onTap: () {
-                      Get.to(const Signin_screen(),
+                      Get.to(() => const Signin_screen(),
                           transition: Transition.rightToLeft);
                     },
                     width: 335.w,
