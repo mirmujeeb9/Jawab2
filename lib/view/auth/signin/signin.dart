@@ -202,7 +202,6 @@ class _Signin_screenState extends State<Signin_screen> {
                       },
                       // width: 335.w,
                       text: "Sign In",
-                      fontsize: 20.sp,
                       fontWeight: FontWeight.w500,
                     ),
                     SizedBox(

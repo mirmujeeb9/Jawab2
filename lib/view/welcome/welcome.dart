@@ -61,7 +61,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   },
                   width: 335.w,
                   text: "Sign In",
-                  fontsize: 20.sp,
                   fontWeight: FontWeight.w500,
                 ),
                 SizedBox(
@@ -73,7 +72,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   width: 335.w,
                   textColor: primaryColor,
                   text: "Sign Up",
-                  fontsize: 20.sp,
                   fontWeight: FontWeight.w500,
                 ),
               ],

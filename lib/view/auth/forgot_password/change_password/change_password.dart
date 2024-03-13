@@ -1,4 +1,5 @@
 import 'package:alxza/view/auth/forgot_password/change_password/controller.dart';
+import 'package:alxza/view/auth/forgot_password/verified/verified_screen.dart';
 import 'package:alxza/widget/button.dart';
 import 'package:alxza/widget/colors.dart';
 import 'package:alxza/widget/custom_appbar.dart';
@@ -191,10 +192,12 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                         ),
                         Button(
                           onTap: () {
-                            if (formkey.currentState!.validate()) {}
+                            if (formkey.currentState!.validate()) {
+                              Get.to(() => const VerifiedScreen(),
+                                  transition: Transition.rightToLeft);
+                            }
                           },
                           text: "Change",
-                          fontsize: 20.sp,
                           fontWeight: FontWeight.w500,
                         ),
                         SizedBox(

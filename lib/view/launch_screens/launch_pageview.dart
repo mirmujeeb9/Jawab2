@@ -166,7 +166,6 @@ we can do for you !''',
             },
             width: 335.w,
             text: i == 0 ? "Let’s go !" : "Next",
-            fontsize: 20.sp,
             fontWeight: FontWeight.w500,
           ),
           SizedBox(

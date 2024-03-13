@@ -253,7 +253,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           },
                           // width: 335.w,
                           text: "Sign Up",
-                          fontsize: 20.sp,
                           fontWeight: FontWeight.w500,
                         ),
                         SizedBox(

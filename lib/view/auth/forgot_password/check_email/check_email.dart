@@ -98,7 +98,6 @@ class _CheckEmailScreenState extends State<CheckEmailScreen> {
                                 transition: Transition.rightToLeft);
                           },
                           text: "Open Email App",
-                          fontsize: 20.sp,
                           fontWeight: FontWeight.w500,
                         ),
                         Center(

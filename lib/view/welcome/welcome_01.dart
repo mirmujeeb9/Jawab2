@@ -78,7 +78,6 @@ class _Welcome01ScreenState extends State<Welcome01Screen> {
                     },
                     width: 335.w,
                     text: "Continue with Email",
-                    fontsize: 20.sp,
                     fontWeight: FontWeight.w500,
                   ),
                 ),

@@ -103,7 +103,6 @@ class _ForgotScreenState extends State<ForgotScreen> {
                             }
                           },
                           text: "Send",
-                          fontsize: 20.sp,
                           fontWeight: FontWeight.w500,
                         ),
                       ],

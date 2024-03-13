@@ -212,7 +212,6 @@ class _OtpScreenState extends State<OtpScreen> {
                             }
                           },
                           text: "Verify",
-                          fontsize: 20.sp,
                           fontWeight: FontWeight.w500,
                         ),
                         SizedBox(
