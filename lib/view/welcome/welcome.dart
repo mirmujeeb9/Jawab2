@@ -1,3 +1,4 @@
+import 'package:alxza/view/auth/signup/signup.dart';
 import 'package:alxza/view/welcome/welcome_01.dart';
 import 'package:alxza/widget/button.dart';
 import 'package:alxza/widget/colors.dart';
@@ -68,7 +69,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 ),
                 Button(
                   color: primaryColor.withOpacity(0.2),
-                  onTap: () {},
+                  onTap: () {
+                    Get.to(
+                      () => const SignUpScreen(),
+                      transition: Transition.rightToLeft,
+                    );
+                  },
                   width: 335.w,
                   textColor: primaryColor,
                   text: "Sign Up",

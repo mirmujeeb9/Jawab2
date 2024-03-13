@@ -3,6 +3,7 @@ import 'package:alxza/view/auth/forgot_password/otp/otp.dart';
 import 'package:alxza/widget/button.dart';
 import 'package:alxza/widget/colors.dart';
 import 'package:alxza/widget/text_widget.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -129,6 +130,7 @@ class _CheckEmailScreenState extends State<CheckEmailScreen> {
                                     fontWeight: FontWeight.w400,
                                   ),
                                 ),
+
                                 TextSpan(
                                   text: 'try another email address',
                                   style: TextStyle(
@@ -139,7 +141,10 @@ class _CheckEmailScreenState extends State<CheckEmailScreen> {
                                     decoration: TextDecoration.underline,
                                   ),
                                   // Add onTap handler if needed
-                                  // recognizer: TapGestureRecognizer()..onTap = () {},
+                                  recognizer: TapGestureRecognizer()
+                                    ..onTap = () {
+                                      Get.back();
+                                    },
                                 ),
                                 // Add more TextSpan for additional text with different styles if needed
                               ],

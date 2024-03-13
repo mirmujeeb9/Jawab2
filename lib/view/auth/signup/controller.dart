@@ -8,7 +8,6 @@ class SignUpContoller extends GetxController {
   TextEditingController passwordcontroller = TextEditingController();
   TextEditingController confirmpasswordcontroller = TextEditingController();
   TextEditingController fullnamecontroller = TextEditingController();
-
   final emailRegex = RegExp(r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$');
   bool password = true;
   bool confirmpassword = true;
