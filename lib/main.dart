@@ -1,4 +1,4 @@
-import 'package:alxza/view/splash/splash.dart';
+import 'package:alxza/view/History/history.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -13,19 +13,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(430, 932),
-      minTextAdapt: true,
-      splitScreenMode: true,
-      builder: (_, context) {
-        return GetMaterialApp(
-          title: 'Flutter Demo',
-          theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-            useMaterial3: true,
-          ),
-          home: const MyCustomSplashScreen(),
-        );
-      },
-    );
+        designSize: const Size(430, 932),
+        minTextAdapt: true,
+        splitScreenMode: true,
+        builder: (_, context) {
+          return GetMaterialApp(
+            title: 'Flutter Demo',
+            theme: ThemeData(
+              colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+              useMaterial3: true,
+            ),
+            home: const History_screen(),
+          );
+        });
   }
 }
