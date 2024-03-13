@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:alxza/view/auth/register/controller.dart';
+import 'package:alxza/view/auth/signup/controller.dart';
 import 'package:alxza/view/launch_screens/launch_pageview.dart';
 import 'package:alxza/view/splash/controller.dart';
 import 'package:alxza/view/welcome/welcome.dart';

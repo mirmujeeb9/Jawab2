@@ -1,5 +1,5 @@
-import 'package:alxza/view/auth/login/signin_page.dart';
-import 'package:alxza/view/auth/register/controller.dart';
+import 'package:alxza/view/auth/signin/signin_page.dart';
+import 'package:alxza/view/auth/signup/controller.dart';
 import 'package:alxza/widget/button.dart';
 import 'package:alxza/widget/colors.dart';
 import 'package:alxza/widget/custom_container.dart';
