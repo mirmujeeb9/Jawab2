@@ -1,7 +1,9 @@
+import 'package:alxza/signin_page/signin_page.dart';
 import 'package:alxza/widget/button.dart';
 import 'package:alxza/widget/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class Welcome01Screen extends StatefulWidget {
   const Welcome01Screen({super.key});
@@ -70,7 +72,10 @@ class _Welcome01ScreenState extends State<Welcome01Screen> {
                 Padding(
                   padding: EdgeInsets.only(bottom: 50.h),
                   child: Button(
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(const Signin_screen(),
+                          transition: Transition.rightToLeft);
+                    },
                     width: 335.w,
                     text: "Continue with Email",
                     fontsize: 20.sp,
