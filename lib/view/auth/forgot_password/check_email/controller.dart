@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class Signin_page_controller extends GetxController {
-  static Signin_page_controller get to => Get.find();
+class CheckEmailController extends GetxController {
+  static CheckEmailController get to => Get.find();
 
   TextEditingController emailcontroller = TextEditingController();
   TextEditingController passwordcontroller = TextEditingController();

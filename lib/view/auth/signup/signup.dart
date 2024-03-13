@@ -1,4 +1,4 @@
-import 'package:alxza/view/auth/signin/signin_page.dart';
+import 'package:alxza/view/auth/signin/signin.dart';
 import 'package:alxza/view/auth/signup/controller.dart';
 import 'package:alxza/widget/button.dart';
 import 'package:alxza/widget/colors.dart';
@@ -71,7 +71,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               LengthLimitingTextInputFormatter(128),
                             ],
                             prefixIcon: Padding(
-                              padding: const EdgeInsets.all(10.0),
+                              padding: const EdgeInsets.all(15.0),
                               child: Image(
                                 width: 5.w,
                                 height: 5.h,
@@ -107,7 +107,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               LengthLimitingTextInputFormatter(128),
                             ],
                             prefixIcon: Padding(
-                              padding: const EdgeInsets.all(10.0),
+                              padding: const EdgeInsets.all(15.0),
                               child: Image(
                                 width: 5.w,
                                 height: 5.h,
@@ -159,7 +159,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               LengthLimitingTextInputFormatter(128),
                             ],
                             prefixIcon: Padding(
-                              padding: const EdgeInsets.all(10.0),
+                              padding: const EdgeInsets.all(15.0),
                               child: Image(
                                 width: 5.w,
                                 height: 5.h,
@@ -173,7 +173,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             controller: obj.passwordcontroller,
                             validator: (v) {
                               if (v!.isEmpty) {
-                                return "Please eneter password";
+                                return "Please enter password";
                               }
                               if (v.length < 6) {
                                 return "Please enetr up to 6 digits";
@@ -213,7 +213,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               LengthLimitingTextInputFormatter(128),
                             ],
                             prefixIcon: Padding(
-                              padding: const EdgeInsets.all(10.0),
+                              padding: const EdgeInsets.all(15.0),
                               child: Image(
                                 width: 5.w,
                                 height: 5.h,
@@ -227,7 +227,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             controller: obj.confirmpasswordcontroller,
                             validator: (v) {
                               if (v!.isEmpty) {
-                                return "Please eneter confirm password";
+                                return "Please enter confirm password";
                               }
                               if (v.length < 6) {
                                 return "Please enetr up to 6 digits";
@@ -257,7 +257,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           fontWeight: FontWeight.w500,
                         ),
                         SizedBox(
-                          height: 10.h,
+                          height: 20.h,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -270,7 +270,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             TextWidget(
                               text: "Or continue with",
                               textAlign: TextAlign.center,
-                              fontSize: 13.sp,
+                              fontSize: 14.sp,
                               color: Colors.grey,
                               fontWeight: FontWeight.w400,
                             ),
@@ -282,7 +282,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ],
                         ),
                         SizedBox(
-                          height: 15.h,
+                          height: 20.h,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -329,7 +329,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ],
                         ),
                         SizedBox(
-                          height: 15.h,
+                          height: 20.h,
                         ),
                         Center(
                           child: Row(
@@ -337,7 +337,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             children: [
                               TextWidget(
                                 text: "Already have an account?",
-                                fontSize: 13.sp,
+                                fontSize: 14.sp,
                                 fontWeight: FontWeight.w500,
                                 color: Colors.grey,
                               ),
@@ -352,12 +352,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 child: TextWidget(
                                   text: "Sign In",
                                   color: primaryColor,
-                                  fontSize: 13.sp,
+                                  fontSize: 14.sp,
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
                             ],
                           ),
+                        ),
+                        SizedBox(
+                          height: 50.h,
                         ),
                       ],
                     ),

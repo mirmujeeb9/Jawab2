@@ -1,5 +1,9 @@
 import 'dart:async';
 
+import 'package:alxza/view/auth/forgot_password/change_password/controller.dart';
+import 'package:alxza/view/auth/forgot_password/check_email/controller.dart';
+import 'package:alxza/view/auth/forgot_password/forgot/controller.dart';
+import 'package:alxza/view/auth/forgot_password/otp/controller.dart';
 import 'package:alxza/view/auth/signup/controller.dart';
 import 'package:alxza/view/launch_screens/launch_pageview.dart';
 import 'package:alxza/view/splash/controller.dart';
@@ -41,6 +45,10 @@ class _MyCustomSplashScreenState extends State<MyCustomSplashScreen>
   void initState() {
     Get.put(Splash_controller());
     Get.put(SignUpContoller());
+    Get.put(ForgotController());
+    Get.put(CheckEmailController());
+    Get.put(OtpController());
+    Get.put(ChangePasswordController());
 
     super.initState();
 

@@ -1,3 +1,4 @@
+import 'package:alxza/view/auth/forgot_password/forgot/forgot.dart';
 import 'package:alxza/view/auth/signin/controller.dart';
 import 'package:alxza/view/auth/signup/signup.dart';
 import 'package:alxza/widget/button.dart';
@@ -18,7 +19,6 @@ class Signin_screen extends StatefulWidget {
 }
 
 class _Signin_screenState extends State<Signin_screen> {
-  bool password = true;
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -26,8 +26,8 @@ class _Signin_screenState extends State<Signin_screen> {
       key: formkey,
       child: Scaffold(
         backgroundColor: backGroundColor,
-        body: GetBuilder<signin_page_controller>(initState: (context) {
-          Get.put(signin_page_controller());
+        body: GetBuilder<Signin_page_controller>(initState: (context) {
+          Get.put(Signin_page_controller());
         }, builder: (obj) {
           return SizedBox(
             height: ScreenUtil().screenHeight,
@@ -95,7 +95,7 @@ class _Signin_screenState extends State<Signin_screen> {
                           LengthLimitingTextInputFormatter(128),
                         ],
                         prefixIcon: Padding(
-                          padding: const EdgeInsets.all(10.0),
+                          padding: const EdgeInsets.all(15.0),
                           child: Image(
                             width: 5.w,
                             height: 5.h,
@@ -132,11 +132,11 @@ class _Signin_screenState extends State<Signin_screen> {
                       child: CustomTextFormField(
                         suffixIcon: GestureDetector(
                           onTap: () {
-                            password = !password;
+                            obj.password = !obj.password;
                             setState(() {});
                           },
                           child: Icon(
-                            password
+                            obj.password
                                 ? Icons.remove_red_eye_outlined
                                 : Icons.visibility_off_outlined,
                             color: Colors.grey,
@@ -147,21 +147,21 @@ class _Signin_screenState extends State<Signin_screen> {
                           LengthLimitingTextInputFormatter(128),
                         ],
                         prefixIcon: Padding(
-                          padding: const EdgeInsets.all(10.0),
+                          padding: const EdgeInsets.all(15.0),
                           child: Image(
                             width: 5.w,
                             height: 5.h,
                             image: const AssetImage("images/Lock.png"),
                           ),
                         ),
-                        obsecure: password,
+                        obsecure: obj.password,
                         hint: "● ● ● ● ● ● ● ●",
                         hintTextSize: 12.sp,
                         fontFamily: 'Poppins',
                         controller: obj.passwordcontroller,
                         validator: (v) {
                           if (v!.isEmpty) {
-                            return "Please eneter password";
+                            return "Please enter password";
                           }
                           if (v.length < 6) {
                             return "Please enetr up to 6 digits";
@@ -176,7 +176,10 @@ class _Signin_screenState extends State<Signin_screen> {
                     ),
 
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.to(() => const ForgotScreen(),
+                            transition: Transition.rightToLeft);
+                      },
                       child: Text(
                         "Forgot Password?",
                         style: TextStyle(
@@ -188,7 +191,7 @@ class _Signin_screenState extends State<Signin_screen> {
                       ),
                     ),
                     SizedBox(
-                      height: 15.h,
+                      height: 20.h,
                     ),
                     Button(
                       onTap: () {
@@ -203,7 +206,7 @@ class _Signin_screenState extends State<Signin_screen> {
                       fontWeight: FontWeight.w500,
                     ),
                     SizedBox(
-                      height: 10.h,
+                      height: 20.h,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -228,7 +231,7 @@ class _Signin_screenState extends State<Signin_screen> {
                       ],
                     ),
                     SizedBox(
-                      height: 15.h,
+                      height: 20.h,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -275,7 +278,7 @@ class _Signin_screenState extends State<Signin_screen> {
                       ],
                     ),
                     SizedBox(
-                      height: 15.h,
+                      height: 20.h,
                     ),
                     Center(
                       child: Row(
@@ -283,7 +286,7 @@ class _Signin_screenState extends State<Signin_screen> {
                         children: [
                           TextWidget(
                             text: "Don’t have an account?",
-                            fontSize: 13.sp,
+                            fontSize: 14.sp,
                             fontWeight: FontWeight.w500,
                             color: Colors.grey,
                           ),
@@ -298,12 +301,15 @@ class _Signin_screenState extends State<Signin_screen> {
                             child: TextWidget(
                               text: "Sign Up",
                               color: primaryColor,
-                              fontSize: 13.sp,
+                              fontSize: 14.sp,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
                         ],
                       ),
+                    ),
+                    SizedBox(
+                      height: 50.h,
                     ),
                   ],
                 ),
