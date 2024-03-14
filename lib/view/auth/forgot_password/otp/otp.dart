@@ -104,7 +104,7 @@ class _OtpScreenState extends State<OtpScreen> {
                                   style: TextStyle(
                                     color: textgrey,
                                     fontFamily: "Poppins",
-                                    fontSize: 14.sp,
+                                    fontSize: 13.sp,
                                     fontWeight: FontWeight.w400,
                                   ),
                                 ),
@@ -112,7 +112,7 @@ class _OtpScreenState extends State<OtpScreen> {
                                   text: widget.email,
                                   style: TextStyle(
                                     fontFamily: "Poppins",
-                                    fontSize: 14.sp,
+                                    fontSize: 13.sp,
                                     fontWeight: FontWeight.w400,
                                     color: primaryColor,
                                     decoration: TextDecoration.underline,
@@ -127,10 +127,7 @@ class _OtpScreenState extends State<OtpScreen> {
                         ),
                         Padding(
                           padding: EdgeInsets.only(
-                              left: 35.w,
-                              right: 35.w,
-                              top: 100.h,
-                              bottom: 50.h),
+                              left: 35.w, right: 35.w, top: 80.h, bottom: 50.h),
                           child: PinCodeTextField(
                             appContext: context,
                             length: 5,
@@ -148,8 +145,8 @@ class _OtpScreenState extends State<OtpScreen> {
                               activeColor: primaryColor,
                               shape: PinCodeFieldShape.box,
                               borderRadius: BorderRadius.circular(6.r),
-                              fieldHeight: 50.h,
-                              fieldWidth: 40.w,
+                              fieldHeight: 45.h,
+                              fieldWidth: 35.w,
                               activeFillColor: Colors.white,
                             ),
                             cursorColor: primaryColor,

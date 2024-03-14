@@ -132,16 +132,18 @@ we can do for you !''',
                         );
                       },
                       child: Container(
-                        width: 58.w,
-                        height: 28.h,
+                        width: 43.w,
+                        height: 20.h,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(21.r),
+                          borderRadius: BorderRadius.circular(10.r),
                           color: primaryColor,
                         ),
                         child: Center(
                           child: TextWidget(
                             text: "Skip",
                             color: whiteColor,
+                            fontWeight: FontWeight.w400,
+                            fontSize: 10.h,
                           ),
                         ),
                       ),
@@ -166,7 +168,7 @@ we can do for you !''',
             },
             width: 335.w,
             text: i == 0 ? "Let’s go !" : "Next",
-            fontWeight: FontWeight.w500,
+            fontWeight: FontWeight.w600,
           ),
           SizedBox(
             height: 35.h,
@@ -176,12 +178,12 @@ we can do for you !''',
             children: List.generate(
               7,
               (index) => AnimatedContainer(
-                height: index == i ? 9.w : 10.w,
-                width: index == i ? 25.w : 10.w,
+                height: index == i ? 5.w : 7.w,
+                width: index == i ? 12.w : 7.w,
                 margin: EdgeInsets.symmetric(horizontal: 5.w),
                 decoration: BoxDecoration(
                   borderRadius:
-                      BorderRadius.circular(index == i ? 30.r : 100.r),
+                      BorderRadius.circular(index == i ? 10.r : 100.r),
                   color: index == i ? null : whiteColor,
                   border: Border.all(
                       color:
@@ -237,18 +239,13 @@ class LaunchingWidget extends StatelessWidget {
             ),
           ),
         ),
-        TextWidget(
+        Heading(
           text: title,
-          textAlign: TextAlign.center,
-          fontSize: 28.sp,
-          fontWeight: FontWeight.w700,
         ),
-        TextWidget(
-          text: subtitle,
+        Subheading(
           textAlign: TextAlign.center,
-          fontSize: 14.sp,
+          text: subtitle,
           color: Colors.grey,
-          fontWeight: FontWeight.w400,
         ),
       ],
     );

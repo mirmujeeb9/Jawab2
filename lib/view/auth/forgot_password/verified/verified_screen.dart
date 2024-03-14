@@ -32,8 +32,8 @@ class _VerifiedScreenState extends State<VerifiedScreen> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30.r)),
                       child: Container(
-                        height: 500.h,
-                        width: ScreenUtil().screenWidth,
+                        height: 460.h,
+                        width: 335.w,
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(30.r),
@@ -72,7 +72,7 @@ class _VerifiedScreenState extends State<VerifiedScreen> {
                             ),
                             TextWidget(
                               text: "Congratulation",
-                              fontSize: 30.sp,
+                              fontSize: 25.sp,
                               fontWeight: FontWeight.w600,
                             ),
                             TextWidget(

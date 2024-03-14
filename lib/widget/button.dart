@@ -84,14 +84,11 @@ class CustomButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
-
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 351.w,
-        height: 55.w,
+        width: 350.w,
+        height: 50.w,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(11.r),
             color: whiteColor,
@@ -108,7 +105,8 @@ class CustomButtonWidget extends StatelessWidget {
                 child: Image.asset(
                   imagePath,
                   color: apple == true ? blackColor : null,
-
+                  height: 20.h,
+                  width: 20.h,
                   // fit: BoxFit.contain,
                 ),
               ),
@@ -116,11 +114,9 @@ class CustomButtonWidget extends StatelessWidget {
             SizedBox(
               width: 20.w,
             ),
-            TextWidget(
+            HeadingSmall(
               text: text,
               color: blackColor,
-              fontSize: 16.sp,
-              fontWeight: FontWeight.w500,
             ),
           ],
         ),

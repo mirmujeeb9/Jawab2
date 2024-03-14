@@ -43,26 +43,21 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                           leading: true,
                         ),
                         const Spacer(),
-                        TextWidget(
+                        Heading(
                           text: "Create your\nnew password",
-                          fontSize: 30.sp,
-                          fontWeight: FontWeight.w600,
                         ),
                         SizedBox(
-                          height: 10.h,
-                        ),
-                        SizedBox(
-                          height: 20.h,
+                          height: 30.h,
                         ),
                         TextWidget(
                             text: "New Password",
                             fontSize: 16.sp,
                             fontWeight: FontWeight.w500),
                         SizedBox(
-                          height: 10.h,
+                          height: 5.h,
                         ),
                         SizedBox(
-                          // width: 335.w,
+                          width: 335.w,
                           child: CustomTextFormField(
                             suffixIcon: GestureDetector(
                               onTap: () {
@@ -106,17 +101,17 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                           ),
                         ),
                         SizedBox(
-                          height: 20.h,
+                          height: 15.h,
                         ),
                         TextWidget(
                             text: "Confirm Password",
                             fontSize: 16.sp,
                             fontWeight: FontWeight.w500),
                         SizedBox(
-                          height: 10.h,
+                          height: 5.h,
                         ),
                         SizedBox(
-                          // width: 335.w,
+                          width: 335.w,
                           child: CustomTextFormField(
                             suffixIcon: GestureDetector(
                               onTap: () {
@@ -177,13 +172,9 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                                     },
                                   );
                                 }),
-                            Text(
-                              "remember me",
-                              style: TextStyle(
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.w400,
-                                color: textgrey,
-                              ),
+                            Subheading(
+                              text: "remember me",
+                              color: textgrey,
                             ),
                           ],
                         ),

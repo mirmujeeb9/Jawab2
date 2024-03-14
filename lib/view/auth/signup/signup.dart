@@ -40,32 +40,28 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         SizedBox(
                           height: 50.h,
                         ),
-                        TextWidget(
+                        Heading(
                           text: "Sign up\nyour account",
-                          fontSize: 30.sp,
-                          fontWeight: FontWeight.w600,
                         ),
                         SizedBox(
                           height: 5.h,
                         ),
-                        TextWidget(
+                        Subheading(
                             text:
-                                "Alxza is an application that leverages\nadvanced natural language processing\ntechniques.",
-                            fontSize: 14.sp,
-                            fontWeight: FontWeight.w400,
+                                "Jawab is an application that leverages\nadvanced natural language processing\ntechniques.",
                             color: textgrey),
                         SizedBox(
-                          height: 15.h,
+                          height: 20.h,
                         ),
                         TextWidget(
                             text: "Full Name",
                             fontSize: 16.sp,
                             fontWeight: FontWeight.w500),
                         SizedBox(
-                          height: 10.h,
+                          height: 5.h,
                         ),
                         SizedBox(
-                          // width: 335.w,
+                          width: 335.w,
                           child: CustomTextFormField(
                             inputFormatters: [
                               LengthLimitingTextInputFormatter(128),
@@ -91,14 +87,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ),
                         ),
                         SizedBox(
-                          height: 20.h,
+                          height: 15.h,
                         ),
                         TextWidget(
                             text: "Email",
                             fontSize: 16.sp,
                             fontWeight: FontWeight.w500),
                         SizedBox(
-                          height: 10.h,
+                          height: 5.h,
                         ),
                         SizedBox(
                           // width: 335.w,
@@ -130,14 +126,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ),
                         ),
                         SizedBox(
-                          height: 20.h,
+                          height: 15.h,
                         ),
                         TextWidget(
                             text: "Password",
                             fontSize: 16.sp,
                             fontWeight: FontWeight.w500),
                         SizedBox(
-                          height: 10.h,
+                          height: 5.h,
                         ),
                         SizedBox(
                           // width: 335.w,
@@ -184,17 +180,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ),
                         ),
                         SizedBox(
-                          height: 20.h,
+                          height: 15.h,
                         ),
                         TextWidget(
                             text: "Confirm Password",
                             fontSize: 16.sp,
                             fontWeight: FontWeight.w500),
                         SizedBox(
-                          height: 10.h,
+                          height: 5.h,
                         ),
                         SizedBox(
-                          // width: 335.w,
+                          width: 335.w,
                           child: CustomTextFormField(
                             suffixIcon: GestureDetector(
                               onTap: () {
@@ -266,12 +262,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               width: 100.w,
                               color: Colors.grey.shade300,
                             ),
-                            TextWidget(
+                            const Subheading(
                               text: "Or continue with",
                               textAlign: TextAlign.center,
-                              fontSize: 14.sp,
                               color: Colors.grey,
-                              fontWeight: FontWeight.w400,
                             ),
                             Container(
                               height: 1.h,
@@ -287,41 +281,41 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             CustomContainer(
-                              height: 45.h,
-                              width: 90.w,
+                              height: 35.h,
+                              width: 80.w,
                               borderColor: Colors.grey.shade300,
                               borderRadius: 50.r,
                               child: Center(
                                 child: Image.asset(
                                   "images/google.png",
-                                  height: 30.h,
-                                  width: 30.w,
+                                  height: 20.h,
+                                  width: 20.w,
                                 ),
                               ),
                             ),
+                            // CustomContainer(
+                            //   height: 45.h,
+                            //   width: 90.w,
+                            //   borderColor: Colors.grey.shade300,
+                            //   borderRadius: 50.r,
+                            //   child: Center(
+                            //     child: Image.asset(
+                            //       "images/apple.png",
+                            //       height: 30.h,
+                            //       width: 30.w,
+                            //     ),
+                            //   ),
+                            // ),
                             CustomContainer(
-                              height: 45.h,
-                              width: 90.w,
-                              borderColor: Colors.grey.shade300,
-                              borderRadius: 50.r,
-                              child: Center(
-                                child: Image.asset(
-                                  "images/apple.png",
-                                  height: 30.h,
-                                  width: 30.w,
-                                ),
-                              ),
-                            ),
-                            CustomContainer(
-                              height: 45.h,
-                              width: 90.w,
+                              height: 35.h,
+                              width: 80.w,
                               borderColor: Colors.grey.shade300,
                               borderRadius: 50.r,
                               child: Center(
                                 child: Image.asset(
                                   "images/facebook.png",
-                                  height: 30.h,
-                                  width: 30.w,
+                                  height: 20.h,
+                                  width: 20.w,
                                 ),
                               ),
                             ),
@@ -334,10 +328,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              TextWidget(
+                              const Subheading(
                                 text: "Already have an account?",
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.w500,
                                 color: Colors.grey,
                               ),
                               SizedBox(
@@ -348,10 +340,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   Get.to(() => const Signin_screen(),
                                       transition: Transition.rightToLeft);
                                 },
-                                child: TextWidget(
+                                child: Subheading(
                                   text: "Sign In",
                                   color: primaryColor,
-                                  fontSize: 14.sp,
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),

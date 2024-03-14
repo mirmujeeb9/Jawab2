@@ -1,6 +1,7 @@
 import 'package:alxza/view/auth/forgot_password/forgot/forgot.dart';
 import 'package:alxza/view/auth/signin/controller.dart';
 import 'package:alxza/view/auth/signup/signup.dart';
+import 'package:alxza/view/home/home/home.dart';
 import 'package:alxza/widget/button.dart';
 import 'package:alxza/widget/colors.dart';
 import 'package:alxza/widget/custom_container.dart';
@@ -43,7 +44,7 @@ class _Signin_screenState extends State<Signin_screen> {
                     ),
                     Center(
                       child: Container(
-                        height: 160.h,
+                        height: 120.h,
                         width: 200.w,
                         decoration: const BoxDecoration(
                           image: DecorationImage(
@@ -63,20 +64,17 @@ class _Signin_screenState extends State<Signin_screen> {
                     // !Platform.isIOS
                     //     ? const SizedBox()
                     //     :
-                    TextWidget(
+                    Heading(
                       text: "Sign in\nyour account",
-                      fontSize: 30.sp,
-                      fontWeight: FontWeight.w600,
                     ),
                     SizedBox(
                       height: 5.h,
                     ),
-                    TextWidget(
-                        text:
-                            "Alxza is an application that leverages\nadvanced natural language processing\ntechniques.",
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w400,
-                        color: textgrey),
+                    Subheading(
+                      text:
+                          "Jawab is an application that leverages\nadvanced natural language processing\ntechniques.",
+                      color: textgrey,
+                    ),
                     SizedBox(
                       height: 20.h,
                     ),
@@ -86,10 +84,10 @@ class _Signin_screenState extends State<Signin_screen> {
                         fontSize: 16.sp,
                         fontWeight: FontWeight.w500),
                     SizedBox(
-                      height: 10.h,
+                      height: 5.h,
                     ),
                     SizedBox(
-                      // width: 335.w,
+                      width: 335.w,
                       child: CustomTextFormField(
                         inputFormatters: [
                           LengthLimitingTextInputFormatter(128),
@@ -118,17 +116,17 @@ class _Signin_screenState extends State<Signin_screen> {
                       ),
                     ),
                     SizedBox(
-                      height: 20.h,
+                      height: 15.h,
                     ),
                     TextWidget(
                         text: "Password",
                         fontSize: 16.sp,
                         fontWeight: FontWeight.w500),
                     SizedBox(
-                      height: 10.h,
+                      height: 5.h,
                     ),
                     SizedBox(
-                      // width: 335.w,
+                      width: 335.w,
                       child: CustomTextFormField(
                         suffixIcon: GestureDetector(
                           onTap: () {
@@ -191,16 +189,16 @@ class _Signin_screenState extends State<Signin_screen> {
                       ),
                     ),
                     SizedBox(
-                      height: 20.h,
+                      height: 5.h,
                     ),
                     Button(
                       onTap: () {
-                        if (formkey.currentState!.validate()) {
-                          Get.to(() => const SignUpScreen(),
-                              transition: Transition.rightToLeft);
-                        }
+                        // if (formkey.currentState!.validate()) {
+                        Get.to(() => const HomeScreen(),
+                            transition: Transition.rightToLeft);
+                        // }
                       },
-                      // width: 335.w,
+                      width: 335.w,
                       text: "Sign In",
                       fontWeight: FontWeight.w500,
                     ),
@@ -236,41 +234,41 @@ class _Signin_screenState extends State<Signin_screen> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         CustomContainer(
-                          height: 45.h,
-                          width: 90.w,
+                          height: 35.h,
+                          width: 80.w,
                           borderColor: Colors.grey.shade300,
                           borderRadius: 50.r,
                           child: Center(
                             child: Image.asset(
                               "images/google.png",
-                              height: 30.h,
-                              width: 30.w,
+                              height: 20.h,
+                              width: 20.w,
                             ),
                           ),
                         ),
+                        // CustomContainer(
+                        //   height: 45.h,
+                        //   width: 90.w,
+                        //   borderColor: Colors.grey.shade300,
+                        //   borderRadius: 50.r,
+                        //   child: Center(
+                        //     child: Image.asset(
+                        //       "images/apple.png",
+                        //       height: 30.h,
+                        //       width: 30.w,
+                        //     ),
+                        //   ),
+                        // ),
                         CustomContainer(
-                          height: 45.h,
-                          width: 90.w,
-                          borderColor: Colors.grey.shade300,
-                          borderRadius: 50.r,
-                          child: Center(
-                            child: Image.asset(
-                              "images/apple.png",
-                              height: 30.h,
-                              width: 30.w,
-                            ),
-                          ),
-                        ),
-                        CustomContainer(
-                          height: 45.h,
-                          width: 90.w,
+                          height: 35.h,
+                          width: 80.w,
                           borderColor: Colors.grey.shade300,
                           borderRadius: 50.r,
                           child: Center(
                             child: Image.asset(
                               "images/facebook.png",
-                              height: 30.h,
-                              width: 30.w,
+                              height: 20.h,
+                              width: 20.w,
                             ),
                           ),
                         ),
@@ -283,10 +281,8 @@ class _Signin_screenState extends State<Signin_screen> {
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          TextWidget(
+                          const Subheading(
                             text: "Don’t have an account?",
-                            fontSize: 14.sp,
-                            fontWeight: FontWeight.w500,
                             color: Colors.grey,
                           ),
                           SizedBox(
@@ -297,11 +293,10 @@ class _Signin_screenState extends State<Signin_screen> {
                               Get.to(() => const SignUpScreen(),
                                   transition: Transition.rightToLeft);
                             },
-                            child: TextWidget(
+                            child: Subheading(
                               text: "Sign Up",
-                              color: primaryColor,
-                              fontSize: 14.sp,
                               fontWeight: FontWeight.w500,
+                              color: primaryColor,
                             ),
                           ),
                         ],
