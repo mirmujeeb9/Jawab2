@@ -51,20 +51,29 @@ class _Welcome01ScreenState extends State<Welcome01Screen> {
                   imagePath: "images/google.png",
                 ),
                 SizedBox(
-                    height:
-                        // Platform.isIOS ?
-                        20.h
-                    //  : 0,
-                    ),
+                  height: 20.h,
+                ),
+                CustomButtonWidget(
+                  apple: false,
+                  text: "Connect with Facebook",
+                  onTap: () {},
+                  imagePath: "images/facebook.png",
+                ),
+                // SizedBox(
+                //     height:
+                // Platform.isIOS ?
+                // 20.h
+                //  : 0,
+                // ),
                 // !Platform.isIOS
                 //     ? const SizedBox()
                 //     :
-                CustomButtonWidget(
-                  apple: true,
-                  text: "Connect with Apple",
-                  onTap: () {},
-                  imagePath: "images/apple.png",
-                ),
+                // CustomButtonWidget(
+                //   apple: true,
+                //   text: "Connect with Apple",
+                //   onTap: () {},
+                //   imagePath: "images/apple.png",
+                // ),
 
                 SizedBox(
                   height: 20.h,

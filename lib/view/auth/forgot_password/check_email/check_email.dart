@@ -44,7 +44,7 @@ class _CheckEmailScreenState extends State<CheckEmailScreen> {
                           child: Column(
                             children: [
                               Container(
-                                height: 280.h,
+                                height: 296.h,
                                 width: 254.w,
                                 decoration: const BoxDecoration(
                                   image: DecorationImage(
@@ -71,21 +71,17 @@ class _CheckEmailScreenState extends State<CheckEmailScreen> {
                           ),
                         ),
                         SizedBox(
-                          height: 70.h,
+                          height: 40.h,
                         ),
-                        TextWidget(
+                        Heading(
                           text: "Check your email",
-                          fontSize: 30.sp,
-                          fontWeight: FontWeight.w600,
                         ),
                         SizedBox(
                           height: 5.h,
                         ),
-                        TextWidget(
+                        Subheading(
                             text:
                                 "We have sent a password recover instructions to your email.",
-                            fontSize: 14.sp,
-                            fontWeight: FontWeight.w400,
                             color: textgrey),
                         SizedBox(
                           height: 50.h,
@@ -104,12 +100,10 @@ class _CheckEmailScreenState extends State<CheckEmailScreen> {
                         Center(
                           child: TextButton(
                             onPressed: () {},
-                            child: TextWidget(
+                            child: const Subheading(
                               text: "Skip, I’ll confirm later",
                               textAlign: TextAlign.center,
-                              fontSize: 14.sp,
-                              color: const Color(0xffCCCCCC),
-                              fontWeight: FontWeight.w400,
+                              color: Color(0xffCCCCCC),
                             ),
                           ),
                         ),
@@ -126,7 +120,7 @@ class _CheckEmailScreenState extends State<CheckEmailScreen> {
                                   style: TextStyle(
                                     color: textgrey,
                                     fontFamily: "Poppins",
-                                    fontSize: 14.sp,
+                                    fontSize: 13.sp,
                                     fontWeight: FontWeight.w400,
                                   ),
                                 ),
@@ -135,7 +129,7 @@ class _CheckEmailScreenState extends State<CheckEmailScreen> {
                                   text: 'try another email address',
                                   style: TextStyle(
                                     fontFamily: "Poppins",
-                                    fontSize: 14.sp,
+                                    fontSize: 13.sp,
                                     fontWeight: FontWeight.w400,
                                     color: primaryColor,
                                     decoration: TextDecoration.underline,

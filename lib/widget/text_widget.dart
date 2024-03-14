@@ -51,3 +51,67 @@ class TextWidget extends StatelessWidget {
     );
   }
 }
+
+class Heading extends StatelessWidget {
+  String text;
+  Color? color;
+  Heading({
+    super.key,
+    this.color,
+    required this.text,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return TextWidget(
+      text: text,
+      fontSize: 30.sp,
+      color: color,
+      fontWeight: FontWeight.w600,
+    );
+  }
+}
+
+class HeadingSmall extends StatelessWidget {
+  String text;
+  Color? color;
+  HeadingSmall({
+    super.key,
+    this.color,
+    required this.text,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return TextWidget(
+      text: text,
+      color: color,
+      fontSize: 16.sp,
+      fontWeight: FontWeight.w500,
+    );
+  }
+}
+
+class Subheading extends StatelessWidget {
+  const Subheading({
+    super.key,
+    required this.text,
+    this.textAlign,
+    this.color,
+    this.fontWeight,
+  });
+  final String text;
+  final Color? color;
+  final TextAlign? textAlign;
+  final FontWeight? fontWeight;
+  @override
+  Widget build(BuildContext context) {
+    return TextWidget(
+      text: text,
+      fontSize: 13.sp,
+      textAlign: textAlign,
+      color: color,
+      fontWeight: fontWeight ?? FontWeight.w400,
+    );
+  }
+}

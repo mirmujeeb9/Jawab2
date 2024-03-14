@@ -69,7 +69,7 @@ class CustomTextFormField extends StatelessWidget {
       autovalidateMode: AutovalidateMode.disabled,
       maxLines: maxline ?? 1,
       focusNode: focusnode,
-      enabled: enable ?? true,
+      enabled: true,
       keyboardType: keyboardType,
       textInputAction: textInputAction,
       inputFormatters: inputFormatters,
@@ -93,12 +93,11 @@ class CustomTextFormField extends StatelessWidget {
         filled: true,
         fillColor: Colors.white,
         isDense: true,
-        contentPadding: contentpadding ??
-            EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
+        contentPadding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 15.h),
         hintStyle: TextStyle(
             color: Colors.grey,
             fontFamily: fontFamily ?? 'Poppins',
-            fontSize: hintTextSize ?? 14.sp,
+            fontSize: hintTextSize ?? 13.sp,
             fontWeight: hintFontWeight ?? FontWeight.w400),
         hintText: hint,
         focusedBorder: OutlineInputBorder(
@@ -109,8 +108,8 @@ class CustomTextFormField extends StatelessWidget {
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(borderRadius ?? 12.r),
-          borderSide: const BorderSide(
-            color: Colors.grey,
+          borderSide: BorderSide(
+            color: Colors.grey.shade300,
           ),
         ),
         errorBorder: OutlineInputBorder(

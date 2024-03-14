@@ -43,12 +43,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 10.h),
-              child: TextWidget(
+              padding: EdgeInsets.symmetric(vertical: 5.h),
+              child: Heading(
                 text: 'Welcome\non Jawab',
-                textAlign: TextAlign.center,
-                fontSize: 28.sp,
-                fontWeight: FontWeight.w700,
               ),
             ),
             Column(
@@ -90,12 +87,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   width: 100.w,
                   color: Colors.grey.shade300,
                 ),
-                TextWidget(
+                const Subheading(
                   text: "Or continue with",
-                  textAlign: TextAlign.center,
-                  fontSize: 14.sp,
-                  color: Colors.grey,
-                  fontWeight: FontWeight.w400,
                 ),
                 Container(
                   height: 1.h,
@@ -108,41 +101,41 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 CustomContainer(
-                  height: 45.h,
-                  width: 90.w,
+                  height: 35.h,
+                  width: 80.w,
                   borderColor: Colors.grey.shade300,
                   borderRadius: 50.r,
                   child: Center(
                     child: Image.asset(
                       "images/google.png",
-                      height: 30.h,
-                      width: 30.w,
+                      height: 25.h,
+                      width: 25.w,
                     ),
                   ),
                 ),
+                // CustomContainer(
+                //   height: 45.h,
+                //   width: 90.w,
+                //   borderColor: Colors.grey.shade300,
+                //   borderRadius: 50.r,
+                //   child: Center(
+                //     child: Image.asset(
+                //       "images/apple.png",
+                //       height: 30.h,
+                //       width: 30.w,
+                //     ),
+                //   ),
+                // ),
                 CustomContainer(
-                  height: 45.h,
-                  width: 90.w,
-                  borderColor: Colors.grey.shade300,
-                  borderRadius: 50.r,
-                  child: Center(
-                    child: Image.asset(
-                      "images/apple.png",
-                      height: 30.h,
-                      width: 30.w,
-                    ),
-                  ),
-                ),
-                CustomContainer(
-                  height: 45.h,
-                  width: 90.w,
+                  height: 35.h,
+                  width: 80.w,
                   borderColor: Colors.grey.shade300,
                   borderRadius: 50.r,
                   child: Center(
                     child: Image.asset(
                       "images/facebook.png",
-                      height: 30.h,
-                      width: 30.w,
+                      height: 25.h,
+                      width: 25.w,
                     ),
                   ),
                 ),

@@ -36,10 +36,10 @@ class CustomAppBar extends StatelessWidget {
                       () {
                         Navigator.pop(context);
                       },
-                  width: 41.w,
-                  height: 41.w,
+                  width: 35.w,
+                  height: 35.w,
                   margin: EdgeInsets.only(bottom: 5.h),
-                  borderRadius: 10.r,
+                  borderRadius: 8.r,
                   borderColor: Colors.grey,
                   borderWidth: 1.w,
                   child: Center(
@@ -57,7 +57,7 @@ class CustomAppBar extends StatelessWidget {
           Center(
             child: TextWidget(
               text: text,
-              fontSize: fontsize ?? 20.sp,
+              fontSize: fontsize ?? 18.sp,
               fontWeight: fontweight ?? FontWeight.w600,
             ),
           ),

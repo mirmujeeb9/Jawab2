@@ -42,26 +42,24 @@ class _ForgotScreenState extends State<ForgotScreen> {
                           leading: true,
                         ),
                         SizedBox(
-                          height: 100.h,
+                          height: 60.h,
                         ),
-                        TextWidget(
+                        Subheading(
                             text:
                                 "Enter the email associated with your account and we’ll send an email with instructions to reset your password.",
-                            fontSize: 14.sp,
-                            fontWeight: FontWeight.w400,
                             color: textgrey),
                         SizedBox(
-                          height: 140.h,
+                          height: 100.h,
                         ),
                         TextWidget(
                             text: "Email",
                             fontSize: 16.sp,
                             fontWeight: FontWeight.w500),
                         SizedBox(
-                          height: 10.h,
+                          height: 5.h,
                         ),
                         SizedBox(
-                          // width: 335.w,
+                          width: 335.w,
                           child: CustomTextFormField(
                             inputFormatters: [
                               LengthLimitingTextInputFormatter(128),
