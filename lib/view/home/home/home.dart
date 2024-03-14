@@ -1,6 +1,7 @@
 import 'package:alxza/view/home/home/controller.dart';
 import 'package:alxza/widget/button.dart';
 import 'package:alxza/widget/colors.dart';
+import 'package:alxza/widget/custom_container.dart';
 import 'package:alxza/widget/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -35,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
         () => SnakeNavigationBar.color(
           behaviour: SnakeBarBehaviour.floating,
           snakeShape: SnakeShape.circle,
-          height: 75.h,
+          height: 70.h,
           elevation: 10,
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(0)),
@@ -89,7 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
         width: ScreenUtil().screenWidth,
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 25.w),
+            padding: EdgeInsets.symmetric(horizontal: 20.w),
             child: Column(
               children: [
                 SizedBox(
@@ -135,10 +136,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   padding: EdgeInsets.symmetric(vertical: 10.h),
                   child: Row(
                     children: [
-                      TextWidget(
+                      Heading(
                         text: "Salam aleykoum\nJuju Mitcheli !",
-                        fontSize: 30.sp,
-                        fontWeight: FontWeight.w600,
                       ),
                     ],
                   ),
@@ -148,8 +147,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(25.r)),
                   child: Container(
-                    height: 200.h,
-                    width: ScreenUtil().screenWidth,
+                    height: 180.h,
+                    width: 335.w,
                     decoration: BoxDecoration(
                       color: primaryColor,
                       borderRadius: BorderRadius.circular(25.r),
@@ -159,7 +158,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         SizedBox(
-                          width: 200.w,
+                          width: 160.w,
+                          height: 335.h,
                           // color: Colors.amber,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -167,25 +167,26 @@ class _HomeScreenState extends State<HomeScreen> {
                             children: [
                               TextWidget(
                                 text: "Pack Gold",
-                                fontSize: 22.sp,
+                                fontSize: 20.sp,
                                 fontWeight: FontWeight.w600,
                                 color: whiteColor,
                               ),
                               TextWidget(
                                   text:
                                       'Unlock Alxza premium to\nunlock all features',
-                                  fontSize: 14.sp,
+                                  fontSize: 12.sp,
                                   fontWeight: FontWeight.w400,
                                   color: whiteColor),
                               Button(
                                 onTap: () {},
                                 text: "Upgrade",
-                                width: 130.w,
-                                height: 40.h,
-                                borderRadius: 10.r,
+                                width: 90.w,
+                                height: 30.h,
+                                borderRadius: 8.r,
                                 color: whiteColor,
                                 textColor: primaryColor,
                                 fontWeight: FontWeight.w500,
+                                fontsize: 11.sp,
                               ),
                             ],
                           ),
@@ -194,7 +195,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Container(
-                              height: 130.h,
+                              height: 118.h,
                               width: 118.w,
                               decoration: const BoxDecoration(
                                 image: DecorationImage(
@@ -226,6 +227,95 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
+                SizedBox(
+                  height: 15.h,
+                ),
+                Row(
+                  children: [
+                    TextWidget(
+                      text: "What do you want to do today ?",
+                      fontSize: 18.sp,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 15.h,
+                ),
+                GridView.builder(
+                    padding:
+                        EdgeInsets.only(left: 20.w, right: 20.w, bottom: 10.h),
+                    shrinkWrap: true,
+                    primary: false,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      mainAxisExtent: 140.h,
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 20.w,
+                      mainAxisSpacing: 15.h,
+                    ),
+                    itemCount: HomeController.to.tabsList.length,
+                    itemBuilder: (c, index) {
+                      TabModel model = HomeController.to.tabsList[index];
+                      return Obx(
+                        () => Card(
+                          elevation: 6,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20.r)),
+                          child: CustomContainer(
+                            height: 140.h,
+                            width: 130.w,
+                            onTap: () {
+                              HomeController.to.selectedIndex.value = index;
+                            },
+                            borderRadius: 20.r,
+                            color:
+                                HomeController.to.selectedIndex.value == index
+                                    ? const Color(0xffDEDAE2)
+                                    : Colors.white,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Card(
+                                  elevation: 5,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10.r),
+                                  ),
+                                  child: Container(
+                                    height: 69.h,
+                                    width: 71.w,
+                                    decoration: BoxDecoration(
+                                      color: HomeController
+                                                  .to.selectedIndex.value ==
+                                              index
+                                          ? primaryColor
+                                          : const Color(0xffDEDAE2),
+                                      borderRadius: BorderRadius.circular(10.r),
+                                    ),
+                                    child: Center(
+                                      child: Image(
+                                          height: 49.h,
+                                          width: 49.w,
+                                          image: AssetImage(model.image!)),
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding:
+                                      EdgeInsets.symmetric(horizontal: 5.w),
+                                  child: TextWidget(
+                                    textAlign: TextAlign.center,
+                                    text: model.name!,
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      );
+                    }),
               ],
             ),
           ),
