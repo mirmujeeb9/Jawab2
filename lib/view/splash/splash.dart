@@ -3,6 +3,7 @@ import 'package:alxza/view/auth/forgot_password/check_email/controller.dart';
 import 'package:alxza/view/auth/forgot_password/forgot/controller.dart';
 import 'package:alxza/view/auth/forgot_password/otp/controller.dart';
 import 'package:alxza/view/auth/signup/controller.dart';
+import 'package:alxza/view/home/affiliate/controller.dart';
 import 'package:alxza/view/home/home/controller.dart';
 import 'package:alxza/view/splash/controller.dart';
 import 'package:alxza/widget/colors.dart';
@@ -26,6 +27,8 @@ class _MyCustomSplashScreenState extends State<MyCustomSplashScreen> {
     Get.put(ForgotController());
     Get.put(CheckEmailController());
     Get.put(OtpController());
+    Get.put(AffiliateController());
+
     Get.put(HomeController());
     Get.put(ChangePasswordController());
     Splash_controller.to.splashgetintrovideo();

@@ -1,3 +1,4 @@
+import 'package:alxza/view/home/affiliate/affiliate.dart';
 import 'package:alxza/view/home/home/controller.dart';
 import 'package:alxza/widget/button.dart';
 import 'package:alxza/widget/colors.dart';
@@ -123,6 +124,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: InkWell(
                         onTap: () {
                           tooltipController.showTooltip();
+                          Get.to(const AffiliateScreen());
                         },
                         child: SvgPicture.asset(
                           "images/token.svg",
