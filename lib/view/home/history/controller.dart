@@ -4,7 +4,11 @@ class HistoryController extends GetxController {
   static HistoryController get to => Get.find();
   List<HistoryModel> historylist = [
     HistoryModel(
-        icon: "images/translation.svg",
+        icon: "images/camera.svg",
+        title: "The availability of free trials or trial...",
+        date: "May 17,2023   -   09:30am"),
+    HistoryModel(
+        icon: "images/youtube.svg",
         title: "The availability of free trials or trial...",
         date: "May 17,2023   -   09:30am"),
     HistoryModel(
@@ -16,31 +20,11 @@ class HistoryController extends GetxController {
         title: "The availability of free trials or trial...",
         date: "May 17,2023   -   09:30am"),
     HistoryModel(
-        icon: "images/translation.svg",
-        title: "The availability of free trials or trial...",
-        date: "May 17,2023   -   09:30am"),
-    HistoryModel(
         icon: "images/camera.svg",
         title: "The availability of free trials or trial...",
         date: "May 17,2023   -   09:30am"),
     HistoryModel(
         icon: "images/youtube.svg",
-        title: "The availability of free trials or trial...",
-        date: "May 17,2023   -   09:30am"),
-    HistoryModel(
-        icon: "images/translation.svg",
-        title: "The availability of free trials or trial...",
-        date: "May 17,2023   -   09:30am"),
-    HistoryModel(
-        icon: "images/camera.svg",
-        title: "The availability of free trials or trial...",
-        date: "May 17,2023   -   09:30am"),
-    HistoryModel(
-        icon: "images/youtube.svg",
-        title: "The availability of free trials or trial...",
-        date: "May 17,2023   -   09:30am"),
-    HistoryModel(
-        icon: "images/translation.svg",
         title: "The availability of free trials or trial...",
         date: "May 17,2023   -   09:30am"),
     HistoryModel(

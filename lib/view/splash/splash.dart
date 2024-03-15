@@ -7,6 +7,7 @@ import 'package:alxza/view/home/folder/controller.dart';
 import 'package:alxza/view/home/history/controller.dart';
 import 'package:alxza/view/home/home/controller.dart';
 import 'package:alxza/view/home/payment_method/controller.dart';
+import 'package:alxza/view/home/profile.dart/controller.dart';
 import 'package:alxza/view/home/upgrade_to_pro/controller.dart';
 import 'package:alxza/view/splash/controller.dart';
 import 'package:alxza/widget/colors.dart';
@@ -36,6 +37,7 @@ class _MyCustomSplashScreenState extends State<MyCustomSplashScreen> {
     Get.put(PaymentController());
     Get.put(HistoryController());
     Get.put(FolderController());
+    Get.put(ProfileController());
     Splash_controller.to.splashgetintrovideo();
 
     super.initState();

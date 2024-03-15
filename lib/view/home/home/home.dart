@@ -1,6 +1,7 @@
 import 'package:alxza/view/home/folder/folder.dart';
 import 'package:alxza/view/home/home/controller.dart';
 import 'package:alxza/view/home/menue/menue.dart';
+import 'package:alxza/view/home/profile.dart/profile.dart';
 import 'package:alxza/widget/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -76,7 +77,9 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Obx(
         () => HomeController.to.selectedItemPosition.value == 0
             ? const MenueScreen()
-            : const FolderScreen(),
+            : HomeController.to.selectedItemPosition.value == 3
+                ? const ProfileScreen()
+                : const FolderScreen(),
       ),
     );
   }
