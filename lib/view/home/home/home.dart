@@ -1,4 +1,4 @@
-import 'package:alxza/view/home/history/history.dart';
+import 'package:alxza/view/home/folder/folder.dart';
 import 'package:alxza/view/home/home/controller.dart';
 import 'package:alxza/view/home/menue/menue.dart';
 import 'package:alxza/widget/colors.dart';
@@ -76,7 +76,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Obx(
         () => HomeController.to.selectedItemPosition.value == 0
             ? const MenueScreen()
-            : const History_screen(),
+            : const FolderScreen(),
       ),
     );
   }
