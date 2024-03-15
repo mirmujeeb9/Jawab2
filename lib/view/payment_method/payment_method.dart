@@ -1,3 +1,4 @@
+import 'package:alxza/widget/button.dart';
 import 'package:alxza/widget/colors.dart';
 import 'package:alxza/widget/custom_appbar.dart';
 import 'package:alxza/widget/text_widget.dart';
@@ -212,7 +213,7 @@ class _Payment_methodState extends State<Payment_method> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(15.r))),
                     child: Container(
-                      height: 70.h,
+                      height: 50.h,
                       width: 335.w,
                       decoration: BoxDecoration(
                           color: Colors.white,
@@ -223,16 +224,21 @@ class _Payment_methodState extends State<Payment_method> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Container(
-                            width: 30.w,
+                            width: 25.w,
                             height: 30.h,
                             decoration: BoxDecoration(
                                 color: primaryColor,
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(7.r))),
+                            child: Icon(
+                              Icons.add,
+                              color: Colors.white,
+                              size: 14.sp,
+                            ),
                           ),
                           Container(
-                            width: 25.w,
-                            color: Colors.black45,
+                            width: 15.w,
+                            // color: Colors.black45,
                           ),
                           Center(
                             child: TextWidget(
@@ -245,7 +251,24 @@ class _Payment_methodState extends State<Payment_method> {
                         ],
                       ),
                     ),
-                  )
+                  ),
+                  Container(
+                    height: 160.h,
+                    // color: Colors.black45,
+                  ),
+                  Button(
+                    onTap: () {
+                      // Navigator.push(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //       builder: (context) =>
+                      //           const Upgrade_to_pro(),
+                      //     ));
+                    },
+                    // width: 335.w,
+                    text: "Payment Now",
+                    fontWeight: FontWeight.w500,
+                  ),
                 ],
               ),
             ),
