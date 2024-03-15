@@ -1,6 +1,6 @@
 import 'package:alxza/view/auth/signin/signin.dart';
 import 'package:alxza/view/auth/signup/controller.dart';
-import 'package:alxza/view/upgrade_to_pro/upgrade_to_pro.dart';
+import 'package:alxza/view/home/upgrade_to_pro/upgrade_to_pro.dart';
 import 'package:alxza/widget/button.dart';
 import 'package:alxza/widget/colors.dart';
 import 'package:alxza/widget/custom_container.dart';

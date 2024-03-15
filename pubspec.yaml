@@ -44,6 +44,8 @@ dependencies:
   flutter_snake_navigationbar: ^0.6.1
   flutter_svg: ^2.0.9
   just_the_tooltip: ^0.0.12
+  carousel_slider: ^4.2.1
+  dotted_border: ^2.1.0
 
 dev_dependencies:
   flutter_test:
@@ -83,7 +85,16 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
+  fonts:
+    - family: Poppins
+      fonts:    
+        - asset: fonts/Poppins-Light.ttf
+        - asset: fonts/Poppins-ExtraLight.ttf
+        - asset: fonts/Poppins-Regular.ttf
+        - asset: fonts/Poppins-Medium.ttf 
+        - asset: fonts/Poppins-SemiBold.ttf
+        - asset: fonts/Poppins-Bold.ttf
+        - asset: fonts/Poppins-ExtraBold.ttf 
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf

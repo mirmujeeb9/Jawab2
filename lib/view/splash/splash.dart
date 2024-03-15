@@ -3,8 +3,12 @@ import 'package:alxza/view/auth/forgot_password/check_email/controller.dart';
 import 'package:alxza/view/auth/forgot_password/forgot/controller.dart';
 import 'package:alxza/view/auth/forgot_password/otp/controller.dart';
 import 'package:alxza/view/auth/signup/controller.dart';
-import 'package:alxza/view/home/affiliate/controller.dart';
+import 'package:alxza/view/home/folder/controller.dart';
+import 'package:alxza/view/home/history/controller.dart';
 import 'package:alxza/view/home/home/controller.dart';
+import 'package:alxza/view/home/payment_method/controller.dart';
+import 'package:alxza/view/home/profile.dart/controller.dart';
+import 'package:alxza/view/home/upgrade_to_pro/controller.dart';
 import 'package:alxza/view/splash/controller.dart';
 import 'package:alxza/widget/colors.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +34,12 @@ class _MyCustomSplashScreenState extends State<MyCustomSplashScreen> {
     Get.put(AffiliateController());
 
     Get.put(HomeController());
+    Get.put(Upgrade_to_pro_Controller());
     Get.put(ChangePasswordController());
+    Get.put(PaymentController());
+    Get.put(HistoryController());
+    Get.put(FolderController());
+    Get.put(ProfileController());
     Splash_controller.to.splashgetintrovideo();
 
     super.initState();

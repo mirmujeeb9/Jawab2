@@ -1,15 +1,12 @@
-import 'package:alxza/view/home/affiliate/affiliate.dart';
 import 'package:alxza/view/home/home/controller.dart';
-import 'package:alxza/widget/button.dart';
+import 'package:alxza/view/home/menue/menue.dart';
+import 'package:alxza/view/home/profile.dart/profile.dart';
 import 'package:alxza/widget/colors.dart';
-import 'package:alxza/widget/text_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_snake_navigationbar/flutter_snake_navigationbar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:just_the_tooltip/just_the_tooltip.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -19,15 +16,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final tooltipController = JustTheController();
-  @override
-  void initState() {
-    SchedulerBinding.instance.addPostFrameCallback((_) {
-      tooltipController.showTooltip();
-    });
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
         () => SnakeNavigationBar.color(
           behaviour: SnakeBarBehaviour.floating,
           snakeShape: SnakeShape.circle,
-          height: 75.h,
+          height: 70.h,
           elevation: 10,
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(0)),
@@ -124,7 +112,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: InkWell(
                         onTap: () {
                           tooltipController.showTooltip();
-                          Get.to(const AffiliateScreen());
                         },
                         child: SvgPicture.asset(
                           "images/token.svg",

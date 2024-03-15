@@ -1,4 +1,5 @@
 import 'package:alxza/view/auth/forgot_password/otp/controller.dart';
+import 'package:alxza/view/home/home/home.dart';
 import 'package:alxza/widget/button.dart';
 import 'package:alxza/widget/colors.dart';
 import 'package:alxza/widget/text_widget.dart';
@@ -76,14 +77,20 @@ class _VerifiedScreenState extends State<VerifiedScreen> {
                               fontWeight: FontWeight.w600,
                             ),
                             TextWidget(
-                                text:
-                                    'Your account is reedy to use. You will be\n redirected to the home page in a\n few seconds',
-                                fontSize: 14.sp,
-                                textAlign: TextAlign.center,
-                                fontWeight: FontWeight.w400,
-                                color: textgrey),
+                              text:
+                                  'Your account is reedy to use. You will be\n redirected to the home page in a\n few seconds',
+                              fontSize: 14.sp,
+                              textAlign: TextAlign.center,
+                              fontWeight: FontWeight.w400,
+                              color: textgrey,
+                            ),
                             Button(
-                              onTap: () {},
+                              onTap: () {
+                                Get.offAll(
+                                  () => const HomeScreen(),
+                                  transition: Transition.rightToLeft,
+                                );
+                              },
                               text: "Back to Home",
                               width: 240.w,
                               fontWeight: FontWeight.w500,

@@ -46,7 +46,7 @@ class CustomAppBar extends StatelessWidget {
                     child: Icon(
                       Icons.arrow_back_ios_new,
                       color: Colors.grey,
-                      size: 19.h,
+                      size: 15.h,
                     ),
                   ),
                 )
