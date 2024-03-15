@@ -26,7 +26,7 @@ class Splash_controller extends GetxController {
 
         SharedPreferences prefs = await SharedPreferences.getInstance();
         String? value = prefs.getString('token');
-        prefs.clear();
+        // prefs.clear();
         if (value != null) {
           // StaticData.token = value;
           // getuser();

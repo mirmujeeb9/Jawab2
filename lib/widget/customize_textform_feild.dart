@@ -91,7 +91,7 @@ class CustomTextFormField extends StatelessWidget {
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
         filled: true,
-        fillColor: Colors.white,
+        fillColor: color ?? Colors.white,
         isDense: true,
         contentPadding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 15.h),
         hintStyle: TextStyle(

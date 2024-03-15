@@ -194,7 +194,7 @@ class _Signin_screenState extends State<Signin_screen> {
                     Button(
                       onTap: () {
                         // if (formkey.currentState!.validate()) {
-                        Get.to(() => const HomeScreen(),
+                        Get.offAll(() => const HomeScreen(),
                             transition: Transition.rightToLeft);
                         // }
                       },

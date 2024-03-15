@@ -77,15 +77,16 @@ class _VerifiedScreenState extends State<VerifiedScreen> {
                               fontWeight: FontWeight.w600,
                             ),
                             TextWidget(
-                                text:
-                                    'Your account is reedy to use. You will be\n redirected to the home page in a\n few seconds',
-                                fontSize: 14.sp,
-                                textAlign: TextAlign.center,
-                                fontWeight: FontWeight.w400,
-                                color: textgrey),
+                              text:
+                                  'Your account is reedy to use. You will be\n redirected to the home page in a\n few seconds',
+                              fontSize: 14.sp,
+                              textAlign: TextAlign.center,
+                              fontWeight: FontWeight.w400,
+                              color: textgrey,
+                            ),
                             Button(
                               onTap: () {
-                                Get.to(
+                                Get.offAll(
                                   () => const HomeScreen(),
                                   transition: Transition.rightToLeft,
                                 );

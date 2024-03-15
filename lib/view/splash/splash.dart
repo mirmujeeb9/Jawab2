@@ -4,8 +4,9 @@ import 'package:alxza/view/auth/forgot_password/forgot/controller.dart';
 import 'package:alxza/view/auth/forgot_password/otp/controller.dart';
 import 'package:alxza/view/auth/signup/controller.dart';
 import 'package:alxza/view/home/home/controller.dart';
+import 'package:alxza/view/home/payment_method/controller.dart';
+import 'package:alxza/view/home/upgrade_to_pro/controller.dart';
 import 'package:alxza/view/splash/controller.dart';
-import 'package:alxza/view/upgrade_to_pro/controller.dart';
 import 'package:alxza/widget/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -30,6 +31,7 @@ class _MyCustomSplashScreenState extends State<MyCustomSplashScreen> {
     Get.put(HomeController());
     Get.put(Upgrade_to_pro_Controller());
     Get.put(ChangePasswordController());
+    Get.put(PaymentController());
     Splash_controller.to.splashgetintrovideo();
 
     super.initState();

@@ -1,5 +1,5 @@
-import 'package:alxza/view/payment_method/payment_method.dart';
-import 'package:alxza/view/upgrade_to_pro/controller.dart';
+import 'package:alxza/view/home/payment_method/payment_method.dart';
+import 'package:alxza/view/home/upgrade_to_pro/controller.dart';
 import 'package:alxza/widget/colors.dart';
 import 'package:alxza/widget/custom_appbar.dart';
 import 'package:alxza/widget/text_widget.dart';
@@ -21,43 +21,43 @@ class _Upgrade_to_proState extends State<Upgrade_to_pro> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: InkWell(
-        onTap: () {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: ((context) => const Payment_method())));
-        },
-        child: GetBuilder<Upgrade_to_pro_Controller>(builder: (obj) {
-          return SizedBox(
-            height: ScreenUtil().screenHeight,
-            width: ScreenUtil().screenWidth,
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 25.w),
-                    child: const CustomAppBar(
-                      text: "Upgrade to Pro",
-                      leading: true,
-                    ),
+      body: GetBuilder<Upgrade_to_pro_Controller>(builder: (obj) {
+        return SizedBox(
+          height: ScreenUtil().screenHeight,
+          width: ScreenUtil().screenWidth,
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 25.w),
+                  child: const CustomAppBar(
+                    text: "Upgrade to Pro",
+                    leading: true,
                   ),
-                  SizedBox(
-                    height: 10.h,
-                  ),
-                  CarouselSlider(
-                    items: List.generate(
-                      obj.subscriptionList.length,
-                      (index) {
-                        SubscriptionModel model = obj.subscriptionList[index];
-                        return Padding(
-                          padding: EdgeInsets.symmetric(vertical: 20.h),
-                          child: Card(
-                            elevation: 9,
-                            shape: RoundedRectangleBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(30.r))),
+                ),
+                SizedBox(
+                  height: 10.h,
+                ),
+                CarouselSlider(
+                  items: List.generate(
+                    obj.subscriptionList.length,
+                    (index) {
+                      SubscriptionModel model = obj.subscriptionList[index];
+                      return Padding(
+                        padding: EdgeInsets.symmetric(vertical: 20.h),
+                        child: Card(
+                          elevation: 9,
+                          shape: RoundedRectangleBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(30.r))),
+                          child: InkWell(
+                            onTap: () {
+                              Get.to(
+                                () => const Payment_method(),
+                                transition: Transition.rightToLeft,
+                              );
+                            },
                             child: Container(
                               height: 390.h,
                               width: 258.w,
@@ -179,52 +179,52 @@ class _Upgrade_to_proState extends State<Upgrade_to_pro> {
                               ),
                             ),
                           ),
-                        );
-                      },
-                    ),
-                    options: CarouselOptions(
-                      onPageChanged: (i, reason) {
-                        obj.index.value = i;
-                      },
-                      height: 440.h,
-                      enlargeCenterPage: true,
-                      // autoPlay: true,
-                      autoPlayInterval: const Duration(seconds: 3),
-                      autoPlayAnimationDuration:
-                          const Duration(milliseconds: 800),
-                      autoPlayCurve: Curves.fastOutSlowIn,
-                    ),
-                  ),
-                  Obx(
-                    () => Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: List.generate(
-                        2,
-                        (index) => AnimatedContainer(
-                          height: index == obj.index.value ? 5.w : 7.w,
-                          width: index == obj.index.value ? 12.w : 7.w,
-                          margin: EdgeInsets.symmetric(horizontal: 5.w),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(
-                                index == obj.index.value ? 10.r : 100.r),
-                            color: index == obj.index.value ? null : whiteColor,
-                            border: Border.all(
-                                color: index == obj.index.value
-                                    ? primaryColor
-                                    : const Color(0xffC8C8C8),
-                                width: 2.w),
-                          ),
-                          duration: const Duration(milliseconds: 300),
                         ),
+                      );
+                    },
+                  ),
+                  options: CarouselOptions(
+                    onPageChanged: (i, reason) {
+                      obj.index.value = i;
+                    },
+                    height: 440.h,
+                    enlargeCenterPage: true,
+                    // autoPlay: true,
+                    autoPlayInterval: const Duration(seconds: 3),
+                    autoPlayAnimationDuration:
+                        const Duration(milliseconds: 800),
+                    autoPlayCurve: Curves.fastOutSlowIn,
+                  ),
+                ),
+                Obx(
+                  () => Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: List.generate(
+                      2,
+                      (index) => AnimatedContainer(
+                        height: index == obj.index.value ? 5.w : 7.w,
+                        width: index == obj.index.value ? 12.w : 7.w,
+                        margin: EdgeInsets.symmetric(horizontal: 5.w),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(
+                              index == obj.index.value ? 10.r : 100.r),
+                          color: index == obj.index.value ? null : whiteColor,
+                          border: Border.all(
+                              color: index == obj.index.value
+                                  ? primaryColor
+                                  : const Color(0xffC8C8C8),
+                              width: 2.w),
+                        ),
+                        duration: const Duration(milliseconds: 300),
                       ),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-          );
-        }),
-      ),
+          ),
+        );
+      }),
     );
   }
 }

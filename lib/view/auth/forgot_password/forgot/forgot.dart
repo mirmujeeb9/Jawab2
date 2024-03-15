@@ -32,7 +32,7 @@ class _ForgotScreenState extends State<ForgotScreen> {
                 height: ScreenUtil().screenHeight,
                 width: ScreenUtil().screenWidth,
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 25.w),
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
                   child: SingleChildScrollView(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
