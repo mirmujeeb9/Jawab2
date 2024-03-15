@@ -1,4 +1,5 @@
 import 'package:alxza/view/home/home/controller.dart';
+import 'package:alxza/view/upgrade_to_pro/upgrade_to_pro.dart';
 import 'package:alxza/widget/button.dart';
 import 'package:alxza/widget/colors.dart';
 import 'package:alxza/widget/custom_container.dart';
@@ -178,7 +179,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                   fontWeight: FontWeight.w400,
                                   color: whiteColor),
                               Button(
-                                onTap: () {},
+                                onTap: () {
+                                  Get.to(
+                                    () => const Upgrade_to_pro(),
+                                    transition: Transition.rightToLeft,
+                                  );
+                                },
                                 text: "Upgrade",
                                 width: 90.w,
                                 height: 30.h,

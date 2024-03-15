@@ -1,12 +1,12 @@
 import 'package:alxza/view/payment_method/payment_method.dart';
+import 'package:alxza/view/upgrade_to_pro/controller.dart';
 import 'package:alxza/widget/colors.dart';
 import 'package:alxza/widget/custom_appbar.dart';
 import 'package:alxza/widget/text_widget.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class Upgrade_to_pro extends StatefulWidget {
   const Upgrade_to_pro({super.key});
@@ -15,12 +15,9 @@ class Upgrade_to_pro extends StatefulWidget {
   State<Upgrade_to_pro> createState() => _Upgrade_to_proState();
 }
 
-int i = 0;
-
 class _Upgrade_to_proState extends State<Upgrade_to_pro> {
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
 
-  PageController controller = PageController(initialPage: 0);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,738 +28,202 @@ class _Upgrade_to_proState extends State<Upgrade_to_pro> {
               MaterialPageRoute(
                   builder: ((context) => const Payment_method())));
         },
-        child: SizedBox(
-          height: ScreenUtil().screenHeight,
-          width: ScreenUtil().screenWidth,
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 25.w),
+        child: GetBuilder<Upgrade_to_pro_Controller>(builder: (obj) {
+          return SizedBox(
+            height: ScreenUtil().screenHeight,
+            width: ScreenUtil().screenWidth,
             child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const CustomAppBar(
-                    text: "Upgrade to Pro",
-                    leading: true,
-                  ),
-                  SizedBox(
-                    height: 40.h,
-                  ),
-                  SizedBox(
-                    height: 630.h,
-                    width: ScreenUtil().screenWidth,
-                    child: PageView(
-                      controller: controller,
-                      onPageChanged: (val) {
-                        setState(() {
-                          i = val;
-                        });
-                      },
-                      children: [
-                        Container(
-                          height: 630.h,
-                          width: 335.w,
-                          decoration: BoxDecoration(
-                              color: primaryColor,
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(30.r))),
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 30.w),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  height: 40.h,
-                                  //  color: Colors.amberAccent,
-                                ),
-                                TextWidget(
-                                  text: "Free",
-                                  color: Colors.white,
-                                  fontSize: 18.sp,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                                Container(
-                                  height: 10.h,
-                                  //  color: Colors.amberAccent,
-                                ),
-                                TextWidget(
-                                  text: "Basic chat functionality",
-                                  color: Colors.white,
-                                  fontSize: 11.sp,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                                SizedBox(
-                                  height: 60.h,
-                                  //  color: Colors.brown,
-                                  child: Row(
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    children: [
-                                      SizedBox(
-                                        height: 55.h,
-                                        //   color: Colors.brown,
-                                        child: TextWidget(
-                                          text: "\$0",
-                                          color: Colors.white,
-                                          fontSize: 30.sp,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 30.h,
-                                        // color: Colors.amber,
-                                        child: TextWidget(
-                                          text: "/mo",
-                                          color: Colors.white,
-                                          fontSize: 11.sp,
-                                          fontWeight: FontWeight.w400,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Container(
-                                  height: 3.h,
-                                  //  color: Colors.amberAccent,
-                                ),
-                                SizedBox(
-                                  height: 20.h,
-                                  //  color: Colors.brown,
-                                  child: TextWidget(
-                                    text: "Free Forever",
-                                    color: Colors.white,
-                                    fontSize: 14.sp,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                                Container(
-                                  height: 40.h,
-                                  //  color: Colors.amberAccent,
-                                ),
-                                Divider(
-                                  color:
-                                      const Color.fromARGB(255, 151, 151, 143),
-                                  thickness: 1.6.sp,
-                                ),
-                                Container(
-                                  height: 30.h,
-                                  // color: Colors.amberAccent,
-                                ),
-                                SizedBox(
-                                  height: 40.h,
-                                  // color: Colors.amberAccent,
-                                  child: Row(
-                                    children: [
-                                      Icon(
-                                        Icons.check_circle,
-                                        color: Colors.white,
-                                        size: 18.sp,
-                                      ),
-                                      Container(
-                                        width: 20.w,
-                                        //  color: Colors.amberAccent,
-                                      ),
-                                      TextWidget(
-                                        text:
-                                            "Only available when demand is low",
-                                        color: Colors.white,
-                                        fontSize: 10.sp,
-                                        fontWeight: FontWeight.w400,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Container(
-                                  height: 8.h,
-                                  // color: Colors.amberAccent,
-                                ),
-                                SizedBox(
-                                  height: 40.h,
-                                  // color: Colors.amberAccent,
-                                  child: Row(
-                                    children: [
-                                      Icon(
-                                        Icons.check_circle,
-                                        color: Colors.white,
-                                        size: 18.sp,
-                                      ),
-                                      Container(
-                                        width: 20.w,
-                                        //  color: Colors.amberAccent,
-                                      ),
-                                      TextWidget(
-                                        text: "Slow response speed",
-                                        color: Colors.white,
-                                        fontSize: 10.sp,
-                                        fontWeight: FontWeight.w400,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Container(
-                                  height: 8.h,
-                                  // color: Colors.amberAccent,
-                                ),
-                                SizedBox(
-                                  height: 40.h,
-                                  // color: Colors.amberAccent,
-                                  child: Row(
-                                    children: [
-                                      Icon(
-                                        Icons.check_circle,
-                                        color: Colors.white,
-                                        size: 18.sp,
-                                      ),
-                                      Container(
-                                        width: 20.w,
-                                        //  color: Colors.amberAccent,
-                                      ),
-                                      TextWidget(
-                                        text: "New feature update are slower",
-                                        color: Colors.white,
-                                        fontSize: 10.sp,
-                                        fontWeight: FontWeight.w400,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Container(
-                                  height: 8.h,
-                                  // color: Colors.amberAccent,
-                                ),
-                                SizedBox(
-                                  height: 40.h,
-                                  // color: Colors.amberAccent,
-                                  child: Row(
-                                    children: [
-                                      Icon(
-                                        Icons.check_circle,
-                                        color: Colors.white,
-                                        size: 18.sp,
-                                      ),
-                                      Container(
-                                        width: 20.w,
-                                        //  color: Colors.amberAccent,
-                                      ),
-                                      TextWidget(
-                                        text: "30 day history",
-                                        color: Colors.white,
-                                        fontSize: 10.sp,
-                                        fontWeight: FontWeight.w400,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Container(
-                                  height: 8.h,
-                                  // color: Colors.amberAccent,
-                                ),
-                                SizedBox(
-                                  height: 40.h,
-                                  // color: Colors.amberAccent,
-                                  child: Row(
-                                    children: [
-                                      Icon(
-                                        Icons.check_circle,
-                                        color: Colors.white,
-                                        size: 20.sp,
-                                      ),
-                                      Container(
-                                        width: 20.w,
-                                        //  color: Colors.amberAccent,
-                                      ),
-                                      TextWidget(
-                                        text: "Up to 1000 message/me",
-                                        color: Colors.white,
-                                        fontSize: 10.sp,
-                                        fontWeight: FontWeight.w400,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Container(
-                          height: 630.h,
-                          width: 335.w,
-                          decoration: BoxDecoration(
-                              color: primaryColor,
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(30.r))),
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 30.w),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  height: 40.h,
-                                  //  color: Colors.amberAccent,
-                                ),
-                                TextWidget(
-                                  text: "Free",
-                                  color: Colors.white,
-                                  fontSize: 18.sp,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                                Container(
-                                  height: 10.h,
-                                  //  color: Colors.amberAccent,
-                                ),
-                                TextWidget(
-                                  text: "Basic chat functionality",
-                                  color: Colors.white,
-                                  fontSize: 11.sp,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                                SizedBox(
-                                  height: 60.h,
-                                  //  color: Colors.brown,
-                                  child: Row(
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    children: [
-                                      SizedBox(
-                                        height: 55.h,
-                                        //   color: Colors.brown,
-                                        child: TextWidget(
-                                          text: "\$0",
-                                          color: Colors.white,
-                                          fontSize: 30.sp,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 30.h,
-                                        // color: Colors.amber,
-                                        child: TextWidget(
-                                          text: "/mo",
-                                          color: Colors.white,
-                                          fontSize: 11.sp,
-                                          fontWeight: FontWeight.w400,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Container(
-                                  height: 3.h,
-                                  //  color: Colors.amberAccent,
-                                ),
-                                SizedBox(
-                                  height: 20.h,
-                                  //  color: Colors.brown,
-                                  child: TextWidget(
-                                    text: "Free Forever",
-                                    color: Colors.white,
-                                    fontSize: 14.sp,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                                Container(
-                                  height: 40.h,
-                                  //  color: Colors.amberAccent,
-                                ),
-                                Divider(
-                                  color:
-                                      const Color.fromARGB(255, 151, 151, 143),
-                                  thickness: 1.6.sp,
-                                ),
-                                Container(
-                                  height: 30.h,
-                                  // color: Colors.amberAccent,
-                                ),
-                                SizedBox(
-                                  height: 40.h,
-                                  // color: Colors.amberAccent,
-                                  child: Row(
-                                    children: [
-                                      Icon(
-                                        Icons.check_circle,
-                                        color: Colors.white,
-                                        size: 18.sp,
-                                      ),
-                                      Container(
-                                        width: 20.w,
-                                        //  color: Colors.amberAccent,
-                                      ),
-                                      TextWidget(
-                                        text:
-                                            "Only available when demand is low",
-                                        color: Colors.white,
-                                        fontSize: 10.sp,
-                                        fontWeight: FontWeight.w400,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Container(
-                                  height: 8.h,
-                                  // color: Colors.amberAccent,
-                                ),
-                                SizedBox(
-                                  height: 40.h,
-                                  // color: Colors.amberAccent,
-                                  child: Row(
-                                    children: [
-                                      Icon(
-                                        Icons.check_circle,
-                                        color: Colors.white,
-                                        size: 18.sp,
-                                      ),
-                                      Container(
-                                        width: 20.w,
-                                        //  color: Colors.amberAccent,
-                                      ),
-                                      TextWidget(
-                                        text: "Slow response speed",
-                                        color: Colors.white,
-                                        fontSize: 10.sp,
-                                        fontWeight: FontWeight.w400,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Container(
-                                  height: 8.h,
-                                  // color: Colors.amberAccent,
-                                ),
-                                SizedBox(
-                                  height: 40.h,
-                                  // color: Colors.amberAccent,
-                                  child: Row(
-                                    children: [
-                                      Icon(
-                                        Icons.check_circle,
-                                        color: Colors.white,
-                                        size: 18.sp,
-                                      ),
-                                      Container(
-                                        width: 20.w,
-                                        //  color: Colors.amberAccent,
-                                      ),
-                                      TextWidget(
-                                        text: "New feature update are slower",
-                                        color: Colors.white,
-                                        fontSize: 10.sp,
-                                        fontWeight: FontWeight.w400,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Container(
-                                  height: 8.h,
-                                  // color: Colors.amberAccent,
-                                ),
-                                SizedBox(
-                                  height: 40.h,
-                                  // color: Colors.amberAccent,
-                                  child: Row(
-                                    children: [
-                                      Icon(
-                                        Icons.check_circle,
-                                        color: Colors.white,
-                                        size: 18.sp,
-                                      ),
-                                      Container(
-                                        width: 20.w,
-                                        //  color: Colors.amberAccent,
-                                      ),
-                                      TextWidget(
-                                        text: "30 day history",
-                                        color: Colors.white,
-                                        fontSize: 10.sp,
-                                        fontWeight: FontWeight.w400,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Container(
-                                  height: 8.h,
-                                  // color: Colors.amberAccent,
-                                ),
-                                SizedBox(
-                                  height: 40.h,
-                                  // color: Colors.amberAccent,
-                                  child: Row(
-                                    children: [
-                                      Icon(
-                                        Icons.check_circle,
-                                        color: Colors.white,
-                                        size: 20.sp,
-                                      ),
-                                      Container(
-                                        width: 20.w,
-                                        //  color: Colors.amberAccent,
-                                      ),
-                                      TextWidget(
-                                        text: "Up to 1000 message/me",
-                                        color: Colors.white,
-                                        fontSize: 10.sp,
-                                        fontWeight: FontWeight.w400,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Container(
-                          height: 630.h,
-                          width: 335.w,
-                          decoration: BoxDecoration(
-                              color: primaryColor,
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(30.r))),
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 30.w),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  height: 40.h,
-                                  //  color: Colors.amberAccent,
-                                ),
-                                TextWidget(
-                                  text: "Free",
-                                  color: Colors.white,
-                                  fontSize: 18.sp,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                                Container(
-                                  height: 10.h,
-                                  //  color: Colors.amberAccent,
-                                ),
-                                TextWidget(
-                                  text: "Basic chat functionality",
-                                  color: Colors.white,
-                                  fontSize: 11.sp,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                                SizedBox(
-                                  height: 60.h,
-                                  //  color: Colors.brown,
-                                  child: Row(
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    children: [
-                                      SizedBox(
-                                        height: 55.h,
-                                        //   color: Colors.brown,
-                                        child: TextWidget(
-                                          text: "\$0",
-                                          color: Colors.white,
-                                          fontSize: 30.sp,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 30.h,
-                                        // color: Colors.amber,
-                                        child: TextWidget(
-                                          text: "/mo",
-                                          color: Colors.white,
-                                          fontSize: 11.sp,
-                                          fontWeight: FontWeight.w400,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Container(
-                                  height: 3.h,
-                                  //  color: Colors.amberAccent,
-                                ),
-                                SizedBox(
-                                  height: 20.h,
-                                  //  color: Colors.brown,
-                                  child: TextWidget(
-                                    text: "Free Forever",
-                                    color: Colors.white,
-                                    fontSize: 14.sp,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                                Container(
-                                  height: 40.h,
-                                  //  color: Colors.amberAccent,
-                                ),
-                                Divider(
-                                  color:
-                                      const Color.fromARGB(255, 151, 151, 143),
-                                  thickness: 1.6.sp,
-                                ),
-                                Container(
-                                  height: 30.h,
-                                  // color: Colors.amberAccent,
-                                ),
-                                SizedBox(
-                                  height: 40.h,
-                                  // color: Colors.amberAccent,
-                                  child: Row(
-                                    children: [
-                                      Icon(
-                                        Icons.check_circle,
-                                        color: Colors.white,
-                                        size: 18.sp,
-                                      ),
-                                      Container(
-                                        width: 20.w,
-                                        //  color: Colors.amberAccent,
-                                      ),
-                                      TextWidget(
-                                        text:
-                                            "Only available when demand is low",
-                                        color: Colors.white,
-                                        fontSize: 10.sp,
-                                        fontWeight: FontWeight.w400,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Container(
-                                  height: 8.h,
-                                  // color: Colors.amberAccent,
-                                ),
-                                SizedBox(
-                                  height: 40.h,
-                                  // color: Colors.amberAccent,
-                                  child: Row(
-                                    children: [
-                                      Icon(
-                                        Icons.check_circle,
-                                        color: Colors.white,
-                                        size: 18.sp,
-                                      ),
-                                      Container(
-                                        width: 20.w,
-                                        //  color: Colors.amberAccent,
-                                      ),
-                                      TextWidget(
-                                        text: "Slow response speed",
-                                        color: Colors.white,
-                                        fontSize: 10.sp,
-                                        fontWeight: FontWeight.w400,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Container(
-                                  height: 8.h,
-                                  // color: Colors.amberAccent,
-                                ),
-                                SizedBox(
-                                  height: 40.h,
-                                  // color: Colors.amberAccent,
-                                  child: Row(
-                                    children: [
-                                      Icon(
-                                        Icons.check_circle,
-                                        color: Colors.white,
-                                        size: 18.sp,
-                                      ),
-                                      Container(
-                                        width: 20.w,
-                                        //  color: Colors.amberAccent,
-                                      ),
-                                      TextWidget(
-                                        text: "New feature update are slower",
-                                        color: Colors.white,
-                                        fontSize: 10.sp,
-                                        fontWeight: FontWeight.w400,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Container(
-                                  height: 8.h,
-                                  // color: Colors.amberAccent,
-                                ),
-                                SizedBox(
-                                  height: 40.h,
-                                  // color: Colors.amberAccent,
-                                  child: Row(
-                                    children: [
-                                      Icon(
-                                        Icons.check_circle,
-                                        color: Colors.white,
-                                        size: 18.sp,
-                                      ),
-                                      Container(
-                                        width: 20.w,
-                                        //  color: Colors.amberAccent,
-                                      ),
-                                      TextWidget(
-                                        text: "30 day history",
-                                        color: Colors.white,
-                                        fontSize: 10.sp,
-                                        fontWeight: FontWeight.w400,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Container(
-                                  height: 8.h,
-                                  // color: Colors.amberAccent,
-                                ),
-                                SizedBox(
-                                  height: 40.h,
-                                  // color: Colors.amberAccent,
-                                  child: Row(
-                                    children: [
-                                      Icon(
-                                        Icons.check_circle,
-                                        color: Colors.white,
-                                        size: 20.sp,
-                                      ),
-                                      Container(
-                                        width: 20.w,
-                                        //  color: Colors.amberAccent,
-                                      ),
-                                      TextWidget(
-                                        text: "Up to 1000 message/me",
-                                        color: Colors.white,
-                                        fontSize: 10.sp,
-                                        fontWeight: FontWeight.w400,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 25.w),
+                    child: const CustomAppBar(
+                      text: "Upgrade to Pro",
+                      leading: true,
                     ),
                   ),
                   SizedBox(
-                    height: 30.h,
+                    height: 10.h,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: List.generate(
-                      3,
-                      (index) => AnimatedContainer(
-                        height: index == i ? 9.w : 10.w,
-                        width: index == i ? 25.w : 10.w,
-                        margin: EdgeInsets.symmetric(horizontal: 5.w),
-                        decoration: BoxDecoration(
-                          borderRadius:
-                              BorderRadius.circular(index == i ? 30.r : 100.r),
-                          color: index == i ? null : whiteColor,
-                          border: Border.all(
-                              color: index == i
-                                  ? primaryColor
-                                  : const Color(0xffC8C8C8),
-                              width: 2.w),
+                  CarouselSlider(
+                    items: List.generate(
+                      obj.subscriptionList.length,
+                      (index) {
+                        SubscriptionModel model = obj.subscriptionList[index];
+                        return Padding(
+                          padding: EdgeInsets.symmetric(vertical: 20.h),
+                          child: Card(
+                            elevation: 9,
+                            shape: RoundedRectangleBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(30.r))),
+                            child: Container(
+                              height: 390.h,
+                              width: 258.w,
+                              decoration: BoxDecoration(
+                                  color: index % 2 != 0
+                                      ? Colors.white
+                                      : primaryColor,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(30.r))),
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 30.w),
+                                child: SingleChildScrollView(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        height: 25.h,
+                                      ),
+                                      TextWidget(
+                                        text: model.title!,
+                                        color: index % 2 != 0
+                                            ? null
+                                            : Colors.white,
+                                        fontSize: 18.sp,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                      Container(
+                                        height: 5.h,
+                                      ),
+                                      TextWidget(
+                                        text: model.subtitle!,
+                                        color: index % 2 != 0
+                                            ? null
+                                            : Colors.white,
+                                        fontSize: 11.sp,
+                                        fontWeight: FontWeight.w400,
+                                      ),
+                                      Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.end,
+                                        children: [
+                                          TextWidget(
+                                            text: "\$${model.price!}",
+                                            color: index % 2 != 0
+                                                ? null
+                                                : Colors.white,
+                                            fontSize: 30.sp,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                          TextWidget(
+                                            text: "/mo",
+                                            color: index % 2 != 0
+                                                ? null
+                                                : Colors.white,
+                                            fontSize: 11.sp,
+                                            fontWeight: FontWeight.w400,
+                                          ),
+                                        ],
+                                      ),
+                                      Container(
+                                        height: 10.h,
+                                      ),
+                                      TextWidget(
+                                        text: model.afterprice!,
+                                        color: index % 2 != 0
+                                            ? null
+                                            : Colors.white,
+                                        fontSize: 14.sp,
+                                        fontWeight: FontWeight.w400,
+                                      ),
+                                      Container(
+                                        height: 10.h,
+                                      ),
+                                      Divider(
+                                        color: index % 2 != 0
+                                            ? null
+                                            : const Color.fromARGB(
+                                                255, 151, 151, 143),
+                                        thickness: 1.sp,
+                                      ),
+                                      Container(
+                                        height: 10.h,
+                                      ),
+                                      Column(
+                                        children: List.generate(
+                                          model.rules!.length,
+                                          (i) => Padding(
+                                            padding: EdgeInsets.symmetric(
+                                                vertical: 7.h),
+                                            child: Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.check_circle,
+                                                  color: index % 2 != 0
+                                                      ? primaryColor
+                                                      : Colors.white,
+                                                  size: 13.sp,
+                                                ),
+                                                Container(
+                                                  width: 10.w,
+                                                ),
+                                                TextWidget(
+                                                  text: model.rules![i],
+                                                  color: index % 2 != 0
+                                                      ? null
+                                                      : Colors.white,
+                                                  fontSize: 11.sp,
+                                                  fontWeight: FontWeight.w400,
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                    options: CarouselOptions(
+                      onPageChanged: (i, reason) {
+                        obj.index.value = i;
+                      },
+                      height: 440.h,
+                      enlargeCenterPage: true,
+                      // autoPlay: true,
+                      autoPlayInterval: const Duration(seconds: 3),
+                      autoPlayAnimationDuration:
+                          const Duration(milliseconds: 800),
+                      autoPlayCurve: Curves.fastOutSlowIn,
+                    ),
+                  ),
+                  Obx(
+                    () => Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(
+                        2,
+                        (index) => AnimatedContainer(
+                          height: index == obj.index.value ? 5.w : 7.w,
+                          width: index == obj.index.value ? 12.w : 7.w,
+                          margin: EdgeInsets.symmetric(horizontal: 5.w),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(
+                                index == obj.index.value ? 10.r : 100.r),
+                            color: index == obj.index.value ? null : whiteColor,
+                            border: Border.all(
+                                color: index == obj.index.value
+                                    ? primaryColor
+                                    : const Color(0xffC8C8C8),
+                                width: 2.w),
+                          ),
+                          duration: const Duration(milliseconds: 300),
                         ),
-                        duration: const Duration(milliseconds: 300),
                       ),
                     ),
                   ),
                 ],
               ),
             ),
-          ),
-        ),
+          );
+        }),
       ),
     );
   }

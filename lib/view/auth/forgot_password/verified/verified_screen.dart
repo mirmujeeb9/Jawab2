@@ -1,4 +1,5 @@
 import 'package:alxza/view/auth/forgot_password/otp/controller.dart';
+import 'package:alxza/view/home/home/home.dart';
 import 'package:alxza/widget/button.dart';
 import 'package:alxza/widget/colors.dart';
 import 'package:alxza/widget/text_widget.dart';
@@ -83,7 +84,12 @@ class _VerifiedScreenState extends State<VerifiedScreen> {
                                 fontWeight: FontWeight.w400,
                                 color: textgrey),
                             Button(
-                              onTap: () {},
+                              onTap: () {
+                                Get.to(
+                                  () => const HomeScreen(),
+                                  transition: Transition.rightToLeft,
+                                );
+                              },
                               text: "Back to Home",
                               width: 240.w,
                               fontWeight: FontWeight.w500,

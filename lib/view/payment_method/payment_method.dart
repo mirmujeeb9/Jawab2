@@ -1,10 +1,7 @@
 import 'package:alxza/widget/colors.dart';
 import 'package:alxza/widget/custom_appbar.dart';
 import 'package:alxza/widget/text_widget.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Payment_method extends StatefulWidget {
@@ -13,8 +10,6 @@ class Payment_method extends StatefulWidget {
   @override
   State<Payment_method> createState() => _Payment_methodState();
 }
-
-int i = 0;
 
 class _Payment_methodState extends State<Payment_method> {
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
