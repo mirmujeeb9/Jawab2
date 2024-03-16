@@ -93,7 +93,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                                 return "Please enter new password";
                               }
                               if (v.length < 6) {
-                                return "Please enetr up to 6 digits";
+                                return "Please enter up to 6 digits";
                               }
 
                               return null;
@@ -147,7 +147,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                                 return "Please eneter confirm password";
                               }
                               if (v.length < 6) {
-                                return "Please enetr up to 6 digits";
+                                return "Please enter up to 6 digits";
                               }
 
                               return null;

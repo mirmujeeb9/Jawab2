@@ -162,7 +162,7 @@ class _Signin_screenState extends State<Signin_screen> {
                             return "Please enter password";
                           }
                           if (v.length < 6) {
-                            return "Please enetr up to 6 digits";
+                            return "Please enter up to 6 digits";
                           }
 
                           return null;

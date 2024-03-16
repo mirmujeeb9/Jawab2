@@ -173,7 +173,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 return "Please enter password";
                               }
                               if (v.length < 6) {
-                                return "Please enetr up to 6 digits";
+                                return "Please enter up to 6 digits";
                               }
 
                               return null;
@@ -227,7 +227,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 return "Please enter confirm password";
                               }
                               if (v.length < 6) {
-                                return "Please enetr up to 6 digits";
+                                return "Please enter up to 6 digits";
                               }
 
                               return null;
@@ -248,7 +248,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   ));
                             }
                           },
-                          // width: 335.w,
+                          width: 335.w,
                           text: "Sign Up",
                           fontWeight: FontWeight.w500,
                         ),
