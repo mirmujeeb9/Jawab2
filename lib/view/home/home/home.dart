@@ -40,37 +40,41 @@ class _HomeScreenState extends State<HomeScreen> {
               HomeController.to.selectedItemPosition.value = index,
           items: [
             BottomNavigationBarItem(
-                icon: SvgPicture.asset(
-                  "images/menue.svg",
-                  color: HomeController.to.selectedItemPosition.value == 0
-                      ? whiteColor
-                      : textgrey,
-                ),
-                label: 'menue'),
+              icon: SvgPicture.asset(
+                "images/menue.svg",
+                color: HomeController.to.selectedItemPosition.value == 0
+                    ? whiteColor
+                    : textgrey,
+              ),
+              label: 'menue',
+            ),
             BottomNavigationBarItem(
-                icon: SvgPicture.asset(
-                  "images/chat.svg",
-                  color: HomeController.to.selectedItemPosition.value == 1
-                      ? whiteColor
-                      : textgrey,
-                ),
-                label: 'chat'),
+              icon: SvgPicture.asset(
+                "images/chat.svg",
+                color: HomeController.to.selectedItemPosition.value == 1
+                    ? whiteColor
+                    : textgrey,
+              ),
+              label: 'chat',
+            ),
             BottomNavigationBarItem(
-                icon: SvgPicture.asset(
-                  "images/history.svg",
-                  color: HomeController.to.selectedItemPosition.value == 2
-                      ? whiteColor
-                      : textgrey,
-                ),
-                label: 'history'),
+              icon: SvgPicture.asset(
+                "images/history.svg",
+                color: HomeController.to.selectedItemPosition.value == 2
+                    ? whiteColor
+                    : textgrey,
+              ),
+              label: 'history',
+            ),
             BottomNavigationBarItem(
-                icon: SvgPicture.asset(
-                  "images/person.svg",
-                  color: HomeController.to.selectedItemPosition.value == 3
-                      ? whiteColor
-                      : textgrey,
-                ),
-                label: 'person')
+              icon: SvgPicture.asset(
+                "images/person.svg",
+                color: HomeController.to.selectedItemPosition.value == 3
+                    ? whiteColor
+                    : textgrey,
+              ),
+              label: 'person',
+            ),
           ],
         ),
       ),

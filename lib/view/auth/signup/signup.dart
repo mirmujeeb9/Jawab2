@@ -98,7 +98,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           height: 5.h,
                         ),
                         SizedBox(
-                          // width: 335.w,
+                          width: 335.w,
                           child: CustomTextFormField(
                             inputFormatters: [
                               LengthLimitingTextInputFormatter(128),
@@ -137,7 +137,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           height: 5.h,
                         ),
                         SizedBox(
-                          // width: 335.w,
+                          width: 335.w,
                           child: CustomTextFormField(
                             suffixIcon: GestureDetector(
                               onTap: () {

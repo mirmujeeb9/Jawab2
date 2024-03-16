@@ -1,3 +1,4 @@
+import 'package:alxza/view/home/edit_profile/edit_profile.dart';
 import 'package:alxza/view/home/home/controller.dart';
 import 'package:alxza/view/home/profile.dart/controller.dart';
 import 'package:alxza/widget/colors.dart';
@@ -26,7 +27,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
           children: [
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.w),
-              child: const CustomAppBar(
+              child: CustomAppBar(
+                leadingOnTap: () {},
                 text: "Settings",
                 leading: true,
               ),
@@ -52,6 +54,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                       ],
                       child: ListTile(
+                        onTap: () {
+                          Get.to(
+                            () => const Edit_profile(),
+                            transition: Transition.rightToLeft,
+                          );
+                        },
                         contentPadding: EdgeInsets.symmetric(
                             horizontal: 15.w, vertical: 5.h),
                         leading: Container(
@@ -106,7 +114,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             ? CustomListTileWidget(
                                 image: model.image!,
                                 title: model.name!,
-                                onTap: () {})
+                                onTap: () {
+                                  Get.to(
+                                    () => index == 0 ? Aff() : null,
+                                    transition: Transition.rightToLeft,
+                                  );
+                                })
                             : Padding(
                                 padding: EdgeInsets.symmetric(vertical: 5.h),
                                 child: CustomContainer(
