@@ -160,13 +160,17 @@ class _Upgrade_to_proState extends State<Upgrade_to_pro> {
                                                 Container(
                                                   width: 10.w,
                                                 ),
-                                                TextWidget(
-                                                  text: model.rules![i],
-                                                  color: index % 2 != 0
-                                                      ? null
-                                                      : Colors.white,
-                                                  fontSize: 11.sp,
-                                                  fontWeight: FontWeight.w400,
+                                                Expanded(
+                                                  child: TextWidget(
+                                                    overflow:
+                                                        TextOverflow.ellipsis,
+                                                    text: model.rules![i],
+                                                    color: index % 2 != 0
+                                                        ? null
+                                                        : Colors.white,
+                                                    fontSize: 11.sp,
+                                                    fontWeight: FontWeight.w400,
+                                                  ),
                                                 ),
                                               ],
                                             ),

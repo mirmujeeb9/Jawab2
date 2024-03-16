@@ -8,7 +8,7 @@ import 'package:video_player/video_player.dart';
 
 class Splash_controller extends GetxController {
   static Splash_controller get to => Get.find();
-
+  bool callfunction = false;
   Future splashgetintrovideo() async {
     videoPlayerController = VideoPlayerController.asset("images/IMG_3861.MOV")
       ..initialize().then(
@@ -17,27 +17,28 @@ class Splash_controller extends GetxController {
           videoPlayerController!.play();
         },
       );
-    videoPlayerController?.addListener(() async {
-      // log("video positions is  ${videoPlayerController!.value.position >= videoPlayerController!.value.duration}");
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    // prefs.clear();
 
+    videoPlayerController?.addListener(() async {
       if (videoPlayerController!.value.position >=
           videoPlayerController!.value.duration) {
-        videoPlayerController!.pause();
+        if (!callfunction) {
+          callfunction = true;
+          videoPlayerController!.pause();
+          String? value = prefs.getString('token');
+          if (value != null) {
+            // StaticData.token = value;
+            // getuser();
 
-        SharedPreferences prefs = await SharedPreferences.getInstance();
-        String? value = prefs.getString('token');
-        // prefs.clear();
-        if (value != null) {
-          // StaticData.token = value;
-          // getuser();
-
-          // Get.offAll(() => const HomeScreen());
-        } else {
-          if (prefs.getBool('firsttime') == null) {
-            prefs.setBool('firsttime', true);
-            Get.offAll(() => const LaunchPageView());
+            // Get.offAll(() => const HomeScreen());
           } else {
-            Get.offAll(() => const WelcomeScreen());
+            if (prefs.getBool('firsttime') == null) {
+              prefs.setBool('firsttime', true);
+              Get.offAll(() => const LaunchPageView());
+            } else {
+              Get.offAll(() => const WelcomeScreen());
+            }
           }
         }
       }

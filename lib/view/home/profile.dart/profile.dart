@@ -1,5 +1,11 @@
+import 'package:alxza/view/home/affiliate/affiliate.dart';
+import 'package:alxza/view/home/edit_profile/edit_profile.dart';
+import 'package:alxza/view/home/faq/faq.dart';
 import 'package:alxza/view/home/home/controller.dart';
+import 'package:alxza/view/home/invoices/invoices.dart';
 import 'package:alxza/view/home/profile.dart/controller.dart';
+import 'package:alxza/view/home/security/security.dart';
+import 'package:alxza/view/home/upgrade_to_pro/upgrade_to_pro.dart';
 import 'package:alxza/widget/colors.dart';
 import 'package:alxza/widget/custom_appbar.dart';
 import 'package:alxza/widget/custom_container.dart';
@@ -26,7 +32,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
           children: [
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.w),
-              child: const CustomAppBar(
+              child: CustomAppBar(
+                leadingOnTap: () {},
                 text: "Settings",
                 leading: true,
               ),
@@ -52,6 +59,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                       ],
                       child: ListTile(
+                        onTap: () {
+                          Get.to(
+                            () => const Edit_profile(),
+                            transition: Transition.rightToLeft,
+                          );
+                        },
                         contentPadding: EdgeInsets.symmetric(
                             horizontal: 15.w, vertical: 5.h),
                         leading: Container(
@@ -106,7 +119,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             ? CustomListTileWidget(
                                 image: model.image!,
                                 title: model.name!,
-                                onTap: () {})
+                                onTap: () {
+                                  Get.to(
+                                    () => index == 0
+                                        ? const AffiliateScreen()
+                                        : index == 1
+                                            ? const InvoiceScreen()
+                                            : index == 2
+                                                ? const SecurityScreen()
+                                                : index == 5
+                                                    ? const FaqScreen()
+                                                    : const AffiliateScreen(),
+                                    transition: Transition.rightToLeft,
+                                  );
+                                })
                             : Padding(
                                 padding: EdgeInsets.symmetric(vertical: 5.h),
                                 child: CustomContainer(
@@ -178,6 +204,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                       ],
                       child: ListTile(
+                        onTap: () {
+                          Get.to(
+                            () => const Upgrade_to_pro(),
+                            transition: Transition.rightToLeft,
+                          );
+                        },
                         contentPadding: EdgeInsets.symmetric(
                             horizontal: 15.w, vertical: 5.h),
                         leading: SizedBox(
