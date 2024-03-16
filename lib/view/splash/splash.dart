@@ -32,6 +32,8 @@ class _MyCustomSplashScreenState extends State<MyCustomSplashScreen> {
     Get.put(ForgotController());
     Get.put(CheckEmailController());
     Get.put(OtpController());
+    Get.put(AffiliateController());
+
     Get.put(HomeController());
     Get.put(Upgrade_to_pro_Controller());
     Get.put(ChangePasswordController());

@@ -1,4 +1,3 @@
-import 'package:alxza/view/home/folder/folder.dart';
 import 'package:alxza/view/home/home/controller.dart';
 import 'package:alxza/view/home/menue/menue.dart';
 import 'package:alxza/view/home/profile.dart/profile.dart';
@@ -78,12 +77,152 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      body: Obx(
-        () => HomeController.to.selectedItemPosition.value == 0
-            ? const MenueScreen()
-            : HomeController.to.selectedItemPosition.value == 3
-                ? const ProfileScreen()
-                : const FolderScreen(),
+      body: SizedBox(
+        height: ScreenUtil().screenHeight,
+        width: ScreenUtil().screenWidth,
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 25.w),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 50.h,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SvgPicture.asset(
+                      "images/male.svg",
+                    ),
+                    JustTheTooltip(
+                      borderRadius: BorderRadius.circular(7.r),
+                      tailLength: 5,
+                      margin: const EdgeInsets.all(0),
+                      preferredDirection: AxisDirection.down,
+                      tailBaseWidth: 15.w,
+                      controller: tooltipController,
+                      backgroundColor: Colors.white,
+                      offset: 0,
+                      content: Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 15.w, vertical: 3.h),
+                        child: TextWidget(
+                          text: "your Tokens",
+                          fontSize: 12.sp,
+                          color: primaryColor,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      child: InkWell(
+                        onTap: () {
+                          tooltipController.showTooltip();
+                        },
+                        child: SvgPicture.asset(
+                          "images/token.svg",
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 10.h),
+                  child: Row(
+                    children: [
+                      TextWidget(
+                        text: "Salam aleykoum\nJuju Mitcheli !",
+                        fontSize: 30.sp,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ],
+                  ),
+                ),
+                Card(
+                  elevation: 10,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(25.r)),
+                  child: Container(
+                    height: 200.h,
+                    width: ScreenUtil().screenWidth,
+                    decoration: BoxDecoration(
+                      color: primaryColor,
+                      borderRadius: BorderRadius.circular(25.r),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          width: 200.w,
+                          // color: Colors.amber,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              TextWidget(
+                                text: "Pack Gold",
+                                fontSize: 22.sp,
+                                fontWeight: FontWeight.w600,
+                                color: whiteColor,
+                              ),
+                              TextWidget(
+                                  text:
+                                      'Unlock Alxza premium to\nunlock all features',
+                                  fontSize: 14.sp,
+                                  fontWeight: FontWeight.w400,
+                                  color: whiteColor),
+                              Button(
+                                onTap: () {},
+                                text: "Upgrade",
+                                width: 130.w,
+                                height: 40.h,
+                                borderRadius: 10.r,
+                                color: whiteColor,
+                                textColor: primaryColor,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ],
+                          ),
+                        ),
+                        Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Container(
+                              height: 130.h,
+                              width: 118.w,
+                              decoration: const BoxDecoration(
+                                image: DecorationImage(
+                                  fit: BoxFit.contain,
+                                  image: AssetImage(
+                                    'images/gold-medal.png',
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 5.h,
+                            ),
+                            Container(
+                              height: 10.h,
+                              width: 118.w,
+                              decoration: const BoxDecoration(
+                                image: DecorationImage(
+                                  fit: BoxFit.contain,
+                                  image: AssetImage(
+                                    'images/elipse.png',
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
