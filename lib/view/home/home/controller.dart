@@ -1,10 +1,11 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
   static HomeController get to => Get.find();
   Rx<int> selectedItemPosition = 0.obs;
-  Rx<int> selectedIndex = 10.obs;
-
+  Rx<int> tabIndex = 10.obs;
+  final ValueNotifier bottomsheetIndex = ValueNotifier(0);
   List<TabModel> tabsList = [
     TabModel(name: "AI Translator", image: "images/langues.png"),
     TabModel(name: "Dictionary", image: "images/dictionnaire.png"),

@@ -217,13 +217,14 @@ class _MenueScreenState extends State<MenueScreen> {
                             height: 140.h,
                             width: 130.w,
                             onTap: () {
-                              HomeController.to.selectedIndex.value = index;
+                              HomeController.to.tabIndex.value = index;
+                              HomeController.to.selectedItemPosition.value = 1;
+                              HomeController.to.bottomsheetIndex.value = 1;
                             },
                             borderRadius: 20.r,
-                            color:
-                                HomeController.to.selectedIndex.value == index
-                                    ? const Color(0xffDEDAE2)
-                                    : Colors.white,
+                            color: HomeController.to.tabIndex.value == index
+                                ? const Color(0xffDEDAE2)
+                                : Colors.white,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               crossAxisAlignment: CrossAxisAlignment.center,
@@ -237,8 +238,7 @@ class _MenueScreenState extends State<MenueScreen> {
                                     height: 69.h,
                                     width: 71.w,
                                     decoration: BoxDecoration(
-                                      color: HomeController
-                                                  .to.selectedIndex.value ==
+                                      color: HomeController.to.tabIndex.value ==
                                               index
                                           ? primaryColor
                                           : const Color(0xffDEDAE2),
