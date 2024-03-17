@@ -131,9 +131,6 @@ class _SecurityScreenState extends State<SecurityScreen> {
                       child: CustomTextFormField(
                         hintTextSize: 12.sp,
                         fontFamily: 'Poppins',
-                        onChanged: (v) {
-                          obj.confirmpassword = v;
-                        },
                         controller: obj.newPasswordcontroller,
                         validator: (v) {
                           if (v!.isEmpty) {
@@ -174,7 +171,7 @@ class _SecurityScreenState extends State<SecurityScreen> {
                           if (v.length < 6) {
                             return "Please enter up to 6 digits";
                           }
-                          if (obj.confirmpassword != v) {
+                          if (obj.newPasswordcontroller.text != v) {
                             return "Confirm password not match";
                           }
 

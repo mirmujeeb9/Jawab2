@@ -191,7 +191,6 @@ class _Payment_methodState extends State<Payment_method> {
                                                   Radius.circular(30.r))),
                                           child: Container(
                                             width: 335.w,
-                                            height: 308.h,
                                             decoration: BoxDecoration(
                                                 color: Colors.white,
                                                 borderRadius: BorderRadius.all(
@@ -199,7 +198,7 @@ class _Payment_methodState extends State<Payment_method> {
                                                 )),
                                             child: Padding(
                                               padding: EdgeInsets.symmetric(
-                                                  vertical: 20.h,
+                                                  vertical: 25.h,
                                                   horizontal: 20.w),
                                               child: Column(
                                                 children: [
