@@ -219,6 +219,7 @@ class _MenueScreenState extends State<MenueScreen> {
                             onTap: () {
                               HomeController.to.tabIndex.value = index;
                               HomeController.to.selectedItemPosition.value = 1;
+
                               HomeController.to.bottomsheetIndex.value = 1;
                             },
                             borderRadius: 20.r,

@@ -10,6 +10,7 @@ import 'package:alxza/view/home/folder/controller.dart';
 import 'package:alxza/view/home/history/controller.dart';
 import 'package:alxza/view/home/home/controller.dart';
 import 'package:alxza/view/home/invoices/controller.dart';
+import 'package:alxza/view/home/menue/translator/controller.dart';
 import 'package:alxza/view/home/payment_method/controller.dart';
 import 'package:alxza/view/home/profile.dart/controller.dart';
 import 'package:alxza/view/home/security/controller.dart';
@@ -49,6 +50,7 @@ class _MyCustomSplashScreenState extends State<MyCustomSplashScreen> {
     Get.put(FolderController());
     Get.put(ProfileController());
     Get.put(Edit_profile_controller());
+    Get.put(TranslatorController());
     Splash_controller.to.splashgetintrovideo();
 
     super.initState();

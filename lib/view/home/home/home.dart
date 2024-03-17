@@ -1,6 +1,7 @@
 import 'package:alxza/view/home/folder/folder.dart';
 import 'package:alxza/view/home/home/controller.dart';
 import 'package:alxza/view/home/menue/menue.dart';
+import 'package:alxza/view/home/menue/translator/translator.dart';
 import 'package:alxza/view/home/profile.dart/profile.dart';
 import 'package:alxza/widget/colors.dart';
 import 'package:flutter/material.dart';
@@ -90,7 +91,9 @@ class _HomeScreenState extends State<HomeScreen> {
             ? const MenueScreen()
             : HomeController.to.selectedItemPosition.value == 3
                 ? const ProfileScreen()
-                : const FolderScreen(),
+                : HomeController.to.tabIndex.value == 0
+                    ? const TranslateScreen()
+                    : const FolderScreen(),
       ),
     );
   }

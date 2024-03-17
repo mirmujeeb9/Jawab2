@@ -59,79 +59,97 @@ class _AffiliateScreenState extends State<AffiliateScreen> {
                                     children: [
                                       Row(
                                         mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
-                                          SizedBox(
-                                            width: 30.w,
+                                          Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            children: [
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  SizedBox(
+                                                    width: 30.w,
+                                                  ),
+                                                  TextWidget(
+                                                    text: "Earnings",
+                                                    fontSize: 20.sp,
+                                                    color: Colors.white,
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
+                                                ],
+                                              ),
+                                              SizedBox(
+                                                height: 5.h,
+                                              ),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  SizedBox(
+                                                    width: 30.w,
+                                                  ),
+                                                  TextWidget(
+                                                    text:
+                                                        "Basic chat functionality",
+                                                    fontSize: 12.sp,
+                                                    color: Colors.white,
+                                                    fontWeight: FontWeight.w400,
+                                                  ),
+                                                ],
+                                              ),
+                                              SizedBox(
+                                                height: 5.h,
+                                              ),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  SizedBox(
+                                                    width: 30.w,
+                                                  ),
+                                                  TextWidget(
+                                                    text: "50 €",
+                                                    fontSize: 35.sp,
+                                                    color: Colors.white,
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
+                                                ],
+                                              ),
+                                              SizedBox(
+                                                height: 5.h,
+                                              ),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  SizedBox(
+                                                    width: 30.w,
+                                                  ),
+                                                  TextWidget(
+                                                    text:
+                                                        "Comission Rate: 10%\nReferral Program: All Purchases",
+                                                    fontSize: 10.sp,
+                                                    color: Colors.white,
+                                                    fontWeight: FontWeight.w400,
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
                                           ),
-                                          TextWidget(
-                                            text: "Earnings",
-                                            fontSize: 20.sp,
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                        ],
-                                      ),
-                                      SizedBox(
-                                        height: 5.h,
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          SizedBox(
-                                            width: 30.w,
-                                          ),
-                                          TextWidget(
-                                            text: "Basic chat functionality",
-                                            fontSize: 12.sp,
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.w400,
-                                          ),
-                                        ],
-                                      ),
-                                      SizedBox(
-                                        height: 5.h,
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          SizedBox(
-                                            width: 30.w,
-                                          ),
-                                          TextWidget(
-                                            text: "50 €",
-                                            fontSize: 35.sp,
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                        ],
-                                      ),
-                                      SizedBox(
-                                        height: 5.h,
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          SizedBox(
-                                            width: 30.w,
-                                          ),
-                                          TextWidget(
-                                            text:
-                                                "Comission Rate: 10%\nReferral Program: All Purchases",
-                                            fontSize: 10.sp,
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.w400,
+                                          Image.asset(
+                                            "images/pro.png",
+                                            height: 138.h,
+                                            width: 162.w,
                                           ),
                                         ],
                                       ),
