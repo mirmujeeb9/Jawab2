@@ -149,6 +149,9 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                               if (v.length < 6) {
                                 return "Please enter up to 6 digits";
                               }
+                              if (obj.passwordcontroller.text != v) {
+                                return "Confirm password not match";
+                              }
 
                               return null;
                             },

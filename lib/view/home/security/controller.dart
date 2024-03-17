@@ -6,5 +6,4 @@ class SecurityController extends GetxController {
   TextEditingController oldPasswordcontroller = TextEditingController();
   TextEditingController newPasswordcontroller = TextEditingController();
   TextEditingController confirmnewPasswordcontroller = TextEditingController();
-  String confirmpassword = '';
 }
