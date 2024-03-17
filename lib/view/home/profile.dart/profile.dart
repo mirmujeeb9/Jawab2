@@ -1,3 +1,4 @@
+import 'package:alxza/view/home/privacy_policy/Privacy_Policy.dart';
 import 'package:alxza/view/home/affiliate/affiliate.dart';
 import 'package:alxza/view/home/edit_profile/edit_profile.dart';
 import 'package:alxza/view/home/faq/faq.dart';
@@ -127,9 +128,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                             ? const InvoiceScreen()
                                             : index == 2
                                                 ? const SecurityScreen()
-                                                : index == 5
-                                                    ? const FaqScreen()
-                                                    : const AffiliateScreen(),
+                                                : index == 4
+                                                    ? const PrivacyPolicyScreen()
+                                                    : index == 5
+                                                        ? const FaqScreen()
+                                                        : const AffiliateScreen(),
                                     transition: Transition.rightToLeft,
                                   );
                                 })
