@@ -21,6 +21,8 @@ class TranslateScreen extends StatefulWidget {
 
 class _TranslateScreenState extends State<TranslateScreen>
     with WidgetsBindingObserver {
+  TextEditingController textEditingController = TextEditingController();
+
   final tooltipController = JustTheController();
   @override
   void initState() {
@@ -28,8 +30,16 @@ class _TranslateScreenState extends State<TranslateScreen>
       tooltipController.showTooltip();
     });
     WidgetsBinding.instance.addObserver(this);
-
+    TranslatorController.to.ismicOpen.value = false;
+    TranslatorController.to.isEmpty.value = true;
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    textEditingController.dispose();
+
+    super.dispose();
   }
 
   @override
@@ -146,8 +156,8 @@ class _TranslateScreenState extends State<TranslateScreen>
                               padding: EdgeInsets.only(bottom: 10.h),
                               child: TextFormField(
                                 onTap: () {
-                                  // obj.textEditingController.selection =
-                                  //     obj.textEditingController.selection =
+                                  // textEditingController.selection =
+                                  //     textEditingController.selection =
                                   //         TextSelection(
                                   //             baseOffset: 0,
                                   //             extentOffset: obj
@@ -175,20 +185,23 @@ class _TranslateScreenState extends State<TranslateScreen>
                                         ? 11
                                         : 17,
                                 keyboardType: TextInputType.multiline,
-                                controller: obj.textEditingController,
+                                controller: textEditingController,
                                 textAlign: TextAlign.justify,
                                 decoration: InputDecoration(
                                   border: InputBorder.none,
-                                  hintText: "Enter text",
+                                  hintText: obj.ismicOpen.value
+                                      ? "Speak now ..."
+                                      : "Enter text",
                                   hintStyle: TextStyle(
                                     fontFamily: "Poppins",
                                     fontWeight: FontWeight.w600,
+                                    color: textgrey,
                                     fontSize: 28.sp,
                                   ),
                                 ),
                               ),
                             ),
-                            !obj.isEmpty.value
+                            !obj.isEmpty.value || obj.ismicOpen.value
                                 ? const SizedBox()
                                 : CustomContainer(
                                     onTap: () async {
@@ -196,10 +209,10 @@ class _TranslateScreenState extends State<TranslateScreen>
                                           await Clipboard.getData(
                                               Clipboard.kTextPlain);
 
-                                      obj.textEditingController.text =
+                                      textEditingController.text =
                                           clipboardData!.text!;
-                                      if (obj.textEditingController.text
-                                          .isNotEmpty) {
+                                      if (textEditingController
+                                          .text.isNotEmpty) {
                                         obj.updatetext(false);
                                       }
                                     },
@@ -240,7 +253,7 @@ class _TranslateScreenState extends State<TranslateScreen>
                                         InkWell(
                                           onTap: () {
                                             Clipboard.setData(ClipboardData(
-                                                text: obj.textEditingController
+                                                text: textEditingController
                                                     .text));
                                           },
                                           child: SvgPicture.asset(
@@ -254,7 +267,7 @@ class _TranslateScreenState extends State<TranslateScreen>
                                         InkWell(
                                           onTap: () {
                                             Share.share(
-                                              obj.textEditingController.text,
+                                              textEditingController.text,
                                             );
                                           },
                                           child: SvgPicture.asset(
@@ -265,7 +278,7 @@ class _TranslateScreenState extends State<TranslateScreen>
                                         const Spacer(),
                                         InkWell(
                                           onTap: () {
-                                            obj.textEditingController.clear();
+                                            textEditingController.clear();
                                             obj.updatetext(true);
                                             obj.updatemic(false);
                                           },
