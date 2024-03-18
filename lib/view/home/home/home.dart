@@ -1,7 +1,9 @@
 import 'package:alxza/view/home/folder/folder.dart';
 import 'package:alxza/view/home/home/controller.dart';
+import 'package:alxza/view/home/menue/image_transcription/image_transcription.dart';
 import 'package:alxza/view/home/menue/menue.dart';
 import 'package:alxza/view/home/menue/translator/translator.dart';
+import 'package:alxza/view/home/menue/video_transcription/video_transcription.dart';
 import 'package:alxza/view/home/profile.dart/profile.dart';
 import 'package:alxza/widget/colors.dart';
 import 'package:flutter/material.dart';
@@ -92,11 +94,17 @@ class _HomeScreenState extends State<HomeScreen> {
             : HomeController.to.tabIndex.value == 0 &&
                     HomeController.to.selectedItemPosition.value == 1
                 ? const TranslateScreen()
-                : HomeController.to.selectedItemPosition.value == 2
-                    ? const FolderScreen()
-                    : HomeController.to.selectedItemPosition.value == 3
-                        ? const ProfileScreen()
-                        : const TranslateScreen(),
+                : HomeController.to.tabIndex.value == 2 &&
+                        HomeController.to.selectedItemPosition.value == 1
+                    ? const VideoTranscriptionScreen()
+                    : HomeController.to.tabIndex.value == 3 &&
+                            HomeController.to.selectedItemPosition.value == 1
+                        ? const ImageTranscriptionScreen()
+                        : HomeController.to.selectedItemPosition.value == 2
+                            ? const FolderScreen()
+                            : HomeController.to.selectedItemPosition.value == 3
+                                ? const ProfileScreen()
+                                : const TranslateScreen(),
       ),
     );
   }

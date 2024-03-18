@@ -1,3 +1,4 @@
+import 'package:alxza/view/home/edit_profile/edit_profile.dart';
 import 'package:alxza/view/home/home/controller.dart';
 import 'package:alxza/view/home/upgrade_to_pro/upgrade_to_pro.dart';
 import 'package:alxza/widget/button.dart';
@@ -46,8 +47,16 @@ class _MenueScreenState extends State<MenueScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    SvgPicture.asset(
-                      "images/male.svg",
+                    InkWell(
+                      onTap: () {
+                        Get.to(
+                          () => const Edit_profile(),
+                          transition: Transition.rightToLeft,
+                        );
+                      },
+                      child: SvgPicture.asset(
+                        "images/male.svg",
+                      ),
                     ),
                     JustTheTooltip(
                       borderRadius: BorderRadius.circular(7.r),

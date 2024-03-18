@@ -9,6 +9,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 class Conjugaison_1 extends StatefulWidget {
@@ -46,10 +47,14 @@ class _Conjugaison_1State extends State<Conjugaison_1> {
                       Get.to(const Conjugaison_2(),
                           transition: Transition.rightToLeft);
                     },
-                    child: Icon(
-                      Icons.mic,
-                      color: primaryColor,
-                      size: 30.sp,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: SvgPicture.asset(
+                        "images/mic_full.svg",
+                        height: 15.h,
+                        width: 18.w,
+                        color: primaryColor,
+                      ),
                     ),
                   ),
                   color: const Color(0xffF3F0F3),

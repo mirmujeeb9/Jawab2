@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 
 class TranslatorController extends GetxController {
   static TranslatorController get to => Get.find();
-  TextEditingController textEditingController = TextEditingController();
   Rx<bool> isEmpty = true.obs;
   Rx<bool> ismicOpen = false.obs;
   void updatetext(bool value) {
