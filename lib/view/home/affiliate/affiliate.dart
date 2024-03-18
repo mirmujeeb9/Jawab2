@@ -62,8 +62,8 @@ class _AffiliateScreenState extends State<AffiliateScreen> {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
                                             children: [
                                               Row(
                                                 mainAxisAlignment:
@@ -149,7 +149,6 @@ class _AffiliateScreenState extends State<AffiliateScreen> {
                                           Image.asset(
                                             "images/pro.png",
                                             height: 138.h,
-                                            width: 162.w,
                                           ),
                                         ],
                                       ),

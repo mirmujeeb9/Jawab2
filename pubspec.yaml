@@ -46,6 +46,7 @@ dependencies:
   just_the_tooltip: ^0.0.12
   carousel_slider: ^4.2.1
   dotted_border: ^2.1.0
+  share_plus: ^7.2.1
 
 dev_dependencies:
   flutter_test:

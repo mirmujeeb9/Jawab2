@@ -89,11 +89,14 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Obx(
         () => HomeController.to.selectedItemPosition.value == 0
             ? const MenueScreen()
-            : HomeController.to.selectedItemPosition.value == 3
-                ? const ProfileScreen()
-                : HomeController.to.tabIndex.value == 0
-                    ? const TranslateScreen()
-                    : const FolderScreen(),
+            : HomeController.to.tabIndex.value == 0 &&
+                    HomeController.to.selectedItemPosition.value == 1
+                ? const TranslateScreen()
+                : HomeController.to.selectedItemPosition.value == 2
+                    ? const FolderScreen()
+                    : HomeController.to.selectedItemPosition.value == 3
+                        ? const ProfileScreen()
+                        : const TranslateScreen(),
       ),
     );
   }
