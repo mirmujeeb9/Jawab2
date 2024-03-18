@@ -1,4 +1,5 @@
 import 'package:alxza/view/auth/forgot_password/verified/verified_screen.dart';
+import 'package:alxza/view/conjugaison%201/conjugaison1.dart';
 import 'package:alxza/view/home/payment_method/controller.dart';
 import 'package:alxza/widget/button.dart';
 import 'package:alxza/widget/colors.dart';
@@ -513,7 +514,13 @@ class _Payment_methodState extends State<Payment_method> {
                           () => obj.addcardClick.value
                               ? const SizedBox()
                               : Button(
-                                  onTap: () {},
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const Conjugaison_1()));
+                                  },
                                   width: 335.w,
                                   text: "Payment Now",
                                   fontWeight: FontWeight.w500,
