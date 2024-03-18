@@ -1,3 +1,4 @@
+import 'package:alxza/view/home/conjugaison%201/conjugaison1.dart';
 import 'package:alxza/view/home/folder/folder.dart';
 import 'package:alxza/view/home/home/controller.dart';
 import 'package:alxza/view/home/menue/image_transcription/image_transcription.dart';
@@ -100,11 +101,17 @@ class _HomeScreenState extends State<HomeScreen> {
                     : HomeController.to.tabIndex.value == 3 &&
                             HomeController.to.selectedItemPosition.value == 1
                         ? const ImageTranscriptionScreen()
-                        : HomeController.to.selectedItemPosition.value == 2
-                            ? const FolderScreen()
-                            : HomeController.to.selectedItemPosition.value == 3
-                                ? const ProfileScreen()
-                                : const TranslateScreen(),
+                        : HomeController.to.tabIndex.value == 4 &&
+                                HomeController.to.selectedItemPosition.value ==
+                                    1
+                            ? const Conjugaison_1()
+                            : HomeController.to.selectedItemPosition.value == 2
+                                ? const FolderScreen()
+                                : HomeController
+                                            .to.selectedItemPosition.value ==
+                                        3
+                                    ? const ProfileScreen()
+                                    : const TranslateScreen(),
       ),
     );
   }

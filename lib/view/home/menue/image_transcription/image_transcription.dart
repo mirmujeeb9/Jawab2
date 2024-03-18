@@ -2,6 +2,7 @@ import 'package:alxza/view/home/menue/image_transcription/controller.dart';
 import 'package:alxza/view/home/menue/translator/controller.dart';
 import 'package:alxza/widget/button.dart';
 import 'package:alxza/widget/colors.dart';
+import 'package:alxza/widget/confirmation_dialogue.dart';
 import 'package:alxza/widget/custom_container.dart';
 import 'package:alxza/widget/customize_textform_feild.dart';
 import 'package:alxza/widget/text_widget.dart';
@@ -120,6 +121,11 @@ class _ImageTranscriptionScreenState extends State<ImageTranscriptionScreen>
                                 child: InkWell(
                                   onTap: () {
                                     tooltipController.showTooltip();
+                                    Get.dialog(CreditDialogue(
+                                      onYesBtnClick: () {
+                                        Get.back();
+                                      },
+                                    ));
                                   },
                                   child: SvgPicture.asset(
                                     "images/token.svg",
@@ -318,7 +324,13 @@ class _ImageTranscriptionScreenState extends State<ImageTranscriptionScreen>
                                       child: FloatingActionButton(
                                         onPressed: () {
                                           if (formkey.currentState!
-                                              .validate()) {}
+                                              .validate()) {
+                                            Get.dialog(EnoughDialogue(
+                                              onYesBtnClick: () {
+                                                Get.back();
+                                              },
+                                            ));
+                                          }
                                         },
                                         elevation: 0,
                                         materialTapTargetSize:

@@ -3,6 +3,7 @@ import 'package:alxza/view/home/home/controller.dart';
 import 'package:alxza/view/home/upgrade_to_pro/upgrade_to_pro.dart';
 import 'package:alxza/widget/button.dart';
 import 'package:alxza/widget/colors.dart';
+import 'package:alxza/widget/confirmation_dialogue.dart';
 import 'package:alxza/widget/custom_container.dart';
 import 'package:alxza/widget/text_widget.dart';
 import 'package:flutter/material.dart';
@@ -80,6 +81,11 @@ class _MenueScreenState extends State<MenueScreen> {
                       child: InkWell(
                         onTap: () {
                           tooltipController.showTooltip();
+                          Get.dialog(CreditDialogue(
+                            onYesBtnClick: () {
+                              Get.back();
+                            },
+                          ));
                         },
                         child: SvgPicture.asset(
                           "images/token.svg",
