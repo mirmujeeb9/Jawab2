@@ -11,6 +11,7 @@ import 'package:alxza/view/home/folder/controller.dart';
 import 'package:alxza/view/home/history/controller.dart';
 import 'package:alxza/view/home/home/controller.dart';
 import 'package:alxza/view/home/invoices/controller.dart';
+import 'package:alxza/view/home/menue/advanced_dictionary/controller.dart';
 import 'package:alxza/view/home/menue/image_transcription/controller.dart';
 import 'package:alxza/view/home/menue/translator/controller.dart';
 import 'package:alxza/view/home/menue/video_transcription/controller.dart';
@@ -57,6 +58,7 @@ class _MyCustomSplashScreenState extends State<MyCustomSplashScreen> {
     Get.put(VideoTranscriptionController());
     Get.put(ImageTranscriptionController());
     Get.put(CongugationController());
+    Get.put(AdvanceDisctionaryController());
     Splash_controller.to.splashgetintrovideo();
 
     super.initState();
