@@ -20,6 +20,22 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen> {
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
+  TextEditingController emailcontroller = TextEditingController();
+  TextEditingController passwordcontroller = TextEditingController();
+  TextEditingController confirmpasswordcontroller = TextEditingController();
+  TextEditingController fullnamecontroller = TextEditingController();
+
+  @override
+  void dispose() {
+    // Dispose of all controller instances
+    emailcontroller.dispose();
+    passwordcontroller.dispose();
+    confirmpasswordcontroller.dispose();
+    fullnamecontroller.dispose();
+
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -77,7 +93,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             ),
                             hint: "Hasan Mahmud",
                             fontFamily: 'Poppins',
-                            controller: obj.fullnamecontroller,
+                            controller: fullnamecontroller,
                             validator: (v) {
                               if (v!.isEmpty) {
                                 return "Please enter Full Name";
@@ -113,7 +129,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             ),
                             hint: "example@gmail.com",
                             fontFamily: 'Poppins',
-                            controller: obj.emailcontroller,
+                            controller: emailcontroller,
                             validator: (v) {
                               if (v!.isEmpty) {
                                 return "Please enter email";
@@ -167,7 +183,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             hint: "● ● ● ● ● ● ● ●",
                             hintTextSize: 12.sp,
                             fontFamily: 'Poppins',
-                            controller: obj.passwordcontroller,
+                            controller: passwordcontroller,
                             validator: (v) {
                               if (v!.isEmpty) {
                                 return "Please enter password";
@@ -221,7 +237,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             hint: "● ● ● ● ● ● ● ●",
                             hintTextSize: 12.sp,
                             fontFamily: 'Poppins',
-                            controller: obj.confirmpasswordcontroller,
+                            controller: confirmpasswordcontroller,
                             validator: (v) {
                               if (v!.isEmpty) {
                                 return "Please enter confirm password";
@@ -229,7 +245,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               if (v.length < 6) {
                                 return "Please enter up to 6 digits";
                               }
-                              if (obj.passwordcontroller.text != v) {
+                              if (passwordcontroller.text != v) {
                                 return "Confirm password not match";
                               }
 

@@ -20,6 +20,23 @@ class Edit_profile extends StatefulWidget {
 }
 
 class _Edit_profileState extends State<Edit_profile> {
+  TextEditingController emailcontroller = TextEditingController();
+  TextEditingController fullnamecontroller = TextEditingController();
+  TextEditingController phonecontroller = TextEditingController();
+  TextEditingController locationconotroller = TextEditingController();
+  TextEditingController boicontroller = TextEditingController();
+
+  @override
+  void dispose() {
+    emailcontroller.dispose();
+    fullnamecontroller.dispose();
+    phonecontroller.dispose();
+    locationconotroller.dispose();
+    boicontroller.dispose();
+
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -143,7 +160,7 @@ class _Edit_profileState extends State<Edit_profile> {
                           ),
                           hint: "Hasan Mahmud",
                           fontFamily: 'Poppins',
-                          controller: obj.fullnamecontroller,
+                          controller: fullnamecontroller,
                           validator: (v) {
                             if (v!.isEmpty) {
                               return "Please enter Full Name";
@@ -180,7 +197,7 @@ class _Edit_profileState extends State<Edit_profile> {
                           ),
                           hint: "example@gmail.com",
                           fontFamily: 'Poppins',
-                          controller: obj.emailcontroller,
+                          controller: emailcontroller,
                           validator: (v) {
                             if (v!.isEmpty) {
                               return "Please enter email";
@@ -213,7 +230,7 @@ class _Edit_profileState extends State<Edit_profile> {
                           hint: "+880173912-8899",
                           fontFamily: 'Poppins',
                           keyboardType: TextInputType.number,
-                          controller: obj.phonecontroller,
+                          controller: phonecontroller,
                           validator: (v) {
                             if (v!.isEmpty) {
                               return "Please enter Phone";
@@ -242,7 +259,7 @@ class _Edit_profileState extends State<Edit_profile> {
                         child: CustomTextFormField(
                           hint: "Sai Can, Vietnam",
                           fontFamily: 'Poppins',
-                          controller: obj.locationconotroller,
+                          controller: locationconotroller,
                           validator: (v) {
                             if (v!.isEmpty) {
                               return "Please enter Location";
@@ -280,7 +297,7 @@ class _Edit_profileState extends State<Edit_profile> {
                           maxline: 5,
                           hint: "Start bio here...",
                           fontFamily: 'Poppins',
-                          controller: obj.fullnamecontroller,
+                          controller: fullnamecontroller,
                           validator: (v) {
                             if (v!.isEmpty) {
                               return "Please enter Location";

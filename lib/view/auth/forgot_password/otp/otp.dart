@@ -56,6 +56,7 @@ class _OtpScreenState extends State<OtpScreen> {
   @override
   void dispose() {
     timer.cancel();
+    otpController.dispose();
     super.dispose();
   }
 

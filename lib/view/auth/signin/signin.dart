@@ -20,7 +20,16 @@ class Signin_screen extends StatefulWidget {
 }
 
 class _Signin_screenState extends State<Signin_screen> {
+  TextEditingController emailcontroller = TextEditingController();
+  TextEditingController passwordcontroller = TextEditingController();
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
+  @override
+  void dispose() {
+    emailcontroller.dispose();
+    passwordcontroller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -102,7 +111,7 @@ class _Signin_screenState extends State<Signin_screen> {
                         ),
                         hint: "example@gmail.com",
                         fontFamily: 'Poppins',
-                        controller: obj.emailcontroller,
+                        controller: emailcontroller,
                         validator: (v) {
                           if (v!.isEmpty) {
                             return "Please enter email";
@@ -156,7 +165,7 @@ class _Signin_screenState extends State<Signin_screen> {
                         hint: "● ● ● ● ● ● ● ●",
                         hintTextSize: 12.sp,
                         fontFamily: 'Poppins',
-                        controller: obj.passwordcontroller,
+                        controller: passwordcontroller,
                         validator: (v) {
                           if (v!.isEmpty) {
                             return "Please enter password";

@@ -17,6 +17,20 @@ class AffiliateScreen extends StatefulWidget {
 }
 
 class _AffiliateScreenState extends State<AffiliateScreen> {
+  TextEditingController affiliatecontroler = TextEditingController();
+  TextEditingController emailcontroler = TextEditingController();
+  TextEditingController bankinfocontroler = TextEditingController();
+  TextEditingController amountcontroler = TextEditingController();
+
+  @override
+  void dispose() {
+    affiliatecontroler.dispose();
+    emailcontroler.dispose();
+    bankinfocontroler.dispose();
+    amountcontroler.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -221,7 +235,7 @@ class _AffiliateScreenState extends State<AffiliateScreen> {
                                                   "images/copy.svg"),
                                             ),
                                             fontFamily: 'Poppins',
-                                            controller: obj.affiliatecontroler,
+                                            controller: affiliatecontroler,
                                             validator: (v) {
                                               return null;
                                               //   if (v!.isEmpty) {
@@ -417,7 +431,7 @@ class _AffiliateScreenState extends State<AffiliateScreen> {
                                               "images/copy.svg"),
                                         ),
                                         fontFamily: 'Poppins',
-                                        controller: obj.emailcontroler,
+                                        controller: emailcontroler,
                                         validator: (v) {
                                           return null;
                                           //   if (v!.isEmpty) {
@@ -503,7 +517,7 @@ class _AffiliateScreenState extends State<AffiliateScreen> {
                                         hint:
                                             "Bank of America - 2382372329 3843749 2372379",
                                         fontFamily: 'Poppins',
-                                        controller: obj.bankinfocontroler,
+                                        controller: bankinfocontroler,
                                         validator: (v) {
                                           return null;
                                           //   if (v!.isEmpty) {
@@ -540,7 +554,7 @@ class _AffiliateScreenState extends State<AffiliateScreen> {
                                     child: CustomTextFormField(
                                         hint: "Minimum Withdrawal Amount is 10",
                                         fontFamily: 'Poppins',
-                                        controller: obj.amountcontroler,
+                                        controller: amountcontroler,
                                         validator: (v) {
                                           return null;
                                           //   if (v!.isEmpty) {

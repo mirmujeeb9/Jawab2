@@ -19,6 +19,18 @@ class SecurityScreen extends StatefulWidget {
 
 class _SecurityScreenState extends State<SecurityScreen> {
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
+  TextEditingController oldPasswordcontroller = TextEditingController();
+  TextEditingController newPasswordcontroller = TextEditingController();
+  TextEditingController confirmnewPasswordcontroller = TextEditingController();
+
+  @override
+  void dispose() {
+    oldPasswordcontroller.dispose();
+    newPasswordcontroller.dispose();
+    confirmnewPasswordcontroller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -99,7 +111,7 @@ class _SecurityScreenState extends State<SecurityScreen> {
                       child: CustomTextFormField(
                         hintTextSize: 12.sp,
                         fontFamily: 'Poppins',
-                        controller: obj.oldPasswordcontroller,
+                        controller: oldPasswordcontroller,
                         validator: (v) {
                           if (v!.isEmpty) {
                             return "Please enter old password";
@@ -131,7 +143,7 @@ class _SecurityScreenState extends State<SecurityScreen> {
                       child: CustomTextFormField(
                         hintTextSize: 12.sp,
                         fontFamily: 'Poppins',
-                        controller: obj.newPasswordcontroller,
+                        controller: newPasswordcontroller,
                         validator: (v) {
                           if (v!.isEmpty) {
                             return "Please enter new password";
@@ -163,7 +175,7 @@ class _SecurityScreenState extends State<SecurityScreen> {
                       child: CustomTextFormField(
                         hintTextSize: 12.sp,
                         fontFamily: 'Poppins',
-                        controller: obj.confirmnewPasswordcontroller,
+                        controller: confirmnewPasswordcontroller,
                         validator: (v) {
                           if (v!.isEmpty) {
                             return "Please enter confirm password";
@@ -171,7 +183,7 @@ class _SecurityScreenState extends State<SecurityScreen> {
                           if (v.length < 6) {
                             return "Please enter up to 6 digits";
                           }
-                          if (obj.newPasswordcontroller.text != v) {
+                          if (newPasswordcontroller.text != v) {
                             return "Confirm password not match";
                           }
 

@@ -1,9 +1,9 @@
-import 'package:alxza/view/home/privacy_policy/Privacy_Policy.dart';
 import 'package:alxza/view/home/affiliate/affiliate.dart';
 import 'package:alxza/view/home/edit_profile/edit_profile.dart';
 import 'package:alxza/view/home/faq/faq.dart';
 import 'package:alxza/view/home/home/controller.dart';
 import 'package:alxza/view/home/invoices/invoices.dart';
+import 'package:alxza/view/home/privacy_policy/privacy_policy.dart';
 import 'package:alxza/view/home/profile.dart/controller.dart';
 import 'package:alxza/view/home/security/security.dart';
 import 'package:alxza/view/home/upgrade_to_pro/upgrade_to_pro.dart';
