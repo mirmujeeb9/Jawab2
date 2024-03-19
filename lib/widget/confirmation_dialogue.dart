@@ -1,11 +1,14 @@
 import 'dart:ui';
 
+import 'package:alxza/view/home/home/controller.dart';
 import 'package:alxza/widget/button.dart';
 import 'package:alxza/widget/colors.dart';
+import 'package:alxza/widget/custom_container.dart';
 import 'package:alxza/widget/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 
 class EnoughDialogue extends StatefulWidget {
   final VoidCallback onYesBtnClick;
@@ -182,7 +185,8 @@ class _CreditDialogueState extends State<CreditDialogue>
                               height: 33.h,
                               width: 33.w,
                               decoration: BoxDecoration(
-                                  border: Border.all(color: Colors.white),
+                                  border: Border.all(
+                                      color: Colors.white, width: 2.5),
                                   color: primaryColor,
                                   shape: BoxShape.circle),
                               child: SvgPicture.asset(
@@ -214,14 +218,12 @@ class _CreditDialogueState extends State<CreditDialogue>
                             ],
                           ),
                           Padding(
-                            padding: EdgeInsets.only(top: 30.h, left: 25.w),
+                            padding: EdgeInsets.only(top: 30.h, left: 22.w),
                             child: Container(
-                              height: 33.h,
-                              width: 33.w,
+                              height: 32.h,
+                              width: 32.w,
                               decoration: BoxDecoration(
-                                  border: Border.all(color: Colors.white),
-                                  color: primaryColor,
-                                  shape: BoxShape.circle),
+                                  color: primaryColor, shape: BoxShape.circle),
                               child: SvgPicture.asset(
                                 "images/time.svg",
                               ),
@@ -229,6 +231,43 @@ class _CreditDialogueState extends State<CreditDialogue>
                           ),
                         ],
                       ),
+                      // Stack(
+                      //   children: [
+                      //     Column(
+                      //       children: [
+                      //         SvgPicture.asset(
+                      //           "images/token.svg",
+                      //           height: 56.h,
+                      //           width: 57.w,
+                      //         ),
+                      //         SizedBox(
+                      //           height: 20.h,
+                      //         ),
+                      //         TextWidget(
+                      //           text: "46 minutes\nleft",
+                      //           fontSize: 9,
+                      //           fontWeight: FontWeight.w600,
+                      //           color: primaryColor,
+                      //           textAlign: TextAlign.center,
+                      //         )
+                      //       ],
+                      //     ),
+                      //     Padding(
+                      //       padding: EdgeInsets.only(top: 30.h, left: 25.w),
+                      //       child: Container(
+                      //         height: 33.h,
+                      //         width: 33.w,
+                      //         decoration: BoxDecoration(
+                      //             border: Border.all(color: Colors.white),
+                      //             color: primaryColor,
+                      //             shape: BoxShape.circle),
+                      //         child: SvgPicture.asset(
+                      //           "images/time.svg",
+                      //         ),
+                      //       ),
+                      //     ),
+                      //   ],
+                      // ),
                     ],
                   ),
                   Button(
@@ -241,6 +280,117 @@ class _CreditDialogueState extends State<CreditDialogue>
                   ),
                 ],
               ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+}
+
+class MenueDialogue extends StatefulWidget {
+  final VoidCallback onYesBtnClick;
+
+  const MenueDialogue({
+    Key? key,
+    required this.onYesBtnClick,
+  }) : super(key: key);
+
+  @override
+  State<MenueDialogue> createState() => _MenueDialogueState();
+}
+
+class _MenueDialogueState extends State<MenueDialogue>
+    with SingleTickerProviderStateMixin {
+  late AnimationController controller;
+  late Animation<double> scaleAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 500));
+    scaleAnimation =
+        CurvedAnimation(parent: controller, curve: Curves.elasticInOut);
+    controller.addListener(() {
+      setState(() {});
+    });
+    controller.forward();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return BackdropFilter(
+      filter: ImageFilter.blur(sigmaY: 2, sigmaX: 2),
+      child: ScaleTransition(
+        scale: scaleAnimation,
+        alignment: Alignment.bottomCenter,
+        child: Dialog(
+          alignment: Alignment.bottomCenter,
+          backgroundColor: whiteColor,
+          insetPadding: EdgeInsets.symmetric(
+            horizontal: 30.w,
+          ),
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20.r),
+            topRight: Radius.circular(20.r),
+          )),
+          child: AspectRatio(
+            aspectRatio: 0.8,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                GridView.builder(
+                    padding:
+                        EdgeInsets.only(left: 20.w, right: 20.w, top: 20.h),
+                    shrinkWrap: true,
+                    primary: false,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      mainAxisExtent: 140.h,
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 20.w,
+                      mainAxisSpacing: 15.h,
+                    ),
+                    itemCount: HomeController.to.tabsList.length,
+                    itemBuilder: (c, index) {
+                      TabModel model = HomeController.to.tabsList[index];
+                      return Column(
+                        // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Card(
+                            elevation: 5,
+                            shape: const CircleBorder(),
+                            child: Container(
+                              height: 85.h,
+                              width: 85.w,
+                              decoration: BoxDecoration(
+                                  color: primaryColor, shape: BoxShape.circle),
+                              child: Center(
+                                child: Image(
+                                    height: 49.h,
+                                    width: 49.w,
+                                    image: AssetImage(model.image!)),
+                              ),
+                            ),
+                          ),
+                          TextWidget(
+                            textAlign: TextAlign.center,
+                            text: model.name!,
+                            fontSize: 14.sp,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ],
+                      );
+                    }),
+              ],
             ),
           ),
         ),

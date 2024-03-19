@@ -121,7 +121,12 @@ class _ImageTranscriptionScreenState extends State<ImageTranscriptionScreen>
                                 child: InkWell(
                                   onTap: () {
                                     tooltipController.showTooltip();
-                                    Get.dialog(CreditDialogue(
+                                    // Get.dialog(CreditDialogue(
+                                    //   onYesBtnClick: () {
+                                    //     Get.back();
+                                    //   },
+                                    // ));
+                                    Get.dialog(MenueDialogue(
                                       onYesBtnClick: () {
                                         Get.back();
                                       },
