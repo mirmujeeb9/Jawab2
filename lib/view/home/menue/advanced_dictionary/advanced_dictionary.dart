@@ -1,8 +1,10 @@
+import 'package:alxza/view/home/menue/advanced_dictionary/controller.dart';
 import 'package:alxza/view/home/menue/translator/controller.dart';
 import 'package:alxza/widget/button.dart';
 import 'package:alxza/widget/colors.dart';
 import 'package:alxza/widget/confirmation_dialogue.dart';
 import 'package:alxza/widget/custom_container.dart';
+import 'package:alxza/widget/customize_textform_feild.dart';
 import 'package:alxza/widget/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -13,14 +15,15 @@ import 'package:get/get.dart';
 import 'package:just_the_tooltip/just_the_tooltip.dart';
 import 'package:share_plus/share_plus.dart';
 
-class TranslateScreen extends StatefulWidget {
-  const TranslateScreen({super.key});
+class AdvanceDisctionaryScreen extends StatefulWidget {
+  const AdvanceDisctionaryScreen({super.key});
 
   @override
-  State<TranslateScreen> createState() => _TranslateScreenState();
+  State<AdvanceDisctionaryScreen> createState() =>
+      _AdvanceDisctionaryScreenState();
 }
 
-class _TranslateScreenState extends State<TranslateScreen>
+class _AdvanceDisctionaryScreenState extends State<AdvanceDisctionaryScreen>
     with WidgetsBindingObserver {
   TextEditingController textEditingController = TextEditingController();
 
@@ -31,8 +34,8 @@ class _TranslateScreenState extends State<TranslateScreen>
       tooltipController.showTooltip();
     });
     WidgetsBinding.instance.addObserver(this);
-    TranslatorController.to.ismicOpen.value = false;
-    TranslatorController.to.isEmpty.value = true;
+    AdvanceDisctionaryController.to.transcriptStatus.value = "empty";
+    AdvanceDisctionaryController.to.isEmpty.value = true;
     super.initState();
   }
 
@@ -49,7 +52,7 @@ class _TranslateScreenState extends State<TranslateScreen>
       backgroundColor: backGroundColor,
       body: KeyboardVisibilityBuilder(
           builder: (context, child, isKeyboardVisible) {
-        return GetBuilder<TranslatorController>(builder: (obj) {
+        return GetBuilder<AdvanceDisctionaryController>(builder: (obj) {
           return Obx(() {
             // log("hii $isKeyboardVisible");
 
@@ -88,7 +91,7 @@ class _TranslateScreenState extends State<TranslateScreen>
                             const Spacer(),
                             Center(
                               child: TextWidget(
-                                text: "AI Translator",
+                                text: "Advanced Dictionary",
                                 fontSize: 18.sp,
                                 fontWeight: FontWeight.w600,
                               ),
@@ -151,63 +154,118 @@ class _TranslateScreenState extends State<TranslateScreen>
                           borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(13.r),
                               bottomRight: Radius.circular(13.r))),
-                      height: isKeyboardVisible ? 310.h : 410.h,
+                      height: isKeyboardVisible
+                          ? 310.h
+                          : obj.transcriptStatus.value == "complete"
+                              ? 510.h
+                              : 450.h,
                       width: ScreenUtil().screenWidth,
                       child: Padding(
                         padding: EdgeInsets.symmetric(horizontal: 20.w),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Padding(
-                              padding: EdgeInsets.only(bottom: 10.h),
-                              child: TextFormField(
-                                onTap: () {
-                                  // textEditingController.selection =
-                                  //     textEditingController.selection =
-                                  //         TextSelection(
-                                  //             baseOffset: 0,
-                                  //             extentOffset: obj
-                                  //                 .textEditingController
-                                  //                 .text
-                                  //                 .length);
-                                },
-                                onChanged: (v) {
-                                  if (v.isNotEmpty) {
-                                    if (obj.isEmpty.value) {
-                                      obj.updatetext(false);
-                                    }
-                                  } else {
-                                    obj.updatetext(true);
-                                  }
-                                },
-                                style: TextStyle(
-                                  fontFamily: "Poppins",
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 13.sp,
-                                ),
-                                maxLines: obj.isEmpty.value
-                                    ? null
-                                    : isKeyboardVisible
-                                        ? 11
-                                        : 17,
-                                keyboardType: TextInputType.multiline,
-                                controller: textEditingController,
-                                textAlign: TextAlign.justify,
-                                decoration: InputDecoration(
-                                  border: InputBorder.none,
-                                  hintText: obj.ismicOpen.value
-                                      ? "Speak now ..."
-                                      : "Enter text",
-                                  hintStyle: TextStyle(
-                                    fontFamily: "Poppins",
-                                    fontWeight: FontWeight.w600,
-                                    color: textgrey,
-                                    fontSize: 28.sp,
+                            obj.transcriptStatus.value == "complete"
+                                //////////////////// .................... start
+                                ? Container(
+                                    height: 450.h,
+                                    color: Colors.amber,
+                                    child: Column(
+                                      children: [
+                                        SizedBox(
+                                          width: 334.w,
+                                          child: CustomTextFormField(
+                                            hint: "Enter your image URL",
+                                            fontFamily: 'Poppins',
+                                            controller: textEditingController,
+                                            suffixIcon: obj.isEmpty.value
+                                                ? const SizedBox()
+                                                : IconButton(
+                                                    onPressed: () {
+                                                      textEditingController
+                                                          .clear();
+                                                      obj.updatetranscriptStatus(
+                                                          "empty");
+                                                    },
+                                                    icon: Icon(
+                                                      Icons.clear,
+                                                      color: textgrey,
+                                                    )),
+                                            onChanged: (v) {
+                                              if (v.isNotEmpty) {
+                                                if (obj.isEmpty.value) {
+                                                  obj.updatetext(false);
+                                                }
+                                              } else {
+                                                obj.updatetext(true);
+                                              }
+                                            },
+                                            validator: (v) {
+                                              if (v!.isEmpty) {
+                                                return "Please enter image URL";
+                                              }
+
+                                              return null;
+                                            },
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    //////////////////// .................... end
+                                  )
+                                : Padding(
+                                    padding: EdgeInsets.only(bottom: 10.h),
+                                    child: TextFormField(
+                                      onTap: () {
+                                        // textEditingController.selection =
+                                        //     textEditingController.selection =
+                                        //         TextSelection(
+                                        //             baseOffset: 0,
+                                        //             extentOffset: obj
+                                        //                 .textEditingController
+                                        //                 .text
+                                        //                 .length);
+                                      },
+                                      onChanged: (v) {
+                                        if (v.isNotEmpty) {
+                                          if (obj.isEmpty.value) {
+                                            obj.updatetext(false);
+                                          }
+                                        } else {
+                                          obj.updatetext(true);
+                                        }
+                                      },
+                                      style: TextStyle(
+                                        fontFamily: "Poppins",
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 13.sp,
+                                      ),
+                                      maxLines: obj.isEmpty.value
+                                          ? null
+                                          : isKeyboardVisible
+                                              ? 11
+                                              : 17,
+                                      keyboardType: TextInputType.multiline,
+                                      controller: textEditingController,
+                                      textAlign: TextAlign.justify,
+                                      decoration: InputDecoration(
+                                        border: InputBorder.none,
+                                        hintText:
+                                            obj.transcriptStatus.value == "run"
+                                                ? "Speak now ..."
+                                                : "Enter text",
+                                        hintStyle: TextStyle(
+                                          fontFamily: "Poppins",
+                                          fontWeight: FontWeight.w600,
+                                          color: textgrey,
+                                          fontSize: 28.sp,
+                                        ),
+                                      ),
+                                    ),
                                   ),
-                                ),
-                              ),
-                            ),
-                            !obj.isEmpty.value || obj.ismicOpen.value
+                            !obj.isEmpty.value ||
+                                    obj.transcriptStatus.value == "run" ||
+                                    obj.transcriptStatus.value == "complete"
                                 ? const SizedBox()
                                 : CustomContainer(
                                     onTap: () async {
@@ -249,7 +307,9 @@ class _TranslateScreenState extends State<TranslateScreen>
                                     ),
                                   ),
                             const Spacer(),
-                            obj.isEmpty.value
+                            obj.isEmpty.value &&
+                                        obj.transcriptStatus.value == "run" ||
+                                    obj.transcriptStatus.value == "empty"
                                 ? const SizedBox()
                                 : SizedBox(
                                     height: 40.h,
@@ -286,7 +346,7 @@ class _TranslateScreenState extends State<TranslateScreen>
                                           onTap: () {
                                             textEditingController.clear();
                                             obj.updatetext(true);
-                                            obj.updatemic(false);
+                                            obj.updatetranscriptStatus("empty");
                                           },
                                           child: SvgPicture.asset(
                                               width: 20.w,
@@ -304,73 +364,31 @@ class _TranslateScreenState extends State<TranslateScreen>
                       ),
                     ),
                     SizedBox(
-                      height: isKeyboardVisible ? 20.h : 30.h,
+                      height: isKeyboardVisible ? 25.h : 40.h,
                     ),
-                    Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        CustomContainer(
-                          borderRadius: 15.r,
-                          height: isKeyboardVisible ? 31.h : 50.h,
-                          width: 135.w,
-                          color: primaryColor.withOpacity(0.2),
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 10.w),
-                            child: Center(
-                              child: TextWidget(
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.w500,
-                                overflow: TextOverflow.ellipsis,
-                                text: "Automatic detect",
-                                color: primaryColor,
-                              ),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 5.w),
-                          child: Image.asset(
-                            "images/arrows.png",
-                            height: 20.h,
-                            width: 20.w,
-                          ),
-                        ),
-                        CustomContainer(
-                          borderRadius: 15.r,
-                          height: isKeyboardVisible ? 31.h : 50.h,
-                          width: 135.w,
-                          color: primaryColor.withOpacity(0.2),
-                          child: Center(
-                            child: TextWidget(
-                              fontSize: 14.sp,
-                              fontWeight: FontWeight.w500,
-                              text: "Arabic",
-                              color: primaryColor,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: isKeyboardVisible ? 15.h : 20.h,
-                    ),
-                    isKeyboardVisible
+                    isKeyboardVisible ||
+                            obj.transcriptStatus.value == "complete"
                         ? Button(
-                            onTap: () {},
+                            onTap: () {
+                              if (obj.transcriptStatus.value == "complete") {
+                                // textEditingController.clear();
+                                // obj.updatetranscriptStatus("empty");
+                              }
+                            },
                             height: 36.h,
-                            width: 217.w,
-                            text: "Start translation",
+                            width: 250.w,
+                            text: obj.transcriptStatus.value == "complete"
+                                ? "New search"
+                                : "Search in the Dictionary",
                             fontWeight: FontWeight.w500,
                             borderRadius: 50.r,
                           )
                         : FloatingActionButton.large(
                             onPressed: () {
-                              if (obj.isEmpty.value) {
-                                if (obj.ismicOpen.value) {
-                                  obj.updatemic(false);
-                                } else {
-                                  obj.updatemic(true);
-                                }
+                              if (obj.transcriptStatus.value == "empty") {
+                                obj.updatetranscriptStatus("run");
+                              } else if (obj.transcriptStatus.value == "run") {
+                                obj.updatetranscriptStatus("empty");
                               }
                             },
                             materialTapTargetSize: MaterialTapTargetSize.padded,
@@ -378,14 +396,16 @@ class _TranslateScreenState extends State<TranslateScreen>
                             shape:
                                 const CircleBorder(), // Set background color to pink
                             child: SvgPicture.asset(
-                              obj.isEmpty.value
-                                  ? obj.ismicOpen.value
-                                      ? "images/stop.svg"
-                                      : "images/mic.svg"
-                                  : "images/translation.svg",
+                              obj.transcriptStatus.value == "run"
+                                  ? "images/stop.svg"
+                                  : "images/mic.svg",
                               color: obj.isEmpty.value ? null : Colors.white,
-                              height: obj.ismicOpen.value ? 25.h : 40.h,
-                              width: obj.ismicOpen.value ? 25.w : 30.w,
+                              height: obj.transcriptStatus.value == "run"
+                                  ? 25.h
+                                  : 40.h,
+                              width: obj.transcriptStatus.value == "run"
+                                  ? 25.w
+                                  : 30.w,
                             ),
                           ),
                     obj.isEmpty.value || isKeyboardVisible

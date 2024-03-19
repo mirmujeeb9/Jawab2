@@ -351,8 +351,8 @@ class _VideoTranscriptionScreenState extends State<VideoTranscriptionScreen>
                                             primaryColor.withOpacity(0.2),
                                         shape:
                                             const CircleBorder(), // Set background color to pink
-                                        child: Image.asset(
-                                          "images/translation.png",
+                                        child: SvgPicture.asset(
+                                          "images/translation.svg",
                                           height: 25.h,
                                           width: 25.w,
                                           color: primaryColor,

@@ -1,13 +1,16 @@
 import 'package:get/get.dart';
 
-class ImageTranscriptionController extends GetxController {
-  static ImageTranscriptionController get to => Get.find();
-
+class AdvanceDisctionaryController extends GetxController {
+  static AdvanceDisctionaryController get to => Get.find();
   Rx<bool> isEmpty = true.obs;
-
+  // Rx<bool> ismicOpen = false.obs;
   void updatetext(bool value) {
     isEmpty.value = value;
   }
+
+  // void updatemic(bool value) {
+  //   ismicOpen.value = value;
+  // }
 
   Rx<String> transcriptStatus = "empty".obs;
   void updatetranscriptStatus(String value) {

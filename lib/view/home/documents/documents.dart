@@ -20,7 +20,6 @@ class DocumentScreen extends StatelessWidget {
           itemCount: obj.historylist.length,
           itemBuilder: (context, index) {
             HistoryModel model = obj.historylist[index];
-
             return Padding(
               padding: EdgeInsets.symmetric(vertical: 6.h),
               child: Container(
