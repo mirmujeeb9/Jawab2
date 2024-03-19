@@ -157,7 +157,7 @@ class _AdvanceDisctionaryScreenState extends State<AdvanceDisctionaryScreen>
                       height: isKeyboardVisible
                           ? 310.h
                           : obj.transcriptStatus.value == "complete"
-                              ? 510.h
+                              ? 600.h
                               : 450.h,
                       width: ScreenUtil().screenWidth,
                       child: Padding(
@@ -167,16 +167,21 @@ class _AdvanceDisctionaryScreenState extends State<AdvanceDisctionaryScreen>
                           children: [
                             obj.transcriptStatus.value == "complete"
                                 //////////////////// .................... start
-                                ? Container(
-                                    height: 450.h,
-                                    color: Colors.amber,
+                                ? SizedBox(
+                                    height: 550.h,
+                                    //color: Colors.amber,
                                     child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
                                         SizedBox(
                                           width: 334.w,
                                           child: CustomTextFormField(
-                                            hint: "Enter your image URL",
+                                            hint:
+                                                "أُخْتُ زَيْدٍ مُعَلِّمَةٌ وَهِيَ تُسَاعِدُ أُمَّهَا. هَذِهٍ أُسْرَةُ زَيْدٍ.",
                                             fontFamily: 'Poppins',
+                                            fontSize: 15.sp,
+                                            fontWeight: FontWeight.w400,
                                             controller: textEditingController,
                                             suffixIcon: obj.isEmpty.value
                                                 ? const SizedBox()
@@ -208,6 +213,37 @@ class _AdvanceDisctionaryScreenState extends State<AdvanceDisctionaryScreen>
                                               return null;
                                             },
                                           ),
+                                        ),
+                                        SizedBox(
+                                          height: 20.h,
+                                        ),
+                                        TextWidget(
+                                          text: "Traduction Avancée  📖🔍🌐",
+                                          fontSize: 16.sp,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                        SizedBox(
+                                          height: 15.h,
+                                        ),
+                                        TextWidget(
+                                          text:
+                                              "La sœur de Zaid est enseignante et elle aide sa mère. Voici la famille de Zaid. ",
+                                          fontSize: 13.sp,
+                                          fontWeight: FontWeight.w400,
+                                        ),
+                                        SizedBox(
+                                          height: 10.h,
+                                        ),
+                                        TextWidget(
+                                          text: "Explications : ",
+                                          fontSize: 16.sp,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                        TextWidget(
+                                          text:
+                                              """- "أُخْتُ" : sœur 📖 motif de possession (أُخْتُ زَيْدٍ - la sœur de Zaid). - "زَيْدٍ" : Zaid 📖 propre nom masculin. - "مُعَلِّمَةٌ" : enseignante 📖 nom féminin singulier. - "وَهِيَ" : et elle 📖 conjonction de coordination suivie du pronom personnel. - "تُسَاعِدُ" : aide 📖 verbe à la 3e personne du féminin au présent. - "أُمَّهَا" : sa mère 📖 motif de possession (sa - أُمَّهَا). - "هَذِهٍ" : voici 📖 démonstratif pour désigner de manière proche au féminin. - "أُسْرَةُ" : famille 📖 nom féminin singulier.""",
+                                          fontSize: 13.sp,
+                                          fontWeight: FontWeight.w400,
                                         ),
                                       ],
                                     ),
