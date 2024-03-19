@@ -154,100 +154,107 @@ class _AdvanceDisctionaryScreenState extends State<AdvanceDisctionaryScreen>
                           borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(13.r),
                               bottomRight: Radius.circular(13.r))),
-                      height: isKeyboardVisible
-                          ? 310.h
-                          : obj.transcriptStatus.value == "complete"
-                              ? 600.h
-                              : 450.h,
+                      height: obj.transcriptStatus.value == "complete"
+                          ? 540.h
+                          : 450.h,
                       width: ScreenUtil().screenWidth,
                       child: Padding(
                         padding: EdgeInsets.symmetric(horizontal: 20.w),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
+                          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             obj.transcriptStatus.value == "complete"
                                 //////////////////// .................... start
-                                ? SizedBox(
-                                    height: 550.h,
-                                    //color: Colors.amber,
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        SizedBox(
-                                          width: 334.w,
-                                          child: CustomTextFormField(
-                                            hint:
-                                                "أُخْتُ زَيْدٍ مُعَلِّمَةٌ وَهِيَ تُسَاعِدُ أُمَّهَا. هَذِهٍ أُسْرَةُ زَيْدٍ.",
-                                            fontFamily: 'Poppins',
-                                            fontSize: 15.sp,
-                                            fontWeight: FontWeight.w400,
-                                            controller: textEditingController,
-                                            suffixIcon: obj.isEmpty.value
-                                                ? const SizedBox()
-                                                : IconButton(
-                                                    onPressed: () {
-                                                      textEditingController
-                                                          .clear();
-                                                      obj.updatetranscriptStatus(
-                                                          "empty");
-                                                    },
-                                                    icon: Icon(
-                                                      Icons.clear,
-                                                      color: textgrey,
-                                                    )),
-                                            onChanged: (v) {
-                                              if (v.isNotEmpty) {
-                                                if (obj.isEmpty.value) {
-                                                  obj.updatetext(false);
-                                                }
-                                              } else {
-                                                obj.updatetext(true);
+                                ? Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      SizedBox(
+                                        height: 20.h,
+                                      ),
+                                      SizedBox(
+                                        width: 334.w,
+                                        child: CustomTextFormField(
+                                          color: backGroundColor,
+                                          hint:
+                                              "أُخْتُ زَيْدٍ مُعَلِّمَةٌ وَهِيَ تُسَاعِدُ أُمَّهَا. هَذِهٍ أُسْرَةُ زَيْدٍ.",
+                                          fontFamily: 'Poppins',
+                                          fontSize: 15.sp,
+                                          fontWeight: FontWeight.w400,
+                                          controller: textEditingController,
+                                          suffixIcon: obj.isEmpty.value
+                                              ? const SizedBox()
+                                              : IconButton(
+                                                  onPressed: () {
+                                                    textEditingController
+                                                        .clear();
+                                                    obj.updatetranscriptStatus(
+                                                        "empty");
+                                                  },
+                                                  icon: Icon(
+                                                    Icons.clear,
+                                                    color: textgrey,
+                                                  )),
+                                          onChanged: (v) {
+                                            if (v.isNotEmpty) {
+                                              if (obj.isEmpty.value) {
+                                                obj.updatetext(false);
                                               }
-                                            },
-                                            validator: (v) {
-                                              if (v!.isEmpty) {
-                                                return "Please enter image URL";
-                                              }
+                                            } else {
+                                              obj.updatetext(true);
+                                            }
+                                          },
+                                          validator: (v) {
+                                            if (v!.isEmpty) {
+                                              return "Please enter image URL";
+                                            }
 
-                                              return null;
-                                            },
-                                          ),
+                                            return null;
+                                          },
                                         ),
-                                        SizedBox(
-                                          height: 20.h,
+                                      ),
+                                      SizedBox(
+                                        height: 20.h,
+                                      ),
+                                      SingleChildScrollView(
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            TextWidget(
+                                              text:
+                                                  "Traduction Avancée  📖🔍🌐",
+                                              fontSize: 16.sp,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                            SizedBox(
+                                              height: 15.h,
+                                            ),
+                                            TextWidget(
+                                              text:
+                                                  "La sœur de Zaid est enseignante et elle aide sa mère. Voici la famille de Zaid.",
+                                              fontSize: 13.sp,
+                                              fontWeight: FontWeight.w400,
+                                            ),
+                                            SizedBox(
+                                              height: 10.h,
+                                            ),
+                                            TextWidget(
+                                              text: "Explications :",
+                                              fontSize: 16.sp,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                            TextWidget(
+                                              text:
+                                                  """- "أُخْتُ" : sœur 📖 motif de possession (أُخْتُ زَيْدٍ - la sœur de Zaid).\n- "زَيْدٍ" : Zaid 📖 propre nom masculin.\n- "مُعَلِّمَةٌ" : enseignante 📖 nom féminin singulier.\n- "وَهِيَ" : et elle 📖 conjonction de coordination suivie du pronom personnel.\n- "تُسَاعِدُ" : aide 📖 verbe à la 3e personne du féminin au présent.\n- "أُمَّهَا" : sa mère 📖 motif de possession (sa - أُمَّهَا).- "هَذِهٍ" : voici 📖 démonstratif pour désigner de manière proche au féminin.\n- "أُسْرَةُ" : famille 📖 nom féminin singulier.""",
+                                              fontSize: 13.sp,
+                                              fontWeight: FontWeight.w400,
+                                            ),
+                                          ],
                                         ),
-                                        TextWidget(
-                                          text: "Traduction Avancée  📖🔍🌐",
-                                          fontSize: 16.sp,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                        SizedBox(
-                                          height: 15.h,
-                                        ),
-                                        TextWidget(
-                                          text:
-                                              "La sœur de Zaid est enseignante et elle aide sa mère. Voici la famille de Zaid. ",
-                                          fontSize: 13.sp,
-                                          fontWeight: FontWeight.w400,
-                                        ),
-                                        SizedBox(
-                                          height: 10.h,
-                                        ),
-                                        TextWidget(
-                                          text: "Explications : ",
-                                          fontSize: 16.sp,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                        TextWidget(
-                                          text:
-                                              """- "أُخْتُ" : sœur 📖 motif de possession (أُخْتُ زَيْدٍ - la sœur de Zaid). - "زَيْدٍ" : Zaid 📖 propre nom masculin. - "مُعَلِّمَةٌ" : enseignante 📖 nom féminin singulier. - "وَهِيَ" : et elle 📖 conjonction de coordination suivie du pronom personnel. - "تُسَاعِدُ" : aide 📖 verbe à la 3e personne du féminin au présent. - "أُمَّهَا" : sa mère 📖 motif de possession (sa - أُمَّهَا). - "هَذِهٍ" : voici 📖 démonstratif pour désigner de manière proche au féminin. - "أُسْرَةُ" : famille 📖 nom féminin singulier.""",
-                                          fontSize: 13.sp,
-                                          fontWeight: FontWeight.w400,
-                                        ),
-                                      ],
-                                    ),
-                                    //////////////////// .................... end
+                                      ),
+                                    ],
                                   )
                                 : Padding(
                                     padding: EdgeInsets.only(bottom: 10.h),
@@ -400,15 +407,20 @@ class _AdvanceDisctionaryScreenState extends State<AdvanceDisctionaryScreen>
                       ),
                     ),
                     SizedBox(
-                      height: isKeyboardVisible ? 25.h : 40.h,
+                      height: isKeyboardVisible
+                          ? 25.h
+                          : obj.transcriptStatus.value == "complete"
+                              ? 20.h
+                              : 40.h,
                     ),
                     isKeyboardVisible ||
                             obj.transcriptStatus.value == "complete"
                         ? Button(
                             onTap: () {
                               if (obj.transcriptStatus.value == "complete") {
-                                // textEditingController.clear();
-                                // obj.updatetranscriptStatus("empty");
+                                textEditingController.clear();
+                                obj.updatetext(true);
+                                obj.updatetranscriptStatus("empty");
                               }
                             },
                             height: 36.h,
