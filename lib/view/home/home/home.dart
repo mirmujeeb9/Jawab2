@@ -2,6 +2,7 @@ import 'package:alxza/view/home/conjugaison%201/conjugaison1.dart';
 import 'package:alxza/view/home/folder/folder.dart';
 import 'package:alxza/view/home/home/controller.dart';
 import 'package:alxza/view/home/menue/advanced_dictionary/advanced_dictionary.dart';
+import 'package:alxza/view/home/menue/ai_assistant/ai_assistant.dart';
 import 'package:alxza/view/home/menue/image_transcription/image_transcription.dart';
 import 'package:alxza/view/home/menue/menue.dart';
 import 'package:alxza/view/home/menue/translator/translator.dart';
@@ -111,15 +112,20 @@ class _HomeScreenState extends State<HomeScreen> {
                                             .to.selectedItemPosition.value ==
                                         1
                                 ? const Conjugaison_1()
-                                : HomeController
-                                            .to.selectedItemPosition.value ==
-                                        2
-                                    ? const FolderScreen()
+                                : HomeController.to.tabIndex.value == 5 &&
+                                        HomeController.to.selectedItemPosition
+                                                .value ==
+                                            1
+                                    ? const AiassistentScreen()
                                     : HomeController.to.selectedItemPosition
                                                 .value ==
-                                            3
-                                        ? const ProfileScreen()
-                                        : const TranslateScreen(),
+                                            2
+                                        ? const FolderScreen()
+                                        : HomeController.to.selectedItemPosition
+                                                    .value ==
+                                                3
+                                            ? const ProfileScreen()
+                                            : const TranslateScreen(),
       ),
     );
   }
