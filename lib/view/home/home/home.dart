@@ -9,6 +9,7 @@ import 'package:alxza/view/home/menue/translator/translator.dart';
 import 'package:alxza/view/home/menue/video_transcription/video_transcription.dart';
 import 'package:alxza/view/home/profile.dart/profile.dart';
 import 'package:alxza/widget/colors.dart';
+import 'package:alxza/widget/confirmation_dialogue.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -26,81 +27,97 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backGroundColor,
-      bottomNavigationBar: Container(
-        height: 70.h,
-        color: whiteColor,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            InkWell(
-              onTap: () {
-                HomeController.to.selectedItemPosition.value = 0;
-              },
-              child: Container(
-                height: 30.h,
-                width: 30.w,
-                decoration: const BoxDecoration(shape: BoxShape.circle),
-                child: Center(
-                  child: SvgPicture.asset(
-                    "images/menue.svg",
-                    height: 20.h,
-                    width: 20.w,
+      bottomNavigationBar: Obx(
+        () => Container(
+          height: 70.h,
+          color: whiteColor,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              InkWell(
+                onTap: () {
+                  HomeController.to.selectedItemPosition.value = 0;
+                },
+                child: Container(
+                  height: 30.h,
+                  width: 30.w,
+                  decoration: const BoxDecoration(shape: BoxShape.circle),
+                  child: Center(
+                    child: SvgPicture.asset(
+                      "images/menue.svg",
+                      height: 20.h,
+                      width: 20.w,
+                      color: HomeController.to.selectedItemPosition.value == 0
+                          ? primaryColor
+                          : null,
+                    ),
                   ),
                 ),
               ),
-            ),
-            InkWell(
-              onTap: () {
-                HomeController.to.selectedItemPosition.value = 1;
-              },
-              child: Container(
-                height: 30.h,
-                width: 30.w,
-                decoration: const BoxDecoration(shape: BoxShape.circle),
-                child: Center(
-                  child: SvgPicture.asset(
-                    "images/history.svg",
-                    height: 20.h,
-                    width: 20.w,
+              InkWell(
+                onTap: () {
+                  HomeController.to.selectedItemPosition.value = 1;
+                },
+                child: Container(
+                  height: 30.h,
+                  width: 30.w,
+                  decoration: const BoxDecoration(shape: BoxShape.circle),
+                  child: Center(
+                    child: SvgPicture.asset(
+                      "images/history.svg",
+                      height: 20.h,
+                      width: 20.w,
+                      color: HomeController.to.selectedItemPosition.value == 1
+                          ? primaryColor
+                          : null,
+                    ),
                   ),
                 ),
               ),
-            ),
-            InkWell(
-              onTap: () {
-                HomeController.to.selectedItemPosition.value = 2;
-              },
-              child: Container(
-                height: 30.h,
-                width: 30.w,
-                decoration: const BoxDecoration(shape: BoxShape.circle),
-                child: Center(
-                  child: SvgPicture.asset(
-                    "images/person.svg",
-                    height: 20.h,
-                    width: 20.w,
+              InkWell(
+                onTap: () {
+                  HomeController.to.selectedItemPosition.value = 2;
+                },
+                child: Container(
+                  height: 30.h,
+                  width: 30.w,
+                  decoration: const BoxDecoration(shape: BoxShape.circle),
+                  child: Center(
+                    child: SvgPicture.asset(
+                      "images/person.svg",
+                      height: 20.h,
+                      width: 20.w,
+                      color: HomeController.to.selectedItemPosition.value == 2
+                          ? primaryColor
+                          : null,
+                    ),
                   ),
                 ),
               ),
-            ),
-            InkWell(
-              onTap: () {
-                HomeController.to.selectedItemPosition.value = 3;
-              },
-              child: Container(
-                height: 30.h,
-                width: 30.w,
-                decoration: const BoxDecoration(shape: BoxShape.circle),
-                child: Center(
-                  child: Image.asset(
-                    "images/chat.png",
-                    height: 30.h,
-                    width: 30.w,
+              InkWell(
+                onTap: () {
+                  HomeController.to.selectedItemPosition.value = 3;
+                  Get.dialog(MenueDialogue(
+                    onYesBtnClick: () {
+                      Get.back();
+                    },
+                  ));
+                },
+                child: Container(
+                  height: 30.h,
+                  width: 30.w,
+                  decoration: const BoxDecoration(shape: BoxShape.circle),
+                  child: Center(
+                    child: Image.asset(
+                      "images/chat.png",
+                      height: 30.h,
+                      width: 30.w,
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
       body: Obx(

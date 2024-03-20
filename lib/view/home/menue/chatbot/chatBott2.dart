@@ -1,17 +1,12 @@
 import 'package:alxza/view/home/menue/translator/controller.dart';
-import 'package:alxza/widget/button.dart';
 import 'package:alxza/widget/colors.dart';
 import 'package:alxza/widget/custom_container.dart';
 import 'package:alxza/widget/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
 import 'package:just_the_tooltip/just_the_tooltip.dart';
-import 'package:share_plus/share_plus.dart';
 
 class ChatBot2Screen extends StatefulWidget {
   const ChatBot2Screen({super.key});
@@ -101,8 +96,10 @@ class _ChatBot2ScreenState extends State<ChatBot2Screen>
                             onTap: () {
                               tooltipController.showTooltip();
                             },
-                            child: SvgPicture.asset(
-                              "images/token.svg",
+                            child: Image.asset(
+                              "images/token.png",
+                              height: 35.h,
+                              width: 35.w,
                             ),
                           ),
                         ),

@@ -3,15 +3,11 @@ import 'package:alxza/view/home/home/controller.dart';
 import 'package:alxza/view/home/upgrade_to_pro/upgrade_to_pro.dart';
 import 'package:alxza/widget/button.dart';
 import 'package:alxza/widget/colors.dart';
-import 'package:alxza/widget/confirmation_dialogue.dart';
 import 'package:alxza/widget/custom_container.dart';
 import 'package:alxza/widget/text_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:just_the_tooltip/just_the_tooltip.dart';
 
 class MenueScreen extends StatefulWidget {
   const MenueScreen({super.key});
@@ -21,15 +17,6 @@ class MenueScreen extends StatefulWidget {
 }
 
 class _MenueScreenState extends State<MenueScreen> {
-  final tooltipController = JustTheController();
-  @override
-  void initState() {
-    SchedulerBinding.instance.addPostFrameCallback((_) {
-      tooltipController.showTooltip();
-    });
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +30,7 @@ class _MenueScreenState extends State<MenueScreen> {
             child: Column(
               children: [
                 SizedBox(
-                  height: 50.h,
+                  height: 45.h,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -55,47 +42,19 @@ class _MenueScreenState extends State<MenueScreen> {
                           transition: Transition.rightToLeft,
                         );
                       },
-                      child: SvgPicture.asset(
-                        "images/male.svg",
+                      child: Image.asset(
+                        "images/male.png",
+                        height: 40.h,
+                        width: 40.w,
                       ),
                     ),
-                    JustTheTooltip(
-                      borderRadius: BorderRadius.circular(7.r),
-                      tailLength: 5,
-                      margin: const EdgeInsets.all(0),
-                      preferredDirection: AxisDirection.down,
-                      tailBaseWidth: 15.w,
-                      controller: tooltipController,
-                      backgroundColor: Colors.white,
-                      offset: 0,
-                      content: Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 15.w, vertical: 3.h),
-                        child: TextWidget(
-                          text: "your Tokens",
-                          fontSize: 12.sp,
-                          color: primaryColor,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                      child: InkWell(
-                        onTap: () {
-                          tooltipController.showTooltip();
-                          Get.dialog(CreditDialogue(
-                            onYesBtnClick: () {
-                              Get.back();
-                            },
-                          ));
-                        },
-                        child: SvgPicture.asset(
-                          "images/token.svg",
-                        ),
-                      ),
-                    ),
+                    SizedBox(
+                      width: 40.w,
+                    )
                   ],
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(vertical: 10.h),
+                  padding: EdgeInsets.symmetric(vertical: 5.h),
                   child: Row(
                     children: [
                       Heading(
@@ -109,90 +68,135 @@ class _MenueScreenState extends State<MenueScreen> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(25.r)),
                   child: Container(
-                    height: 180.h,
-                    width: 335.w,
-                    decoration: BoxDecoration(
-                      color: primaryColor,
-                      borderRadius: BorderRadius.circular(25.r),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        SizedBox(
-                          width: 160.w,
-                          height: 335.h,
-                          // color: Colors.amber,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                      height: 212.h,
+                      width: 335.w,
+                      decoration: BoxDecoration(
+                        color: primaryColor,
+                        borderRadius: BorderRadius.circular(25.r),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Row(
                             children: [
+                              SizedBox(
+                                width: 30.w,
+                              ),
                               TextWidget(
-                                text: "Pack Gold",
+                                text: "Your Plan : ",
+                                fontSize: 20.sp,
+                                fontWeight: FontWeight.w400,
+                                color: whiteColor,
+                              ),
+                              TextWidget(
+                                text: "Pack Starter",
                                 fontSize: 20.sp,
                                 fontWeight: FontWeight.w600,
                                 color: whiteColor,
                               ),
-                              TextWidget(
-                                  text:
-                                      'Unlock Alxza premium to\nunlock all features',
-                                  fontSize: 12.sp,
-                                  fontWeight: FontWeight.w400,
-                                  color: whiteColor),
-                              Button(
-                                onTap: () {
-                                  Get.to(
-                                    () => const Upgrade_to_pro(),
-                                    transition: Transition.rightToLeft,
-                                  );
-                                },
-                                text: "Upgrade",
-                                width: 90.w,
-                                height: 30.h,
-                                borderRadius: 8.r,
-                                color: whiteColor,
-                                textColor: primaryColor,
-                                fontWeight: FontWeight.w500,
-                                fontsize: 11.sp,
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Column(
+                                children: [
+                                  Image.asset(
+                                    "images/aa.png",
+                                    height: 35.h,
+                                    width: 35.w,
+                                  ),
+                                  SizedBox(
+                                    height: 10.h,
+                                  ),
+                                  TextWidget(
+                                    text: "Token Left",
+                                    fontSize: 11.sp,
+                                    fontWeight: FontWeight.w300,
+                                    color: whiteColor,
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  TextWidget(
+                                    text: "100 000 words",
+                                    fontSize: 11.sp,
+                                    fontWeight: FontWeight.w600,
+                                    color: whiteColor,
+                                    textAlign: TextAlign.center,
+                                  )
+                                ],
+                              ),
+                              Column(
+                                children: [
+                                  Image.asset(
+                                    "images/yy.png",
+                                    height: 35.h,
+                                    width: 35.w,
+                                  ),
+                                  SizedBox(
+                                    height: 10.h,
+                                  ),
+                                  TextWidget(
+                                    text: "Audio Left",
+                                    fontSize: 11.sp,
+                                    fontWeight: FontWeight.w300,
+                                    color: whiteColor,
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  TextWidget(
+                                    text: "89 min",
+                                    fontSize: 11.sp,
+                                    fontWeight: FontWeight.w600,
+                                    color: whiteColor,
+                                    textAlign: TextAlign.center,
+                                  )
+                                ],
+                              ),
+                              Column(
+                                children: [
+                                  Image.asset(
+                                    "images/cc.png",
+                                    height: 35.h,
+                                    width: 35.w,
+                                  ),
+                                  SizedBox(
+                                    height: 10.h,
+                                  ),
+                                  TextWidget(
+                                    text: "Images Left",
+                                    fontSize: 11.sp,
+                                    fontWeight: FontWeight.w300,
+                                    color: whiteColor,
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  TextWidget(
+                                    text: "78 images",
+                                    fontSize: 11.sp,
+                                    fontWeight: FontWeight.w600,
+                                    color: whiteColor,
+                                    textAlign: TextAlign.center,
+                                  )
+                                ],
                               ),
                             ],
                           ),
-                        ),
-                        Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Container(
-                              height: 118.h,
-                              width: 118.w,
-                              decoration: const BoxDecoration(
-                                image: DecorationImage(
-                                  fit: BoxFit.contain,
-                                  image: AssetImage(
-                                    'images/gold-medal.png',
-                                  ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 5.h,
-                            ),
-                            Container(
-                              height: 10.h,
-                              width: 118.w,
-                              decoration: const BoxDecoration(
-                                image: DecorationImage(
-                                  fit: BoxFit.contain,
-                                  image: AssetImage(
-                                    'images/elipse.png',
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
+                          Button(
+                            onTap: () {
+                              Get.to(
+                                () => const Upgrade_to_pro(),
+                                transition: Transition.rightToLeft,
+                              );
+                            },
+                            text: "Upgrade",
+                            width: 152.w,
+                            height: 35.h,
+                            borderRadius: 8.r,
+                            color: whiteColor,
+                            textColor: primaryColor,
+                            fontWeight: FontWeight.w500,
+                            fontsize: 11.sp,
+                          ),
+                        ],
+                      )),
                 ),
                 SizedBox(
                   height: 15.h,
@@ -215,7 +219,7 @@ class _MenueScreenState extends State<MenueScreen> {
                     shrinkWrap: true,
                     primary: false,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      mainAxisExtent: 140.h,
+                      mainAxisExtent: 135.h,
                       crossAxisCount: 2,
                       crossAxisSpacing: 20.w,
                       mainAxisSpacing: 15.h,
@@ -229,7 +233,7 @@ class _MenueScreenState extends State<MenueScreen> {
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20.r)),
                           child: CustomContainer(
-                            height: 140.h,
+                            height: 135.h,
                             width: 130.w,
                             onTap: () {
                               HomeController.to.tabIndex.value = index;

@@ -3,12 +3,10 @@ import 'dart:ui';
 import 'package:alxza/view/home/home/controller.dart';
 import 'package:alxza/widget/button.dart';
 import 'package:alxza/widget/colors.dart';
-import 'package:alxza/widget/custom_container.dart';
 import 'package:alxza/widget/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
+import 'package:get/get.dart';
 
 class EnoughDialogue extends StatefulWidget {
   final VoidCallback onYesBtnClick;
@@ -158,116 +156,84 @@ class _CreditDialogueState extends State<CreditDialogue>
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Stack(
+                      Column(
                         children: [
-                          Column(
-                            children: [
-                              SvgPicture.asset(
-                                "images/token.svg",
-                                height: 56.h,
-                                width: 57.w,
-                              ),
-                              SizedBox(
-                                height: 20.h,
-                              ),
-                              TextWidget(
-                                text: "106 350 / 250 000\ntokens",
-                                fontSize: 9,
-                                fontWeight: FontWeight.w600,
-                                color: primaryColor,
-                                textAlign: TextAlign.center,
-                              )
-                            ],
+                          Image.asset(
+                            "images/aa.png",
+                            height: 45.h,
+                            width: 45.w,
                           ),
-                          Padding(
-                            padding: EdgeInsets.only(top: 30.h, left: 32.w),
-                            child: Container(
-                              height: 33.h,
-                              width: 33.w,
-                              decoration: BoxDecoration(
-                                  border: Border.all(
-                                      color: Colors.white, width: 2.5),
-                                  color: primaryColor,
-                                  shape: BoxShape.circle),
-                              child: SvgPicture.asset(
-                                "images/text_T.svg",
-                              ),
-                            ),
+                          SizedBox(
+                            height: 10.h,
                           ),
+                          TextWidget(
+                            text: "Token Left",
+                            fontSize: 11.sp,
+                            fontWeight: FontWeight.w300,
+                            color: primaryColor,
+                            textAlign: TextAlign.center,
+                          ),
+                          TextWidget(
+                            text: "100 000 words",
+                            fontSize: 11.sp,
+                            fontWeight: FontWeight.w600,
+                            color: primaryColor,
+                            textAlign: TextAlign.center,
+                          )
                         ],
                       ),
-                      Stack(
+                      Column(
                         children: [
-                          Column(
-                            children: [
-                              SvgPicture.asset(
-                                "images/token.svg",
-                                height: 56.h,
-                                width: 57.w,
-                              ),
-                              SizedBox(
-                                height: 20.h,
-                              ),
-                              TextWidget(
-                                text: "46 minutes\nleft",
-                                fontSize: 9,
-                                fontWeight: FontWeight.w600,
-                                color: primaryColor,
-                                textAlign: TextAlign.center,
-                              )
-                            ],
+                          Image.asset(
+                            "images/yy.png",
+                            height: 45.h,
+                            width: 45.w,
                           ),
-                          Padding(
-                            padding: EdgeInsets.only(top: 30.h, left: 22.w),
-                            child: Container(
-                              height: 32.h,
-                              width: 32.w,
-                              decoration: BoxDecoration(
-                                  color: primaryColor, shape: BoxShape.circle),
-                              child: SvgPicture.asset(
-                                "images/time.svg",
-                              ),
-                            ),
+                          SizedBox(
+                            height: 10.h,
                           ),
+                          TextWidget(
+                            text: "Audio Left",
+                            fontSize: 11.sp,
+                            fontWeight: FontWeight.w300,
+                            color: primaryColor,
+                            textAlign: TextAlign.center,
+                          ),
+                          TextWidget(
+                            text: "89 min",
+                            fontSize: 11.sp,
+                            fontWeight: FontWeight.w600,
+                            color: primaryColor,
+                            textAlign: TextAlign.center,
+                          )
                         ],
                       ),
-                      // Stack(
-                      //   children: [
-                      //     Column(
-                      //       children: [
-                      //         SvgPicture.asset(
-                      //           "images/token.svg",
-                      //           height: 56.h,
-                      //           width: 57.w,
-                      //         ),
-                      //         SizedBox(
-                      //           height: 20.h,
-                      //         ),
-                      //         TextWidget(
-                      //           text: "46 minutes\nleft",
-                      //           fontSize: 9,
-                      //           fontWeight: FontWeight.w600,
-                      //           color: primaryColor,
-                      //           textAlign: TextAlign.center,
-                      //         )
-                      //       ],
-                      //     ),
-                      //     Padding(
-                      //       padding: EdgeInsets.only(top: 30.h, left: 25.w),
-                      //       child: Container(
-                      //         height: 33.h,
-                      //         width: 33.w,
-                      //         decoration: BoxDecoration(
-                      //             border: Border.all(color: Colors.white),
-                      //             color: primaryColor,
-                      //             shape: BoxShape.circle),
-                      //         child: SvgPicture.asset(
-                      //           "images/time.svg",
-                      //         ),
-                      //       ),
-                      //     ),
-                      //   ],
-                      // ),
+                      Column(
+                        children: [
+                          Image.asset(
+                            "images/cc.png",
+                            height: 45.h,
+                            width: 45.w,
+                          ),
+                          SizedBox(
+                            height: 10.h,
+                          ),
+                          TextWidget(
+                            text: "Images Left",
+                            fontSize: 11.sp,
+                            fontWeight: FontWeight.w300,
+                            color: primaryColor,
+                            textAlign: TextAlign.center,
+                          ),
+                          TextWidget(
+                            text: "78 images",
+                            fontSize: 11.sp,
+                            fontWeight: FontWeight.w600,
+                            color: primaryColor,
+                            textAlign: TextAlign.center,
+                          )
+                        ],
+                      ),
                     ],
                   ),
                   Button(
@@ -343,54 +309,80 @@ class _MenueDialogueState extends State<MenueDialogue>
             topRight: Radius.circular(20.r),
           )),
           child: AspectRatio(
-            aspectRatio: 0.8,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                GridView.builder(
-                    padding:
-                        EdgeInsets.only(left: 20.w, right: 20.w, top: 20.h),
-                    shrinkWrap: true,
-                    primary: false,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      mainAxisExtent: 140.h,
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 20.w,
-                      mainAxisSpacing: 15.h,
-                    ),
-                    itemCount: HomeController.to.tabsList.length,
-                    itemBuilder: (c, index) {
-                      TabModel model = HomeController.to.tabsList[index];
-                      return Column(
-                        // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Card(
-                            elevation: 5,
-                            shape: const CircleBorder(),
-                            child: Container(
-                              height: 85.h,
-                              width: 85.w,
-                              decoration: BoxDecoration(
-                                  color: primaryColor, shape: BoxShape.circle),
-                              child: Center(
-                                child: Image(
-                                    height: 49.h,
-                                    width: 49.w,
-                                    image: AssetImage(model.image!)),
-                              ),
+            aspectRatio: 0.75,
+            child: Container(
+              decoration: BoxDecoration(
+                  color: whiteColor,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(20.r),
+                    topRight: Radius.circular(20.r),
+                  )),
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    GridView.builder(
+                        physics: const NeverScrollableScrollPhysics(),
+                        padding: EdgeInsets.only(
+                          left: 20.w,
+                          right: 20.w,
+                          top: 30.h,
+                        ),
+                        shrinkWrap: true,
+                        primary: false,
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          mainAxisExtent: 120.h,
+                          crossAxisCount: 2,
+                          crossAxisSpacing: 20.w,
+                          mainAxisSpacing: 15.h,
+                        ),
+                        itemCount: HomeController.to.tabsList.length,
+                        itemBuilder: (c, index) {
+                          TabModel model = HomeController.to.tabsList[index];
+                          return InkWell(
+                            onTap: () {
+                              HomeController.to.tabIndex.value = index;
+
+                              Get.back();
+                            },
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Card(
+                                  elevation: 5,
+                                  shape: const CircleBorder(),
+                                  child: Container(
+                                    height: 75.h,
+                                    width: 75.w,
+                                    decoration: BoxDecoration(
+                                        color:
+                                            HomeController.to.tabIndex.value ==
+                                                    index
+                                                ? textgrey
+                                                : primaryColor,
+                                        shape: BoxShape.circle),
+                                    child: Center(
+                                      child: Image.asset(
+                                        model.image!,
+                                        height: 40.h,
+                                        width: 40.w,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                TextWidget(
+                                  textAlign: TextAlign.center,
+                                  text: model.name!,
+                                  fontSize: 14.sp,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ],
                             ),
-                          ),
-                          TextWidget(
-                            textAlign: TextAlign.center,
-                            text: model.name!,
-                            fontSize: 14.sp,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ],
-                      );
-                    }),
-              ],
+                          );
+                        }),
+                  ],
+                ),
+              ),
             ),
           ),
         ),

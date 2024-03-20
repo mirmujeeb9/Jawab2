@@ -1,3 +1,4 @@
+import 'package:alxza/view/home/home/controller.dart';
 import 'package:alxza/view/home/menue/advanced_dictionary/controller.dart';
 import 'package:alxza/view/home/menue/translator/controller.dart';
 import 'package:alxza/widget/button.dart';
@@ -73,7 +74,10 @@ class _AdvanceDisctionaryScreenState extends State<AdvanceDisctionaryScreen>
                         child: Row(
                           children: [
                             CustomContainer(
-                              onTap: () {},
+                              onTap: () {
+                                HomeController.to.selectedItemPosition.value =
+                                    0;
+                              },
                               width: 35.w,
                               height: 35.w,
                               margin: EdgeInsets.only(bottom: 5.h),
@@ -125,8 +129,10 @@ class _AdvanceDisctionaryScreenState extends State<AdvanceDisctionaryScreen>
                                     },
                                   ));
                                 },
-                                child: SvgPicture.asset(
-                                  "images/token.svg",
+                                child: Image.asset(
+                                  "images/token.png",
+                                  height: 35.h,
+                                  width: 35.w,
                                 ),
                               ),
                             ),

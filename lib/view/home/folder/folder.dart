@@ -1,6 +1,7 @@
 import 'package:alxza/view/home/documents/documents.dart';
 import 'package:alxza/view/home/folder/controller.dart';
 import 'package:alxza/view/home/history/history.dart';
+import 'package:alxza/view/home/home/controller.dart';
 import 'package:alxza/widget/button.dart';
 import 'package:alxza/widget/colors.dart';
 import 'package:alxza/widget/custom_appbar.dart';
@@ -48,7 +49,9 @@ class _FolderScreenState extends State<FolderScreen> {
                       leadingOnTap: () {
                         if (obj.isdocumentclick.value) {
                           obj.updateisdocumentclick(false);
-                        } else {}
+                        } else {
+                          HomeController.to.selectedItemPosition.value = 0;
+                        }
                       },
                       action: CustomContainer(
                         onTap: () {},

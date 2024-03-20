@@ -34,7 +34,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.w),
               child: CustomAppBar(
-                leadingOnTap: () {},
+                leadingOnTap: () {
+                  HomeController.to.selectedItemPosition.value = 0;
+                },
                 text: "Settings",
                 leading: true,
               ),
@@ -236,7 +238,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                         ),
                         title: TextWidget(
-                          text: "Upgrade to Pro!",
+                          text: "Upgrade your Subscription",
+                          overflow: TextOverflow.ellipsis,
                           color: whiteColor,
                           fontSize: 16.sp,
                           fontWeight: FontWeight.w600,
@@ -248,7 +251,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               height: 4.h,
                             ),
                             TextWidget(
-                              text: "Offer includes first month free of charge",
+                              text: "Choose the best for your need !",
                               color: whiteColor,
                               fontSize: 11.sp,
                               fontWeight: FontWeight.w400,

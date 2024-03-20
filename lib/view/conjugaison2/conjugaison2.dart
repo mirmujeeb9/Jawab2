@@ -1,8 +1,4 @@
-import 'dart:ui';
-
-import 'package:alxza/view/auth/signup/signup.dart';
 import 'package:alxza/view/home/conjugaison%201/model.dart';
-import 'package:alxza/view/home/home/home.dart';
 import 'package:alxza/widget/button.dart';
 import 'package:alxza/widget/colors.dart';
 import 'package:alxza/widget/custom_appbar.dart';
@@ -10,12 +6,8 @@ import 'package:alxza/widget/customize_textform_feild.dart';
 import 'package:alxza/widget/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
-
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
-import 'package:get/get_navigation/src/routes/transitions_type.dart';
 
 class Conjugaison_2 extends StatefulWidget {
   const Conjugaison_2({super.key});
@@ -326,8 +318,8 @@ class _Conjugaison_2State extends State<Conjugaison_2> {
                             children: [
                               Column(
                                 children: [
-                                  SvgPicture.asset(
-                                    "images/token.svg",
+                                  Image.asset(
+                                    "images/token.png",
                                     height: 56.h,
                                     width: 57.w,
                                   ),
@@ -363,8 +355,8 @@ class _Conjugaison_2State extends State<Conjugaison_2> {
                             children: [
                               Column(
                                 children: [
-                                  SvgPicture.asset(
-                                    "images/token.svg",
+                                  Image.asset(
+                                    "images/token.png",
                                     height: 56.h,
                                     width: 57.w,
                                   ),

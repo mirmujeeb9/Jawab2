@@ -14,6 +14,7 @@ class Splash_controller extends GetxController {
       ..initialize().then(
         (_) {
           update();
+          videoPlayerController!.setVolume(0.0);
           videoPlayerController!.play();
         },
       );
