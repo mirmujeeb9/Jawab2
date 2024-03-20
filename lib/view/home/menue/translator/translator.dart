@@ -1,17 +1,17 @@
 import 'package:alxza/view/home/home/controller.dart';
 import 'package:alxza/view/home/menue/translator/controller.dart';
+import 'package:alxza/view/home/upgrade_to_pro/upgrade_to_pro.dart';
 import 'package:alxza/widget/button.dart';
 import 'package:alxza/widget/colors.dart';
 import 'package:alxza/widget/confirmation_dialogue.dart';
 import 'package:alxza/widget/custom_container.dart';
 import 'package:alxza/widget/text_widget.dart';
+import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:just_the_tooltip/just_the_tooltip.dart';
 import 'package:share_plus/share_plus.dart';
 
 class TranslateScreen extends StatefulWidget {
@@ -22,16 +22,17 @@ class TranslateScreen extends StatefulWidget {
 }
 
 class _TranslateScreenState extends State<TranslateScreen>
-    with WidgetsBindingObserver {
+// with WidgetsBindingObserver
+{
   TextEditingController textEditingController = TextEditingController();
 
-  final tooltipController = JustTheController();
+  // final tooltipController = JustTheController();
   @override
   void initState() {
-    SchedulerBinding.instance.addPostFrameCallback((_) {
-      tooltipController.showTooltip();
-    });
-    WidgetsBinding.instance.addObserver(this);
+    // SchedulerBinding.instance.addPostFrameCallback((_) {
+    //   tooltipController.showTooltip();
+    // });
+    // WidgetsBinding.instance.addObserver(this);
     TranslatorController.to.ismicOpen.value = false;
     TranslatorController.to.isEmpty.value = true;
     super.initState();
@@ -98,41 +99,45 @@ class _TranslateScreenState extends State<TranslateScreen>
                               ),
                             ),
                             const Spacer(),
-                            JustTheTooltip(
-                              borderRadius: BorderRadius.circular(7.r),
-                              tailLength: 5,
-                              margin: const EdgeInsets.all(0),
-                              preferredDirection: AxisDirection.down,
-                              tailBaseWidth: 15.w,
-                              controller: tooltipController,
-                              backgroundColor: Colors.white,
-                              offset: 0,
-                              content: Padding(
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: 15.w, vertical: 3.h),
-                                child: TextWidget(
-                                  text: "100 000 / 250 000",
-                                  fontSize: 12.sp,
-                                  color: primaryColor,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              child: InkWell(
-                                onTap: () {
-                                  tooltipController.showTooltip();
-                                  Get.dialog(CreditDialogue(
-                                    onYesBtnClick: () {
-                                      Get.back();
-                                    },
-                                  ));
-                                },
-                                child: Image.asset(
-                                  "images/token.png",
-                                  height: 35.h,
-                                  width: 35.w,
-                                ),
+                            // JustTheTooltip(
+                            //   borderRadius: BorderRadius.circular(7.r),
+                            //   tailLength: 5,
+                            //   margin: const EdgeInsets.all(0),
+                            //   preferredDirection: AxisDirection.down,
+                            //   tailBaseWidth: 15.w,
+                            //   controller: tooltipController,
+                            //   backgroundColor: Colors.white,
+                            //   offset: 0,
+                            //   content: Padding(
+                            //     padding: EdgeInsets.symmetric(
+                            //         horizontal: 15.w, vertical: 3.h),
+                            //     child: TextWidget(
+                            //       text: "100 000 / 250 000",
+                            //       fontSize: 12.sp,
+                            //       color: primaryColor,
+                            //       fontWeight: FontWeight.w500,
+                            //     ),
+                            //   ),
+                            //   child:
+
+                            InkWell(
+                              onTap: () {
+                                // tooltipController.showTooltip();
+                                Get.dialog(CreditDialogue(
+                                  onYesBtnClick: () {
+                                    Get.back();
+                                    Get.to(() => Upgrade_to_pro(),
+                                        transition: Transition.leftToRight);
+                                  },
+                                ));
+                              },
+                              child: Image.asset(
+                                "images/token.png",
+                                height: 35.h,
+                                width: 35.w,
                               ),
                             ),
+                            // ),
                           ],
                         ),
                       ),
@@ -165,7 +170,9 @@ class _TranslateScreenState extends State<TranslateScreen>
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: EdgeInsets.only(bottom: 10.h),
+                              padding: EdgeInsets.only(
+                                bottom: 10.h,
+                              ),
                               child: TextFormField(
                                 onTap: () {
                                   // textEditingController.selection =
@@ -203,12 +210,12 @@ class _TranslateScreenState extends State<TranslateScreen>
                                   border: InputBorder.none,
                                   hintText: obj.ismicOpen.value
                                       ? "Speak now ..."
-                                      : "Enter text",
+                                      : "Enter text ...",
                                   hintStyle: TextStyle(
                                     fontFamily: "Poppins",
                                     fontWeight: FontWeight.w600,
                                     color: textgrey,
-                                    fontSize: 28.sp,
+                                    fontSize: 20.sp,
                                   ),
                                 ),
                               ),
@@ -369,29 +376,35 @@ class _TranslateScreenState extends State<TranslateScreen>
                             fontWeight: FontWeight.w500,
                             borderRadius: 50.r,
                           )
-                        : FloatingActionButton.large(
-                            onPressed: () {
-                              if (obj.isEmpty.value) {
-                                if (obj.ismicOpen.value) {
-                                  obj.updatemic(false);
-                                } else {
-                                  obj.updatemic(true);
+                        : AvatarGlow(
+                            glowColor: primaryColor,
+                            animate: obj.ismicOpen.value,
+                            glowCount: 1,
+                            child: FloatingActionButton.large(
+                              onPressed: () {
+                                if (obj.isEmpty.value) {
+                                  if (obj.ismicOpen.value) {
+                                    obj.updatemic(false);
+                                  } else {
+                                    obj.updatemic(true);
+                                  }
                                 }
-                              }
-                            },
-                            materialTapTargetSize: MaterialTapTargetSize.padded,
-                            backgroundColor: primaryColor,
-                            shape:
-                                const CircleBorder(), // Set background color to pink
-                            child: SvgPicture.asset(
-                              obj.isEmpty.value
-                                  ? obj.ismicOpen.value
-                                      ? "images/stop.svg"
-                                      : "images/mic.svg"
-                                  : "images/translation.svg",
-                              color: obj.isEmpty.value ? null : Colors.white,
-                              height: obj.ismicOpen.value ? 25.h : 40.h,
-                              width: obj.ismicOpen.value ? 25.w : 30.w,
+                              },
+                              materialTapTargetSize:
+                                  MaterialTapTargetSize.padded,
+                              backgroundColor: primaryColor,
+                              shape:
+                                  const CircleBorder(), // Set background color to pink
+                              child: SvgPicture.asset(
+                                obj.isEmpty.value
+                                    ? obj.ismicOpen.value
+                                        ? "images/stop.svg"
+                                        : "images/mic.svg"
+                                    : "images/translation.svg",
+                                color: obj.isEmpty.value ? null : Colors.white,
+                                height: obj.ismicOpen.value ? 25.h : 40.h,
+                                width: obj.ismicOpen.value ? 25.w : 30.w,
+                              ),
                             ),
                           ),
                     obj.isEmpty.value || isKeyboardVisible

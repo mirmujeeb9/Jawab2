@@ -4,11 +4,9 @@ import 'package:alxza/widget/colors.dart';
 import 'package:alxza/widget/custom_container.dart';
 import 'package:alxza/widget/text_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:just_the_tooltip/just_the_tooltip.dart';
 
 class ChatBotScreen extends StatefulWidget {
   const ChatBotScreen({super.key});
@@ -18,14 +16,15 @@ class ChatBotScreen extends StatefulWidget {
 }
 
 class _ChatBotScreenState extends State<ChatBotScreen>
-    with WidgetsBindingObserver {
-  final tooltipController = JustTheController();
+// with WidgetsBindingObserver
+{
+  // final tooltipController = JustTheController();
   @override
   void initState() {
-    SchedulerBinding.instance.addPostFrameCallback((_) {
-      tooltipController.showTooltip();
-    });
-    WidgetsBinding.instance.addObserver(this);
+    // SchedulerBinding.instance.addPostFrameCallback((_) {
+    //   tooltipController.showTooltip();
+    // });
+    // WidgetsBinding.instance.addObserver(this);
 
     super.initState();
   }
@@ -75,36 +74,38 @@ class _ChatBotScreenState extends State<ChatBotScreen>
                           ),
                         ),
                         const Spacer(),
-                        JustTheTooltip(
-                          borderRadius: BorderRadius.circular(7.r),
-                          tailLength: 5,
-                          margin: const EdgeInsets.all(0),
-                          preferredDirection: AxisDirection.down,
-                          tailBaseWidth: 15.w,
-                          controller: tooltipController,
-                          backgroundColor: Colors.white,
-                          offset: 0,
-                          content: Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 15.w, vertical: 3.h),
-                            child: TextWidget(
-                              text: "100 000 / 250 000",
-                              fontSize: 12.sp,
-                              color: primaryColor,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          child: InkWell(
-                            onTap: () {
-                              tooltipController.showTooltip();
-                            },
-                            child: Image.asset(
-                              "images/token.png",
-                              height: 35.h,
-                              width: 35.w,
-                            ),
+                        // JustTheTooltip(
+                        //   borderRadius: BorderRadius.circular(7.r),
+                        //   tailLength: 5,
+                        //   margin: const EdgeInsets.all(0),
+                        //   preferredDirection: AxisDirection.down,
+                        //   tailBaseWidth: 15.w,
+                        //   controller: tooltipController,
+                        //   backgroundColor: Colors.white,
+                        //   offset: 0,
+                        //   content:
+                        // Padding(
+                        //   padding: EdgeInsets.symmetric(
+                        //       horizontal: 15.w, vertical: 3.h),
+                        //   child: TextWidget(
+                        //     text: "100 000 / 250 000",
+                        //     fontSize: 12.sp,
+                        //     color: primaryColor,
+                        //     fontWeight: FontWeight.w500,
+                        //   ),
+                        // ),
+                        // child:
+                        InkWell(
+                          onTap: () {
+                            // tooltipController.showTooltip();
+                          },
+                          child: Image.asset(
+                            "images/token.png",
+                            height: 35.h,
+                            width: 35.w,
                           ),
                         ),
+                        // ),
                       ],
                     ),
                   ),

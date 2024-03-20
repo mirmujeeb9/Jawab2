@@ -238,9 +238,10 @@ class _MenueScreenState extends State<MenueScreen> {
                             width: 130.w,
                             onTap: () {
                               HomeController.to.tabIndex.value = index;
-                              HomeController.to.selectedItemPosition.value = 3;
-
-                              // HomeController.to.bottomsheetIndex.value = 3;
+                              Future.delayed(Duration(milliseconds: 200), () {
+                                HomeController.to.selectedItemPosition.value =
+                                    index + 4;
+                              });
                             },
                             borderRadius: 20.r,
                             color: HomeController.to.tabIndex.value == index

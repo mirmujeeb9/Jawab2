@@ -1,19 +1,19 @@
 import 'package:alxza/view/home/home/controller.dart';
 import 'package:alxza/view/home/menue/advanced_dictionary/controller.dart';
 import 'package:alxza/view/home/menue/translator/controller.dart';
+import 'package:alxza/view/home/upgrade_to_pro/upgrade_to_pro.dart';
 import 'package:alxza/widget/button.dart';
 import 'package:alxza/widget/colors.dart';
 import 'package:alxza/widget/confirmation_dialogue.dart';
 import 'package:alxza/widget/custom_container.dart';
 import 'package:alxza/widget/customize_textform_feild.dart';
 import 'package:alxza/widget/text_widget.dart';
+import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:just_the_tooltip/just_the_tooltip.dart';
 import 'package:share_plus/share_plus.dart';
 
 class AdvanceDisctionaryScreen extends StatefulWidget {
@@ -25,16 +25,17 @@ class AdvanceDisctionaryScreen extends StatefulWidget {
 }
 
 class _AdvanceDisctionaryScreenState extends State<AdvanceDisctionaryScreen>
-    with WidgetsBindingObserver {
+// with WidgetsBindingObserver
+{
   TextEditingController textEditingController = TextEditingController();
 
-  final tooltipController = JustTheController();
+  // final tooltipController = JustTheController();
   @override
   void initState() {
-    SchedulerBinding.instance.addPostFrameCallback((_) {
-      tooltipController.showTooltip();
-    });
-    WidgetsBinding.instance.addObserver(this);
+    // SchedulerBinding.instance.addPostFrameCallback((_) {
+    //   tooltipController.showTooltip();
+    // });
+    // WidgetsBinding.instance.addObserver(this);
     AdvanceDisctionaryController.to.transcriptStatus.value = "empty";
     AdvanceDisctionaryController.to.isEmpty.value = true;
     super.initState();
@@ -101,41 +102,44 @@ class _AdvanceDisctionaryScreenState extends State<AdvanceDisctionaryScreen>
                               ),
                             ),
                             const Spacer(),
-                            JustTheTooltip(
-                              borderRadius: BorderRadius.circular(7.r),
-                              tailLength: 5,
-                              margin: const EdgeInsets.all(0),
-                              preferredDirection: AxisDirection.down,
-                              tailBaseWidth: 15.w,
-                              controller: tooltipController,
-                              backgroundColor: Colors.white,
-                              offset: 0,
-                              content: Padding(
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: 15.w, vertical: 3.h),
-                                child: TextWidget(
-                                  text: "100 000 / 250 000",
-                                  fontSize: 12.sp,
-                                  color: primaryColor,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              child: InkWell(
-                                onTap: () {
-                                  tooltipController.showTooltip();
-                                  Get.dialog(CreditDialogue(
-                                    onYesBtnClick: () {
-                                      Get.back();
-                                    },
-                                  ));
-                                },
-                                child: Image.asset(
-                                  "images/token.png",
-                                  height: 35.h,
-                                  width: 35.w,
-                                ),
+                            // JustTheTooltip(
+                            //   borderRadius: BorderRadius.circular(7.r),
+                            //   tailLength: 5,
+                            //   margin: const EdgeInsets.all(0),
+                            //   preferredDirection: AxisDirection.down,
+                            //   tailBaseWidth: 15.w,
+                            //   controller: tooltipController,
+                            //   backgroundColor: Colors.white,
+                            //   offset: 0,
+                            //   content: Padding(
+                            //     padding: EdgeInsets.symmetric(
+                            //         horizontal: 15.w, vertical: 3.h),
+                            //     child: TextWidget(
+                            //       text: "100 000 / 250 000",
+                            //       fontSize: 12.sp,
+                            //       color: primaryColor,
+                            //       fontWeight: FontWeight.w500,
+                            //     ),
+                            //   ),
+                            //   child:
+                            InkWell(
+                              onTap: () {
+                                // tooltipController.showTooltip();
+                                Get.dialog(CreditDialogue(
+                                  onYesBtnClick: () {
+                                    Get.back();
+                                    Get.to(() => Upgrade_to_pro(),
+                                        transition: Transition.leftToRight);
+                                  },
+                                ));
+                              },
+                              child: Image.asset(
+                                "images/token.png",
+                                height: 35.h,
+                                width: 35.w,
                               ),
                             ),
+                            // ),
                           ],
                         ),
                       ),
@@ -302,12 +306,12 @@ class _AdvanceDisctionaryScreenState extends State<AdvanceDisctionaryScreen>
                                         hintText:
                                             obj.transcriptStatus.value == "run"
                                                 ? "Speak now ..."
-                                                : "Enter text",
+                                                : "Enter text ...",
                                         hintStyle: TextStyle(
                                           fontFamily: "Poppins",
                                           fontWeight: FontWeight.w600,
                                           color: textgrey,
-                                          fontSize: 28.sp,
+                                          fontSize: 20.sp,
                                         ),
                                       ),
                                     ),
@@ -437,29 +441,38 @@ class _AdvanceDisctionaryScreenState extends State<AdvanceDisctionaryScreen>
                             fontWeight: FontWeight.w500,
                             borderRadius: 50.r,
                           )
-                        : FloatingActionButton.large(
-                            onPressed: () {
-                              if (obj.transcriptStatus.value == "empty") {
-                                obj.updatetranscriptStatus("run");
-                              } else if (obj.transcriptStatus.value == "run") {
-                                obj.updatetranscriptStatus("empty");
-                              }
-                            },
-                            materialTapTargetSize: MaterialTapTargetSize.padded,
-                            backgroundColor: primaryColor,
-                            shape:
-                                const CircleBorder(), // Set background color to pink
-                            child: SvgPicture.asset(
-                              obj.transcriptStatus.value == "run"
-                                  ? "images/stop.svg"
-                                  : "images/mic.svg",
-                              color: obj.isEmpty.value ? null : Colors.white,
-                              height: obj.transcriptStatus.value == "run"
-                                  ? 25.h
-                                  : 40.h,
-                              width: obj.transcriptStatus.value == "run"
-                                  ? 25.w
-                                  : 30.w,
+                        : AvatarGlow(
+                            glowColor: primaryColor,
+                            animate: obj.transcriptStatus.value == "run"
+                                ? true
+                                : false,
+                            glowCount: 1,
+                            child: FloatingActionButton.large(
+                              onPressed: () {
+                                if (obj.transcriptStatus.value == "empty") {
+                                  obj.updatetranscriptStatus("run");
+                                } else if (obj.transcriptStatus.value ==
+                                    "run") {
+                                  obj.updatetranscriptStatus("empty");
+                                }
+                              },
+                              materialTapTargetSize:
+                                  MaterialTapTargetSize.padded,
+                              backgroundColor: primaryColor,
+                              shape:
+                                  const CircleBorder(), // Set background color to pink
+                              child: SvgPicture.asset(
+                                obj.transcriptStatus.value == "run"
+                                    ? "images/stop.svg"
+                                    : "images/mic.svg",
+                                color: obj.isEmpty.value ? null : Colors.white,
+                                height: obj.transcriptStatus.value == "run"
+                                    ? 25.h
+                                    : 40.h,
+                                width: obj.transcriptStatus.value == "run"
+                                    ? 25.w
+                                    : 30.w,
+                              ),
                             ),
                           ),
                     obj.isEmpty.value || isKeyboardVisible

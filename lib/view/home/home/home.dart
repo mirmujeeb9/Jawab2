@@ -5,11 +5,11 @@ import 'package:alxza/view/home/menue/advanced_dictionary/advanced_dictionary.da
 import 'package:alxza/view/home/menue/ai_assistant/ai_assistant.dart';
 import 'package:alxza/view/home/menue/image_transcription/image_transcription.dart';
 import 'package:alxza/view/home/menue/menue.dart';
+import 'package:alxza/view/home/menue/right_menue/right_menue.dart';
 import 'package:alxza/view/home/menue/translator/translator.dart';
 import 'package:alxza/view/home/menue/video_transcription/video_transcription.dart';
 import 'package:alxza/view/home/profile.dart/profile.dart';
 import 'package:alxza/widget/colors.dart';
-import 'package:alxza/widget/confirmation_dialogue.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -22,147 +22,176 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _controller;
+  late final Animation<double> _animation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+        duration: const Duration(milliseconds: 500), vsync: this);
+    _animation = Tween(begin: 0.0, end: .5)
+        .animate(CurvedAnimation(parent: _controller, curve: Curves.easeOut));
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backGroundColor,
-      bottomNavigationBar: Obx(
-        () => Container(
-          height: 70.h,
-          color: whiteColor,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              InkWell(
-                onTap: () {
-                  HomeController.to.selectedItemPosition.value = 0;
-                },
-                child: Container(
-                  height: 30.h,
-                  width: 30.w,
-                  decoration: const BoxDecoration(shape: BoxShape.circle),
-                  child: Center(
-                    child: SvgPicture.asset(
-                      "images/menue.svg",
-                      height: 20.h,
-                      width: 20.w,
-                      color: HomeController.to.selectedItemPosition.value == 0
-                          ? primaryColor
-                          : null,
+      bottomNavigationBar: GetBuilder<HomeController>(builder: (obj) {
+        return Obx(
+          () => Container(
+            height: 70.h,
+            color: whiteColor,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                InkWell(
+                  onTap: () {
+                    obj.selectedItemPosition.value = 0;
+                    obj.tabIndex.value = 10;
+                    _controller.reverse();
+                  },
+                  child: Container(
+                    height: 30.h,
+                    width: 30.w,
+                    decoration: const BoxDecoration(shape: BoxShape.circle),
+                    child: Center(
+                      child: SvgPicture.asset(
+                        "images/menue.svg",
+                        height: 20.h,
+                        width: 20.w,
+                        color: obj.selectedItemPosition.value == 0
+                            ? primaryColor
+                            : null,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              InkWell(
-                onTap: () {
-                  HomeController.to.selectedItemPosition.value = 1;
-                },
-                child: Container(
-                  height: 30.h,
-                  width: 30.w,
-                  decoration: const BoxDecoration(shape: BoxShape.circle),
-                  child: Center(
-                    child: SvgPicture.asset(
-                      "images/history.svg",
-                      height: 20.h,
-                      width: 20.w,
-                      color: HomeController.to.selectedItemPosition.value == 1
-                          ? primaryColor
-                          : null,
+                InkWell(
+                  onTap: () {
+                    obj.selectedItemPosition.value = 1;
+                    obj.tabIndex.value = 10;
+                    _controller.reverse();
+                  },
+                  child: Container(
+                    height: 30.h,
+                    width: 30.w,
+                    decoration: const BoxDecoration(shape: BoxShape.circle),
+                    child: Center(
+                      child: SvgPicture.asset(
+                        "images/history.svg",
+                        height: 20.h,
+                        width: 20.w,
+                        color: obj.selectedItemPosition.value == 1
+                            ? primaryColor
+                            : null,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              InkWell(
-                onTap: () {
-                  HomeController.to.selectedItemPosition.value = 2;
-                },
-                child: Container(
-                  height: 30.h,
-                  width: 30.w,
-                  decoration: const BoxDecoration(shape: BoxShape.circle),
-                  child: Center(
-                    child: SvgPicture.asset(
-                      "images/person.svg",
-                      height: 20.h,
-                      width: 20.w,
-                      color: HomeController.to.selectedItemPosition.value == 2
-                          ? primaryColor
-                          : null,
+                InkWell(
+                  onTap: () {
+                    obj.selectedItemPosition.value = 2;
+                    obj.tabIndex.value = 10;
+                    _controller.reverse();
+                  },
+                  child: Container(
+                    height: 30.h,
+                    width: 30.w,
+                    decoration: const BoxDecoration(shape: BoxShape.circle),
+                    child: Center(
+                      child: SvgPicture.asset(
+                        "images/person.svg",
+                        height: 20.h,
+                        width: 20.w,
+                        color: obj.selectedItemPosition.value == 2
+                            ? primaryColor
+                            : null,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              InkWell(
-                onTap: () {
-                  HomeController.to.selectedItemPosition.value = 3;
-                  Get.dialog(MenueDialogue(
-                    onYesBtnClick: () {
-                      Get.back();
-                    },
-                  ));
-                },
-                child: Container(
-                  height: 30.h,
-                  width: 30.w,
-                  decoration: const BoxDecoration(shape: BoxShape.circle),
-                  child: Center(
-                    child: Image.asset(
-                      "images/chat.png",
+                InkWell(
+                  onTap: () {
+                    obj.selectedItemPosition.value = 3;
+                    obj.tabIndex.value = 10;
+                    if (_controller.isDismissed) {
+                      _controller.forward();
+                    }
+                    // Get.dialog(MenueDialogue(
+                    //   onYesBtnClick: () {
+                    //     Get.back();
+                    //   },
+                    // ));
+                  },
+                  child: RotationTransition(
+                    turns: _animation,
+                    child: Container(
                       height: 30.h,
                       width: 30.w,
+                      decoration: const BoxDecoration(shape: BoxShape.circle),
+                      child: Center(
+                        child: Image.asset(
+                          "images/chat.png",
+                          height: 30.h,
+                          width: 30.w,
+                        ),
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-      ),
-      body: Obx(
-        () => HomeController.to.selectedItemPosition.value == 0
-            ? const MenueScreen()
-            : HomeController.to.tabIndex.value == 0 &&
-                    HomeController.to.selectedItemPosition.value == 3
-                ? const TranslateScreen()
-                : HomeController.to.tabIndex.value == 1 &&
-                        HomeController.to.selectedItemPosition.value == 3
-                    ? const AdvanceDisctionaryScreen()
-                    : HomeController.to.tabIndex.value == 2 &&
-                            HomeController.to.selectedItemPosition.value == 3
-                        ? const VideoTranscriptionScreen()
-                        : HomeController.to.tabIndex.value == 3 &&
-                                HomeController.to.selectedItemPosition.value ==
-                                    3
-                            ? const ImageTranscriptionScreen()
-                            : HomeController.to.tabIndex.value == 4 &&
-                                    HomeController
-                                            .to.selectedItemPosition.value ==
-                                        3
-                                ? const Conjugaison_1()
-                                : HomeController.to.tabIndex.value == 5 &&
-                                        HomeController.to.selectedItemPosition
-                                                .value ==
-                                            3
-                                    ? const AiassistentScreen()
-                                    : HomeController.to.selectedItemPosition
-                                                .value ==
-                                            1
-                                        ? const FolderScreen()
-                                        : HomeController.to.selectedItemPosition
-                                                    .value ==
-                                                2
-                                            ? const ProfileScreen()
-                                            : const TranslateScreen(),
-      ),
+        );
+      }),
+      body: GetBuilder<HomeController>(builder: (obj) {
+        return Obx(
+          () => obj.selectedItemPosition.value == 0
+              ? const MenueScreen()
+              : obj.selectedItemPosition.value == 1
+                  ? const FolderScreen()
+                  : obj.selectedItemPosition.value == 2
+                      ? const ProfileScreen()
+                      : obj.selectedItemPosition.value == 3
+                          ? const RightMenue()
+                          : obj.selectedItemPosition.value == 4
+                              ? const TranslateScreen()
+                              : obj.selectedItemPosition.value == 5
+                                  ? const AdvanceDisctionaryScreen()
+                                  : HomeController
+                                              .to.selectedItemPosition.value ==
+                                          6
+                                      ? const VideoTranscriptionScreen()
+                                      : obj.selectedItemPosition.value == 7
+                                          ? const ImageTranscriptionScreen()
+                                          : obj.selectedItemPosition.value == 8
+                                              ? const Conjugaison_1()
+                                              : HomeController
+                                                          .to
+                                                          .selectedItemPosition
+                                                          .value ==
+                                                      9
+                                                  ? const AiassistentScreen()
+                                                  : const TranslateScreen(),
+        );
+      }),
     );
   }
 }
 
 
     // bottomNavigationBar: ValueListenableBuilder(
-    //       valueListenable: HomeController.to.bottomsheetIndex,
+    //       valueListenable:obj.bottomsheetIndex,
     //       builder: (context, val, child) {
     //         return Obx(
     //           () => SnakeNavigationBar.color(
