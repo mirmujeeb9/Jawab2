@@ -296,91 +296,83 @@ class _MenueDialogueState extends State<MenueDialogue>
       filter: ImageFilter.blur(sigmaY: 2, sigmaX: 2),
       child: ScaleTransition(
         scale: scaleAnimation,
-        alignment: Alignment.bottomCenter,
         child: Dialog(
-          alignment: Alignment.bottomCenter,
           backgroundColor: whiteColor,
           insetPadding: EdgeInsets.symmetric(
             horizontal: 30.w,
           ),
           shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(20.r),
-            topRight: Radius.circular(20.r),
+              borderRadius: BorderRadius.circular(
+            25.r,
           )),
           child: AspectRatio(
             aspectRatio: 0.75,
             child: Container(
               decoration: BoxDecoration(
-                  color: whiteColor,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(20.r),
-                    topRight: Radius.circular(20.r),
-                  )),
-              child: SingleChildScrollView(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    GridView.builder(
-                        physics: const NeverScrollableScrollPhysics(),
-                        padding: EdgeInsets.only(
-                          left: 20.w,
-                          right: 20.w,
-                          top: 30.h,
-                        ),
-                        shrinkWrap: true,
-                        primary: false,
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          mainAxisExtent: 120.h,
-                          crossAxisCount: 2,
-                          crossAxisSpacing: 20.w,
-                          mainAxisSpacing: 15.h,
-                        ),
-                        itemCount: HomeController.to.tabsList.length,
-                        itemBuilder: (c, index) {
-                          TabModel model = HomeController.to.tabsList[index];
-                          return InkWell(
-                            onTap: () {
-                              HomeController.to.tabIndex.value = index;
+                color: whiteColor,
+                borderRadius: BorderRadius.circular(
+                  25.r,
+                ),
+              ),
+              child: Center(
+                child: SingleChildScrollView(
+                  child: GridView.builder(
+                      physics: const NeverScrollableScrollPhysics(),
+                      padding: EdgeInsets.only(
+                        left: 20.w,
+                        right: 20.w,
+                      ),
+                      shrinkWrap: true,
+                      primary: false,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        mainAxisExtent: 120.h,
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 0,
+                        mainAxisSpacing: 10.h,
+                      ),
+                      itemCount: HomeController.to.tabsList.length,
+                      itemBuilder: (c, index) {
+                        TabModel model = HomeController.to.tabsList[index];
+                        return InkWell(
+                          onTap: () {
+                            HomeController.to.tabIndex.value = index;
 
-                              Get.back();
-                            },
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Card(
-                                  elevation: 5,
-                                  shape: const CircleBorder(),
-                                  child: Container(
-                                    height: 75.h,
-                                    width: 75.w,
-                                    decoration: BoxDecoration(
-                                        color:
-                                            HomeController.to.tabIndex.value ==
-                                                    index
-                                                ? textgrey
-                                                : primaryColor,
-                                        shape: BoxShape.circle),
-                                    child: Center(
-                                      child: Image.asset(
-                                        model.image!,
-                                        height: 40.h,
-                                        width: 40.w,
-                                      ),
+                            Get.back();
+                          },
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Card(
+                                elevation: 5,
+                                shape: const CircleBorder(),
+                                child: Container(
+                                  height: 75.h,
+                                  width: 75.w,
+                                  decoration: BoxDecoration(
+                                      color: HomeController.to.tabIndex.value ==
+                                              index
+                                          ? textgrey
+                                          : primaryColor,
+                                      shape: BoxShape.circle),
+                                  child: Center(
+                                    child: Image.asset(
+                                      model.image!,
+                                      height: 40.h,
+                                      width: 40.w,
                                     ),
                                   ),
                                 ),
-                                TextWidget(
-                                  textAlign: TextAlign.center,
-                                  text: model.name!,
-                                  fontSize: 14.sp,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ],
-                            ),
-                          );
-                        }),
-                  ],
+                              ),
+                              TextWidget(
+                                textAlign: TextAlign.center,
+                                text: model.name!,
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ],
+                          ),
+                        );
+                      }),
                 ),
               ),
             ),

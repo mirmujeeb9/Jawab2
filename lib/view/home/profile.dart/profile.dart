@@ -159,9 +159,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       height: 30.h,
                                       width: 30.w,
                                       child: Center(
-                                        child: SvgPicture.asset(
+                                        child: Image.asset(
                                           model.image!,
-                                          color: Colors.black,
+                                          height: 16.h,
+                                          width: 16.w,
                                         ),
                                       ),
                                     ),

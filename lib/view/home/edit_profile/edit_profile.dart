@@ -6,7 +6,6 @@ import 'package:alxza/widget/custom_container.dart';
 import 'package:alxza/widget/customize_textform_feild.dart';
 import 'package:alxza/widget/text_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -23,16 +22,19 @@ class _Edit_profileState extends State<Edit_profile> {
   TextEditingController emailcontroller = TextEditingController();
   TextEditingController fullnamecontroller = TextEditingController();
   TextEditingController phonecontroller = TextEditingController();
-  TextEditingController locationconotroller = TextEditingController();
-  TextEditingController boicontroller = TextEditingController();
+  TextEditingController streetconotroller = TextEditingController();
+  TextEditingController postalcodecontroller = TextEditingController();
+  TextEditingController citycontroller = TextEditingController();
+  TextEditingController countrycontroller = TextEditingController();
 
   @override
   void dispose() {
     emailcontroller.dispose();
     fullnamecontroller.dispose();
     phonecontroller.dispose();
-    locationconotroller.dispose();
-    boicontroller.dispose();
+    streetconotroller.dispose();
+    citycontroller.dispose();
+    countrycontroller.dispose();
 
     super.dispose();
   }
@@ -198,6 +200,7 @@ class _Edit_profileState extends State<Edit_profile> {
                           hint: "example@gmail.com",
                           fontFamily: 'Poppins',
                           controller: emailcontroller,
+                          keyboardType: TextInputType.emailAddress,
                           validator: (v) {
                             if (v!.isEmpty) {
                               return "Please enter email";
@@ -227,7 +230,7 @@ class _Edit_profileState extends State<Edit_profile> {
                       SizedBox(
                         width: 335.w,
                         child: CustomTextFormField(
-                          hint: "+880173912-8899",
+                          hint: "+33 6 06 06 06 06",
                           fontFamily: 'Poppins',
                           keyboardType: TextInputType.number,
                           controller: phonecontroller,
@@ -246,7 +249,7 @@ class _Edit_profileState extends State<Edit_profile> {
                       Row(
                         children: [
                           TextWidget(
-                              text: "Location",
+                              text: "Street",
                               fontSize: 16.sp,
                               fontWeight: FontWeight.w500),
                         ],
@@ -257,12 +260,12 @@ class _Edit_profileState extends State<Edit_profile> {
                       SizedBox(
                         width: 335.w,
                         child: CustomTextFormField(
-                          hint: "Sai Can, Vietnam",
+                          hint: "1 Place du Marché",
                           fontFamily: 'Poppins',
-                          controller: locationconotroller,
+                          controller: streetconotroller,
                           validator: (v) {
                             if (v!.isEmpty) {
-                              return "Please enter Location";
+                              return "Please enter Street";
                             }
 
                             return null;
@@ -275,14 +278,72 @@ class _Edit_profileState extends State<Edit_profile> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              TextWidget(
+                                  text: "Postal Code",
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.w500),
+                              SizedBox(
+                                height: 5.h,
+                              ),
+                              SizedBox(
+                                width: 150.w,
+                                child: CustomTextFormField(
+                                  keyboardType: TextInputType.number,
+                                  hint: "75001",
+                                  fontFamily: 'Poppins',
+                                  controller: postalcodecontroller,
+                                  validator: (v) {
+                                    if (v!.isEmpty) {
+                                      return "Please enter Postal Code";
+                                    }
+
+                                    return null;
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              TextWidget(
+                                  text: "City",
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.w500),
+                              SizedBox(
+                                height: 5.h,
+                              ),
+                              SizedBox(
+                                width: 150.w,
+                                child: CustomTextFormField(
+                                  hint: "Paris",
+                                  fontFamily: 'Poppins',
+                                  controller: citycontroller,
+                                  validator: (v) {
+                                    if (v!.isEmpty) {
+                                      return "Please enter City";
+                                    }
+
+                                    return null;
+                                  },
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                      SizedBox(
+                        height: 15.h,
+                      ),
+                      Row(
+                        children: [
                           TextWidget(
-                              text: "Bio",
+                              text: "Country",
                               fontSize: 16.sp,
                               fontWeight: FontWeight.w500),
-                          Subheading(
-                            text: "220",
-                            color: textgrey,
-                          )
                         ],
                       ),
                       SizedBox(
@@ -291,16 +352,12 @@ class _Edit_profileState extends State<Edit_profile> {
                       SizedBox(
                         width: 335.w,
                         child: CustomTextFormField(
-                          inputFormatters: [
-                            LengthLimitingTextInputFormatter(220),
-                          ],
-                          maxline: 5,
-                          hint: "Start bio here...",
+                          hint: "FRANCE",
                           fontFamily: 'Poppins',
-                          controller: fullnamecontroller,
+                          controller: countrycontroller,
                           validator: (v) {
                             if (v!.isEmpty) {
-                              return "Please enter Location";
+                              return "Please enter Country";
                             }
 
                             return null;

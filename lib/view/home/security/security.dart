@@ -75,16 +75,18 @@ class _SecurityScreenState extends State<SecurityScreen> {
                       child: Padding(
                         padding: const EdgeInsets.all(10.0),
                         child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 3.w),
+                              padding: EdgeInsets.symmetric(horizontal: 5.w),
                               child: SvgPicture.asset("images/info.svg"),
                             ),
                             Expanded(
-                              child: Subheading(
+                              child: TextWidget(
+                                fontSize: 10.sp,
+                                fontWeight: FontWeight.w600,
                                 text:
-                                    "Please leave empty if you don’t want to change your password.",
+                                    "Leave empty if you don’t want to change your password.",
                                 color: primaryColor,
                               ),
                             ),

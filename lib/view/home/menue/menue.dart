@@ -54,10 +54,11 @@ class _MenueScreenState extends State<MenueScreen> {
                   ],
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(vertical: 5.h),
+                  padding: EdgeInsets.symmetric(vertical: 10.h),
                   child: Row(
                     children: [
                       Heading(
+                        fontSize: 28.sp,
                         text: "Salam aleykoum\nJuju Mitcheli !",
                       ),
                     ],

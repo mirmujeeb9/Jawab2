@@ -78,7 +78,7 @@ class _VerifiedScreenState extends State<VerifiedScreen> {
                             ),
                             TextWidget(
                               text:
-                                  'Your account is reedy to use. You will be\n redirected to the home page in a\n few seconds',
+                                  'Your account is reedy to use.\n You will be redirected to the\n home page in a few seconds',
                               fontSize: 14.sp,
                               textAlign: TextAlign.center,
                               fontWeight: FontWeight.w400,

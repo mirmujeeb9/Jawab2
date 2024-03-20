@@ -64,7 +64,10 @@ class _FaqScreenState extends State<FaqScreen> {
                         tilePadding: EdgeInsets.only(bottom: 10.h, top: 10.h),
                         collapsedShape: Border(
                           bottom: BorderSide(
-                              color: Colors.grey.shade300, width: 2.w),
+                              color: obj.faqlist.length - 1 == index
+                                  ? Colors.transparent
+                                  : Colors.grey.shade300,
+                              width: 2.w),
                         ),
                         shape: const Border(),
                         trailing: const SizedBox(),

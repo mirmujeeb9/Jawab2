@@ -55,9 +55,11 @@ class TextWidget extends StatelessWidget {
 class Heading extends StatelessWidget {
   String text;
   Color? color;
+  double? fontSize;
   Heading({
     super.key,
     this.color,
+    this.fontSize,
     required this.text,
   });
 
@@ -65,7 +67,7 @@ class Heading extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextWidget(
       text: text,
-      fontSize: 30.sp,
+      fontSize: fontSize ?? 30.sp,
       color: color,
       fontWeight: FontWeight.w600,
     );

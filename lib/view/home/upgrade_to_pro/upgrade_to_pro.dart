@@ -1,3 +1,4 @@
+import 'package:alxza/view/auth/forgot_password/verified/verified_screen.dart';
 import 'package:alxza/view/home/payment_method/payment_method.dart';
 import 'package:alxza/view/home/upgrade_to_pro/controller.dart';
 import 'package:alxza/widget/colors.dart';
@@ -53,10 +54,17 @@ class _Upgrade_to_proState extends State<Upgrade_to_pro> {
                                   BorderRadius.all(Radius.circular(30.r))),
                           child: InkWell(
                             onTap: () {
-                              Get.to(
-                                () => const Payment_method(),
-                                transition: Transition.rightToLeft,
-                              );
+                              if (index == 0) {
+                                Get.to(
+                                  () => const VerifiedScreen(),
+                                  transition: Transition.rightToLeft,
+                                );
+                              } else {
+                                Get.to(
+                                  () => const Payment_method(),
+                                  transition: Transition.rightToLeft,
+                                );
+                              }
                             },
                             child: Container(
                               height: 390.h,

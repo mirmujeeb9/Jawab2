@@ -424,11 +424,11 @@ class _AffiliateScreenState extends State<AffiliateScreen> {
                                     child: CustomTextFormField(
                                         hint: "Email address",
                                         suffixIcon: Padding(
-                                          padding: const EdgeInsets.all(12.0),
+                                          padding: const EdgeInsets.all(13.0),
                                           child: SvgPicture.asset(
                                               width: 5.w,
                                               height: 5.h,
-                                              "images/copy.svg"),
+                                              "images/email.svg"),
                                         ),
                                         fontFamily: 'Poppins',
                                         controller: emailcontroler,
