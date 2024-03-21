@@ -245,35 +245,35 @@ class _Edit_profileState extends State<Edit_profile> {
                       },
                     ),
                   ),
-                  SizedBox(
-                    height: 15.h,
-                  ),
-                  Row(
-                    children: [
-                      TextWidget(
-                          text: "Street",
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.w500),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 5.h,
-                  ),
-                  SizedBox(
-                    width: 335.w,
-                    child: CustomTextFormField(
-                      hint: "1 Place du Marché",
-                      fontFamily: 'Poppins',
-                      controller: streetconotroller,
-                      validator: (v) {
-                        if (v!.isEmpty) {
-                          return "Please enter Street";
-                        }
+                  // SizedBox(
+                  //   height: 15.h,
+                  // ),
+                  // Row(
+                  //   children: [
+                  //     TextWidget(
+                  //         text: "Street",
+                  //         fontSize: 16.sp,
+                  //         fontWeight: FontWeight.w500),
+                  //   ],
+                  // ),
+                  // SizedBox(
+                  //   height: 5.h,
+                  // ),
+                  // SizedBox(
+                  //   width: 335.w,
+                  //   child: CustomTextFormField(
+                  //     hint: "1 Place du Marché",
+                  //     fontFamily: 'Poppins',
+                  //     controller: streetconotroller,
+                  //     validator: (v) {
+                  //       if (v!.isEmpty) {
+                  //         return "Please enter Street";
+                  //       }
 
-                        return null;
-                      },
-                    ),
-                  ),
+                  //       return null;
+                  //     },
+                  //   ),
+                  // ),
                   SizedBox(
                     height: 15.h,
                   ),

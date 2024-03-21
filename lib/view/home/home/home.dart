@@ -32,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen>
     super.initState();
     _controller = AnimationController(
         duration: const Duration(milliseconds: 500), vsync: this);
-    _animation = Tween(begin: 0.0, end: .5)
+    _animation = Tween(begin: 0.0, end: 1.0)
         .animate(CurvedAnimation(parent: _controller, curve: Curves.easeOut));
   }
 
