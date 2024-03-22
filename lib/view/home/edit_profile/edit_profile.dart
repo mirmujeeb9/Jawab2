@@ -2,7 +2,6 @@ import 'package:alxza/view/home/edit_profile/controller.dart';
 import 'package:alxza/view/home/edit_profile/image_botom_sheet.dart';
 import 'package:alxza/widget/colors.dart';
 import 'package:alxza/widget/custom_appbar.dart';
-import 'package:alxza/widget/custom_container.dart';
 import 'package:alxza/widget/customize_textform_feild.dart';
 import 'package:alxza/widget/text_widget.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
@@ -61,20 +60,6 @@ class _Edit_profileState extends State<Edit_profile> {
                   CustomAppBar(
                     text: "Profile",
                     leading: true,
-                    action: CustomContainer(
-                      onTap: () {},
-                      width: 35.w,
-                      height: 35.w,
-                      margin: EdgeInsets.only(bottom: 5.h),
-                      borderRadius: 8.r,
-                      borderColor: Colors.grey,
-                      borderWidth: 1.w,
-                      child: Center(
-                        child: SvgPicture.asset(
-                          "images/Edit.svg",
-                        ),
-                      ),
-                    ),
                   ),
                   SizedBox(
                     height: 20.h,

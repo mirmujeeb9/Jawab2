@@ -10,7 +10,7 @@ class Splash_controller extends GetxController {
   static Splash_controller get to => Get.find();
   bool callfunction = false;
   Future splashgetintrovideo() async {
-    videoPlayerController = VideoPlayerController.asset("images/IMG_3861.MOV")
+    videoPlayerController = VideoPlayerController.asset("images/IMG_3861.mp4")
       ..initialize().then(
         (_) {
           update();

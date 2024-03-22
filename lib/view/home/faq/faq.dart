@@ -1,7 +1,6 @@
 import 'package:alxza/view/home/faq/controller.dart';
 import 'package:alxza/widget/colors.dart';
 import 'package:alxza/widget/custom_appbar.dart';
-import 'package:alxza/widget/custom_container.dart';
 import 'package:alxza/widget/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -34,21 +33,6 @@ class _FaqScreenState extends State<FaqScreen> {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20.w),
                   child: CustomAppBar(
-                    action: CustomContainer(
-                      onTap: () {},
-                      width: 35.w,
-                      height: 35.w,
-                      margin: EdgeInsets.only(bottom: 5.h),
-                      borderRadius: 8.r,
-                      borderColor: Colors.grey,
-                      borderWidth: 1.w,
-                      child: Center(
-                        child: Icon(
-                          Icons.more_vert,
-                          color: textgrey,
-                        ),
-                      ),
-                    ),
                     text: "FAQs",
                     leading: true,
                   ),
