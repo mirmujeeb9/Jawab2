@@ -1,5 +1,6 @@
 import 'package:alxza/view/home/conjugaison%201/controller.dart';
 import 'package:alxza/view/home/conjugaison%201/model.dart';
+import 'package:alxza/view/home/home/controller.dart';
 import 'package:alxza/widget/colors.dart';
 import 'package:alxza/widget/custom_container.dart';
 import 'package:alxza/widget/customize_textform_feild.dart';
@@ -48,7 +49,9 @@ class _Conjugaison_1State extends State<Conjugaison_1> {
                   child: Row(
                     children: [
                       CustomContainer(
-                        onTap: () {},
+                        onTap: () {
+                          HomeController.to.selectedItemPosition.value = 0;
+                        },
                         width: 35.w,
                         height: 35.w,
                         margin: EdgeInsets.only(bottom: 5.h),

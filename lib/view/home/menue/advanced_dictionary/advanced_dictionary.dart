@@ -36,6 +36,7 @@ class _AdvanceDisctionaryScreenState extends State<AdvanceDisctionaryScreen>
     //   tooltipController.showTooltip();
     // });
     // WidgetsBinding.instance.addObserver(this);
+
     AdvanceDisctionaryController.to.transcriptStatus.value = "empty";
     AdvanceDisctionaryController.to.isEmpty.value = true;
     super.initState();
@@ -227,41 +228,44 @@ class _AdvanceDisctionaryScreenState extends State<AdvanceDisctionaryScreen>
                                       SizedBox(
                                         height: 20.h,
                                       ),
-                                      SingleChildScrollView(
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            TextWidget(
-                                              text:
-                                                  "Traduction Avancée  📖🔍🌐",
-                                              fontSize: 16.sp,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                            SizedBox(
-                                              height: 15.h,
-                                            ),
-                                            TextWidget(
-                                              text:
-                                                  "La sœur de Zaid est enseignante et elle aide sa mère. Voici la famille de Zaid.",
-                                              fontSize: 13.sp,
-                                              fontWeight: FontWeight.w400,
-                                            ),
-                                            SizedBox(
-                                              height: 10.h,
-                                            ),
-                                            TextWidget(
-                                              text: "Explications :",
-                                              fontSize: 16.sp,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                            TextWidget(
-                                              text:
-                                                  """- "أُخْتُ" : sœur 📖 motif de possession (أُخْتُ زَيْدٍ - la sœur de Zaid).\n- "زَيْدٍ" : Zaid 📖 propre nom masculin.\n- "مُعَلِّمَةٌ" : enseignante 📖 nom féminin singulier.\n- "وَهِيَ" : et elle 📖 conjonction de coordination suivie du pronom personnel.\n- "تُسَاعِدُ" : aide 📖 verbe à la 3e personne du féminin au présent.\n- "أُمَّهَا" : sa mère 📖 motif de possession (sa - أُمَّهَا).- "هَذِهٍ" : voici 📖 démonstratif pour désigner de manière proche au féminin.\n- "أُسْرَةُ" : famille 📖 nom féminin singulier.""",
-                                              fontSize: 13.sp,
-                                              fontWeight: FontWeight.w400,
-                                            ),
-                                          ],
+                                      Container(
+                                        height: 390.h,
+                                        child: SingleChildScrollView(
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              TextWidget(
+                                                text:
+                                                    "Traduction Avancée  📖🔍🌐",
+                                                fontSize: 16.sp,
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                              SizedBox(
+                                                height: 15.h,
+                                              ),
+                                              TextWidget(
+                                                text:
+                                                    "La sœur de Zaid est enseignante et elle aide sa mère. Voici la famille de Zaid.",
+                                                fontSize: 13.sp,
+                                                fontWeight: FontWeight.w400,
+                                              ),
+                                              SizedBox(
+                                                height: 10.h,
+                                              ),
+                                              TextWidget(
+                                                text: "Explications :",
+                                                fontSize: 16.sp,
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                              TextWidget(
+                                                text:
+                                                    """- "أُخْتُ" : sœur 📖 motif de possession (أُخْتُ زَيْدٍ - la sœur de Zaid).\n- "زَيْدٍ" : Zaid 📖 propre nom masculin.\n- "مُعَلِّمَةٌ" : enseignante 📖 nom féminin singulier.\n- "وَهِيَ" : et elle 📖 conjonction de coordination suivie du pronom personnel.\n- "تُسَاعِدُ" : aide 📖 verbe à la 3e personne du féminin au présent.\n- "أُمَّهَا" : sa mère 📖 motif de possession (sa - أُمَّهَا).- "هَذِهٍ" : voici 📖 démonstratif pour désigner de manière proche au féminin.\n- "أُسْرَةُ" : famille 📖 nom féminin singulier."أُخْتُ" : sœur 📖 motif de possession (أُخْتُ زَيْدٍ - la sœur de Zaid).\n- "زَيْدٍ" : Zaid 📖 propre nom masculin.\n- "مُعَلِّمَةٌ" : enseignante 📖 nom féminin singulier.\n- "وَهِيَ" : et elle 📖 conjonction de coordination suivie du pronom personnel.\n- "تُسَاعِدُ" : aide 📖 verbe à la 3e personne du féminin au présent.\n- "أُمَّهَا" : sa mère 📖 motif de possession (sa - أُمَّهَا).- "هَذِهٍ" : voici 📖 démonstratif pour désigner de manière proche au féminin.\n- "أُسْرَةُ" : famille 📖 nom féminin singulier.""",
+                                                fontSize: 13.sp,
+                                                fontWeight: FontWeight.w400,
+                                              ),
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     ],
@@ -465,7 +469,10 @@ class _AdvanceDisctionaryScreenState extends State<AdvanceDisctionaryScreen>
                                 obj.transcriptStatus.value == "run"
                                     ? "images/stop.svg"
                                     : "images/mic.svg",
-                                color: obj.isEmpty.value ? null : Colors.white,
+                                color: obj.isEmpty.value ||
+                                        obj.transcriptStatus.value == "run"
+                                    ? null
+                                    : Colors.white,
                                 height: obj.transcriptStatus.value == "run"
                                     ? 25.h
                                     : 40.h,
