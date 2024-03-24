@@ -1,7 +1,6 @@
 import 'package:alxza/view/home/home/controller.dart';
 import 'package:alxza/view/home/menue/advanced_dictionary/controller.dart';
 import 'package:alxza/view/home/menue/translator/controller.dart';
-import 'package:alxza/view/home/upgrade_to_pro/upgrade_to_pro.dart';
 import 'package:alxza/widget/button.dart';
 import 'package:alxza/widget/colors.dart';
 import 'package:alxza/widget/confirmation_dialogue.dart';
@@ -129,8 +128,10 @@ class _AdvanceDisctionaryScreenState extends State<AdvanceDisctionaryScreen>
                                 Get.dialog(CreditDialogue(
                                   onYesBtnClick: () {
                                     Get.back();
-                                    Get.to(() => Upgrade_to_pro(),
-                                        transition: Transition.leftToRight);
+                                    HomeController
+                                        .to.selectedItemPosition.value = 11;
+                                    // Get.to(() => Upgrade_to_pro(),
+                                    //     transition: Transition.leftToRight);
                                   },
                                 ));
                               },

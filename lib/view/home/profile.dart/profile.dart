@@ -1,12 +1,5 @@
-import 'package:alxza/view/home/affiliate/affiliate.dart';
-import 'package:alxza/view/home/edit_profile/edit_profile.dart';
-import 'package:alxza/view/home/faq/faq.dart';
 import 'package:alxza/view/home/home/controller.dart';
-import 'package:alxza/view/home/invoices/invoices.dart';
-import 'package:alxza/view/home/privacy_policy/privacy_policy.dart';
 import 'package:alxza/view/home/profile.dart/controller.dart';
-import 'package:alxza/view/home/security/security.dart';
-import 'package:alxza/view/home/upgrade_to_pro/upgrade_to_pro.dart';
 import 'package:alxza/widget/colors.dart';
 import 'package:alxza/widget/custom_appbar.dart';
 import 'package:alxza/widget/custom_container.dart';
@@ -63,10 +56,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ],
                       child: ListTile(
                         onTap: () {
-                          Get.to(
-                            () => const Edit_profile(),
-                            transition: Transition.rightToLeft,
-                          );
+                          HomeController.to.selectedItemPosition.value = 12;
+                          // Get.to(
+                          //   () => const Edit_profile(),
+                          //   transition: Transition.rightToLeft,
+                          // );
                         },
                         contentPadding: EdgeInsets.symmetric(
                             horizontal: 15.w, vertical: 5.h),
@@ -123,20 +117,36 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 image: model.image!,
                                 title: model.name!,
                                 onTap: () {
-                                  Get.to(
-                                    () => index == 0
-                                        ? const AffiliateScreen()
-                                        : index == 1
-                                            ? const InvoiceScreen()
-                                            : index == 2
-                                                ? const SecurityScreen()
-                                                : index == 4
-                                                    ? const PrivacyPolicyScreen()
-                                                    : index == 5
-                                                        ? const FaqScreen()
-                                                        : const AffiliateScreen(),
-                                    transition: Transition.rightToLeft,
-                                  );
+                                  if (index == 0) {
+                                    HomeController
+                                        .to.selectedItemPosition.value = 13;
+                                  } else if (index == 1) {
+                                    HomeController
+                                        .to.selectedItemPosition.value = 14;
+                                  } else if (index == 2) {
+                                    HomeController
+                                        .to.selectedItemPosition.value = 15;
+                                  } else if (index == 4) {
+                                    HomeController
+                                        .to.selectedItemPosition.value = 16;
+                                  } else if (index == 5) {
+                                    HomeController
+                                        .to.selectedItemPosition.value = 17;
+                                  }
+                                  // Get.to(
+                                  //   () => index == 0
+                                  //       ? const AffiliateScreen()
+                                  //       : index == 1
+                                  //           ? const InvoiceScreen()
+                                  //           : index == 2
+                                  //               ? const SecurityScreen()
+                                  //               : index == 4
+                                  //                   ? const PrivacyPolicyScreen()
+                                  //                   : index == 5
+                                  //                       ? const FaqScreen()
+                                  //                       : const AffiliateScreen(),
+                                  //   transition: Transition.rightToLeft,
+                                  // );
                                 })
                             : Padding(
                                 padding: EdgeInsets.symmetric(vertical: 5.h),
@@ -211,10 +221,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ],
                       child: ListTile(
                         onTap: () {
-                          Get.to(
-                            () => const Upgrade_to_pro(),
-                            transition: Transition.rightToLeft,
-                          );
+                          HomeController.to.selectedItemPosition.value = 11;
+                          // Get.to(
+                          //   () => const Upgrade_to_pro(),
+                          //   transition: Transition.rightToLeft,
+                          // );
                         },
                         contentPadding: EdgeInsets.symmetric(
                             horizontal: 15.w, vertical: 5.h),

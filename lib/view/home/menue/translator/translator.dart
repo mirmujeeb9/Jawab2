@@ -1,6 +1,5 @@
 import 'package:alxza/view/home/home/controller.dart';
 import 'package:alxza/view/home/menue/translator/controller.dart';
-import 'package:alxza/view/home/upgrade_to_pro/upgrade_to_pro.dart';
 import 'package:alxza/widget/button.dart';
 import 'package:alxza/widget/colors.dart';
 import 'package:alxza/widget/confirmation_dialogue.dart';
@@ -126,8 +125,10 @@ class _TranslateScreenState extends State<TranslateScreen>
                                 Get.dialog(CreditDialogue(
                                   onYesBtnClick: () {
                                     Get.back();
-                                    Get.to(() => Upgrade_to_pro(),
-                                        transition: Transition.leftToRight);
+                                    HomeController
+                                        .to.selectedItemPosition.value = 11;
+                                    // Get.to(() => Upgrade_to_pro(),
+                                    //     transition: Transition.leftToRight);
                                   },
                                 ));
                               },
@@ -169,53 +170,63 @@ class _TranslateScreenState extends State<TranslateScreen>
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Padding(
-                              padding: EdgeInsets.only(
-                                bottom: 10.h,
-                              ),
-                              child: TextFormField(
-                                onTap: () {
-                                  // textEditingController.selection =
-                                  //     textEditingController.selection =
-                                  //         TextSelection(
-                                  //             baseOffset: 0,
-                                  //             extentOffset: obj
-                                  //                 .textEditingController
-                                  //                 .text
-                                  //                 .length);
-                                },
-                                onChanged: (v) {
-                                  if (v.isNotEmpty) {
-                                    if (obj.isEmpty.value) {
-                                      obj.updatetext(false);
-                                    }
-                                  } else {
-                                    obj.updatetext(true);
-                                  }
-                                },
-                                style: TextStyle(
-                                  fontFamily: "Poppins",
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 13.sp,
-                                ),
-                                maxLines: obj.isEmpty.value
-                                    ? null
-                                    : isKeyboardVisible
-                                        ? 11
-                                        : 17,
-                                keyboardType: TextInputType.multiline,
-                                controller: textEditingController,
-                                textAlign: TextAlign.justify,
-                                decoration: InputDecoration(
-                                  border: InputBorder.none,
-                                  hintText: obj.ismicOpen.value
-                                      ? "Speak now ..."
-                                      : "Enter text ...",
-                                  hintStyle: TextStyle(
-                                    fontFamily: "Poppins",
-                                    fontWeight: FontWeight.w600,
-                                    color: textgrey,
-                                    fontSize: 20.sp,
+                            new Scrollbar(
+                              child: new SingleChildScrollView(
+                                scrollDirection: Axis.vertical,
+                                reverse: true,
+                                child: SizedBox(
+                                  height: obj.isEmpty.value
+                                      ? null
+                                      : isKeyboardVisible
+                                          ? 260.h
+                                          : 360.h,
+                                  child: TextFormField(
+                                    onTap: () {
+                                      // textEditingController.selection =
+                                      //     textEditingController.selection =
+                                      //         TextSelection(
+                                      //             baseOffset: 0,
+                                      //             extentOffset: obj
+                                      //                 .textEditingController
+                                      //                 .text
+                                      //                 .length);
+                                    },
+                                    onChanged: (v) {
+                                      if (v.isNotEmpty) {
+                                        if (obj.isEmpty.value) {
+                                          obj.updatetext(false);
+                                        }
+                                      } else {
+                                        obj.updatetext(true);
+                                      }
+                                    },
+                                    style: TextStyle(
+                                      fontFamily: "Poppins",
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 13.sp,
+                                    ),
+                                    maxLines: obj.isEmpty.value
+                                        ? null
+                                        : isKeyboardVisible
+                                            ? 11
+                                            : 17,
+                                    keyboardType: TextInputType.multiline,
+                                    controller: textEditingController,
+                                    textAlign: TextAlign.justify,
+                                    decoration: InputDecoration(
+                                      // filled: true,
+                                      // fillColor: Colors.black,
+                                      border: InputBorder.none,
+                                      hintText: obj.ismicOpen.value
+                                          ? "Speak now ..."
+                                          : "Enter text ...",
+                                      hintStyle: TextStyle(
+                                        fontFamily: "Poppins",
+                                        fontWeight: FontWeight.w600,
+                                        color: textgrey,
+                                        fontSize: 20.sp,
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ),
@@ -276,9 +287,10 @@ class _TranslateScreenState extends State<TranslateScreen>
                                                     .text));
                                           },
                                           child: SvgPicture.asset(
-                                              width: 20.w,
-                                              height: 20.h,
-                                              "images/copy.svg"),
+                                            width: 20.w,
+                                            height: 20.h,
+                                            "images/copy.svg",
+                                          ),
                                         ),
                                         SizedBox(
                                           width: 15.w,
@@ -290,9 +302,10 @@ class _TranslateScreenState extends State<TranslateScreen>
                                             );
                                           },
                                           child: SvgPicture.asset(
-                                              width: 20.w,
-                                              height: 20.h,
-                                              "images/share.svg"),
+                                            width: 20.w,
+                                            height: 20.h,
+                                            "images/share.svg",
+                                          ),
                                         ),
                                         const Spacer(),
                                         InkWell(

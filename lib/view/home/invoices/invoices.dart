@@ -1,4 +1,5 @@
 import 'package:alxza/view/home/history/controller.dart';
+import 'package:alxza/view/home/home/controller.dart';
 import 'package:alxza/view/home/invoices/controller.dart';
 import 'package:alxza/widget/colors.dart';
 import 'package:alxza/widget/custom_appbar.dart';
@@ -28,7 +29,10 @@ class _InvoiceScreenState extends State<InvoiceScreen> {
             children: [
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20.w),
-                child: const CustomAppBar(
+                child: CustomAppBar(
+                  leadingOnTap: () {
+                    HomeController.to.selectedItemPosition.value = 2;
+                  },
                   text: "Invoices",
                   leading: true,
                 ),

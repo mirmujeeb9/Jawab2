@@ -1,6 +1,5 @@
 import 'package:alxza/view/home/edit_profile/edit_profile.dart';
 import 'package:alxza/view/home/home/controller.dart';
-import 'package:alxza/view/home/upgrade_to_pro/upgrade_to_pro.dart';
 import 'package:alxza/widget/button.dart';
 import 'package:alxza/widget/colors.dart';
 import 'package:alxza/widget/custom_container.dart';
@@ -182,10 +181,11 @@ class _MenueScreenState extends State<MenueScreen> {
                           ),
                           Button(
                             onTap: () {
-                              Get.to(
-                                () => const Upgrade_to_pro(),
-                                transition: Transition.rightToLeft,
-                              );
+                              HomeController.to.selectedItemPosition.value = 11;
+                              // Get.to(
+                              //   () => const Upgrade_to_pro(),
+                              //   transition: Transition.rightToLeft,
+                              // );
                             },
                             text: "Upgrade",
                             width: 152.w,

@@ -1,4 +1,5 @@
 import 'package:alxza/view/home/faq/controller.dart';
+import 'package:alxza/view/home/home/controller.dart';
 import 'package:alxza/widget/colors.dart';
 import 'package:alxza/widget/custom_appbar.dart';
 import 'package:alxza/widget/text_widget.dart';
@@ -33,6 +34,9 @@ class _FaqScreenState extends State<FaqScreen> {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20.w),
                   child: CustomAppBar(
+                    leadingOnTap: () {
+                      HomeController.to.selectedItemPosition.value = 2;
+                    },
                     text: "FAQs",
                     leading: true,
                   ),

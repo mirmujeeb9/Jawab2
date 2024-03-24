@@ -1,15 +1,23 @@
+import 'package:alxza/view/home/affiliate/affiliate.dart';
 import 'package:alxza/view/home/conjugaison%201/conjugaison1.dart';
+import 'package:alxza/view/home/edit_profile/edit_profile.dart';
+import 'package:alxza/view/home/faq/faq.dart';
 import 'package:alxza/view/home/folder/folder.dart';
+import 'package:alxza/view/home/history/history.dart';
 import 'package:alxza/view/home/home/controller.dart';
+import 'package:alxza/view/home/invoices/invoices.dart';
 import 'package:alxza/view/home/menue/advanced_dictionary/advanced_dictionary.dart';
 import 'package:alxza/view/home/menue/ai_assistant/ai_assistant.dart';
 import 'package:alxza/view/home/menue/image_transcription/image_transcription.dart';
 import 'package:alxza/view/home/menue/menue.dart';
-import 'package:alxza/view/home/menue/right_menue/right_menue.dart';
 import 'package:alxza/view/home/menue/translator/translator.dart';
 import 'package:alxza/view/home/menue/video_transcription/video_transcription.dart';
+import 'package:alxza/view/home/privacy_policy/privacy_policy.dart';
 import 'package:alxza/view/home/profile.dart/profile.dart';
+import 'package:alxza/view/home/security/security.dart';
+import 'package:alxza/view/home/upgrade_to_pro/upgrade_to_pro.dart';
 import 'package:alxza/widget/colors.dart';
+import 'package:alxza/widget/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -122,11 +130,129 @@ class _HomeScreenState extends State<HomeScreen>
                 ),
                 InkWell(
                   onTap: () {
-                    obj.selectedItemPosition.value = 3;
+                    obj.selectedItemPosition.value = 4;
                     obj.tabIndex.value = 10;
                     if (_controller.isDismissed) {
                       _controller.forward();
+                    } else {
+                      _controller.reverse();
                     }
+                    obj.updatedialogue(true);
+
+                    showGeneralDialog(
+                      useRootNavigator: true,
+                      barrierLabel:
+                          " AppLocalizations.of(context).translate(LanguageConstant.more",
+                      barrierDismissible: false,
+                      barrierColor: Colors.transparent,
+                      transitionDuration: Duration(milliseconds: 100),
+                      context: context,
+                      pageBuilder: (dialogContext, anim1, anim2) {
+                        return GestureDetector(
+                          onTap: () {
+                            Navigator.pop(dialogContext);
+                            obj.updatedialogue(false);
+                            _controller.reverse();
+                          },
+                          child: Container(
+                            height: ScreenUtil().screenHeight,
+                            color: Colors.transparent,
+                            width: ScreenUtil().screenWidth,
+                            child: Align(
+                              alignment: Alignment.bottomRight,
+                              child: Container(
+                                width: 124.w,
+                                height: ScreenUtil().screenHeight,
+                                margin: EdgeInsets.only(
+                                    bottom: 70.h, left: 0, right: 0),
+                                decoration: BoxDecoration(
+                                  color: whiteColor,
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsets.only(top: 20.h),
+                                  child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: List.generate(
+                                        HomeController.to.tabsList.length,
+                                        (index) => Obx(
+                                          () => GestureDetector(
+                                            onTap: () {
+                                              HomeController.to.tabIndex.value =
+                                                  index;
+                                              Future.delayed(
+                                                  Duration(milliseconds: 200),
+                                                  () {
+                                                HomeController
+                                                    .to
+                                                    .selectedItemPosition
+                                                    .value = index + 4;
+                                                Navigator.pop(dialogContext);
+                                                obj.updatedialogue(false);
+                                                _controller.reverse();
+                                              });
+                                              // Get.back();
+                                            },
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              children: [
+                                                Card(
+                                                  elevation: 5,
+                                                  shape: const CircleBorder(),
+                                                  child: Container(
+                                                    height: 65.h,
+                                                    width: 65.w,
+                                                    decoration: BoxDecoration(
+                                                        color: HomeController
+                                                                    .to
+                                                                    .tabIndex
+                                                                    .value ==
+                                                                index
+                                                            ? textgrey
+                                                            : primaryColor,
+                                                        shape: BoxShape.circle),
+                                                    child: Center(
+                                                      child: Image.asset(
+                                                        HomeController
+                                                            .to
+                                                            .tabsList[index]
+                                                            .image!,
+                                                        height: 35.h,
+                                                        width: 35.w,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                TextWidget(
+                                                  textAlign: TextAlign.center,
+                                                  text: HomeController
+                                                      .to.tabsList[index].name!,
+                                                  fontSize: 14.sp,
+                                                  fontWeight: FontWeight.w600,
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      )),
+                                ),
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                      transitionBuilder: (dialogContext, anim1, anim2, child) {
+                        return SlideTransition(
+                          position:
+                              Tween(begin: Offset(0, 1), end: Offset(0, 0))
+                                  .animate(anim1),
+                          child: child,
+                        );
+                      },
+                    );
                     // Get.dialog(MenueDialogue(
                     //   onYesBtnClick: () {
                     //     Get.back();
@@ -156,33 +282,69 @@ class _HomeScreenState extends State<HomeScreen>
       }),
       body: GetBuilder<HomeController>(builder: (obj) {
         return Obx(
-          () => obj.selectedItemPosition.value == 0
-              ? const MenueScreen()
-              : obj.selectedItemPosition.value == 1
-                  ? const FolderScreen()
-                  : obj.selectedItemPosition.value == 2
-                      ? const ProfileScreen()
-                      : obj.selectedItemPosition.value == 3
-                          ? const RightMenue()
-                          : obj.selectedItemPosition.value == 4
-                              ? const TranslateScreen()
-                              : obj.selectedItemPosition.value == 5
-                                  ? const AdvanceDisctionaryScreen()
-                                  : HomeController
-                                              .to.selectedItemPosition.value ==
-                                          6
-                                      ? const VideoTranscriptionScreen()
-                                      : obj.selectedItemPosition.value == 7
-                                          ? const ImageTranscriptionScreen()
-                                          : obj.selectedItemPosition.value == 8
-                                              ? const Conjugaison_1()
-                                              : HomeController
-                                                          .to
-                                                          .selectedItemPosition
+          () => Stack(
+            children: [
+              obj.selectedItemPosition.value == 0
+                  ? const MenueScreen()
+                  : obj.selectedItemPosition.value == 1
+                      ? const FolderScreen()
+                      : obj.selectedItemPosition.value == 2
+                          ? const ProfileScreen()
+                          : obj.selectedItemPosition.value == 3
+                              ? Container()
+                              : obj.selectedItemPosition.value == 4
+                                  ? const TranslateScreen()
+                                  : obj.selectedItemPosition.value == 5
+                                      ? const AdvanceDisctionaryScreen()
+                                      : HomeController.to.selectedItemPosition
+                                                  .value ==
+                                              6
+                                          ? const VideoTranscriptionScreen()
+                                          : obj.selectedItemPosition.value == 7
+                                              ? const ImageTranscriptionScreen()
+                                              : obj.selectedItemPosition
                                                           .value ==
-                                                      9
-                                                  ? const AiassistentScreen()
-                                                  : const TranslateScreen(),
+                                                      8
+                                                  ? const Conjugaison_1()
+                                                  : obj.selectedItemPosition
+                                                              .value ==
+                                                          9
+                                                      ? const AiassistentScreen()
+                                                      : obj.selectedItemPosition
+                                                                  .value ==
+                                                              10
+                                                          ? HistoryScreen()
+                                                          : obj.selectedItemPosition
+                                                                      .value ==
+                                                                  11
+                                                              ? Upgrade_to_pro()
+                                                              : obj.selectedItemPosition
+                                                                          .value ==
+                                                                      12
+                                                                  ? Edit_profile()
+                                                                  : obj.selectedItemPosition
+                                                                              .value ==
+                                                                          13
+                                                                      ? AffiliateScreen()
+                                                                      : obj.selectedItemPosition.value ==
+                                                                              14
+                                                                          ? InvoiceScreen()
+                                                                          : obj.selectedItemPosition.value == 15
+                                                                              ? SecurityScreen()
+                                                                              : obj.selectedItemPosition.value == 16
+                                                                                  ? PrivacyPolicyScreen()
+                                                                                  : obj.selectedItemPosition.value == 17
+                                                                                      ? FaqScreen()
+                                                                                      : const TranslateScreen(),
+              obj.dialogueopen.value
+                  ? Container(
+                      height: ScreenUtil().screenHeight,
+                      color: Colors.grey.withOpacity(0.3),
+                      width: ScreenUtil().screenWidth,
+                    )
+                  : SizedBox(),
+            ],
+          ),
         );
       }),
     );

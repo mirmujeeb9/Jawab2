@@ -1,4 +1,5 @@
 import 'package:alxza/view/home/history/controller.dart';
+import 'package:alxza/view/home/home/controller.dart';
 import 'package:alxza/widget/colors.dart';
 import 'package:alxza/widget/custom_appbar.dart';
 import 'package:alxza/widget/custom_container.dart';
@@ -29,6 +30,9 @@ class _HistoryScreenState extends State<HistoryScreen> {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20.w),
                 child: CustomAppBar(
+                  leadingOnTap: () {
+                    HomeController.to.selectedItemPosition.value = 1;
+                  },
                   text: "History",
                   leading: true,
                   action: CustomContainer(

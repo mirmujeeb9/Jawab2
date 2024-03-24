@@ -1,5 +1,6 @@
 import 'package:alxza/view/home/edit_profile/controller.dart';
 import 'package:alxza/view/home/edit_profile/image_botom_sheet.dart';
+import 'package:alxza/view/home/home/controller.dart';
 import 'package:alxza/widget/colors.dart';
 import 'package:alxza/widget/custom_appbar.dart';
 import 'package:alxza/widget/customize_textform_feild.dart';
@@ -58,6 +59,9 @@ class _Edit_profileState extends State<Edit_profile> {
               child: Column(
                 children: [
                   CustomAppBar(
+                    leadingOnTap: () {
+                      HomeController.to.selectedItemPosition.value = 2;
+                    },
                     text: "Profile",
                     leading: true,
                   ),

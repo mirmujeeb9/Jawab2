@@ -1,3 +1,4 @@
+import 'package:alxza/view/home/home/controller.dart';
 import 'package:alxza/view/home/security/controller.dart';
 import 'package:alxza/widget/button.dart';
 import 'package:alxza/widget/colors.dart';
@@ -46,7 +47,10 @@ class _SecurityScreenState extends State<SecurityScreen> {
                 padding: EdgeInsets.symmetric(horizontal: 20.w),
                 child: Column(
                   children: [
-                    const CustomAppBar(
+                    CustomAppBar(
+                      leadingOnTap: () {
+                        HomeController.to.selectedItemPosition.value = 2;
+                      },
                       text: "Security",
                       leading: true,
                     ),

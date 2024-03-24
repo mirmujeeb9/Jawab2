@@ -1,6 +1,5 @@
 import 'package:alxza/view/home/documents/documents.dart';
 import 'package:alxza/view/home/folder/controller.dart';
-import 'package:alxza/view/home/history/history.dart';
 import 'package:alxza/view/home/home/controller.dart';
 import 'package:alxza/widget/button.dart';
 import 'package:alxza/widget/colors.dart';
@@ -159,10 +158,11 @@ class _FolderScreenState extends State<FolderScreen> {
                       : Button(
                           color: primaryColor.withOpacity(0.2),
                           onTap: () {
-                            Get.to(
-                              () => const HistoryScreen(),
-                              transition: Transition.rightToLeft,
-                            );
+                            HomeController.to.selectedItemPosition.value = 10;
+                            // Get.to(
+                            //   () => const HistoryScreen(),
+                            //   transition: Transition.rightToLeft,
+                            // );
                           },
                           width: 335.w,
                           textColor: primaryColor,

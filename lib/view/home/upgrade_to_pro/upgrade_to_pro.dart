@@ -1,4 +1,5 @@
 import 'package:alxza/view/auth/forgot_password/verified/verified_screen.dart';
+import 'package:alxza/view/home/home/controller.dart';
 import 'package:alxza/view/home/payment_method/payment_method.dart';
 import 'package:alxza/view/home/upgrade_to_pro/controller.dart';
 import 'package:alxza/widget/colors.dart';
@@ -32,7 +33,10 @@ class _Upgrade_to_proState extends State<Upgrade_to_pro> {
               children: [
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 25.w),
-                  child: const CustomAppBar(
+                  child: CustomAppBar(
+                    leadingOnTap: () {
+                      HomeController.to.selectedItemPosition.value = 0;
+                    },
                     text: "Upgrade to Pro",
                     leading: true,
                   ),

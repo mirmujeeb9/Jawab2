@@ -1,3 +1,4 @@
+import 'package:alxza/view/home/home/controller.dart';
 import 'package:alxza/widget/colors.dart';
 import 'package:alxza/widget/custom_appbar.dart';
 import 'package:alxza/widget/text_widget.dart';
@@ -28,13 +29,13 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
             children: [
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20.w),
-                child: const CustomAppBar(
+                child: CustomAppBar(
+                  leadingOnTap: () {
+                    HomeController.to.selectedItemPosition.value = 2;
+                  },
                   text: "Privacy Policy",
                   leading: true,
                 ),
-              ),
-              SizedBox(
-                height: 20.h,
               ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -119,7 +120,7 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
                 ),
               ),
               SizedBox(
-                height: 20.h,
+                height: 10.h,
               ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20.w),

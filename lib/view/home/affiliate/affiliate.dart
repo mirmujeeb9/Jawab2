@@ -1,4 +1,5 @@
 import 'package:alxza/view/home/affiliate/controller.dart';
+import 'package:alxza/view/home/home/controller.dart';
 import 'package:alxza/widget/button.dart';
 import 'package:alxza/widget/colors.dart';
 import 'package:alxza/widget/custom_appbar.dart';
@@ -46,7 +47,10 @@ class _AffiliateScreenState extends State<AffiliateScreen> {
                 children: [
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 25.w),
-                    child: const CustomAppBar(
+                    child: CustomAppBar(
+                      leadingOnTap: () {
+                        HomeController.to.selectedItemPosition.value = 2;
+                      },
                       text: "Affiliate",
                       leading: true,
                     ),
