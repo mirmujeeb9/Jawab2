@@ -51,6 +51,10 @@ dependencies:
   intl_phone_field: ^3.1.0
   dropdown_button2: ^2.3.9
   flutter_animate: ^4.3.0
+  firebase_core: ^2.15.1
+  firebase_auth: ^4.17.8 
+  google_sign_in: ^6.1.5
+  flutter_facebook_auth: ^6.0.3
 
 dev_dependencies:
   flutter_test:

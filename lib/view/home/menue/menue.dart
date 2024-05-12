@@ -1,3 +1,4 @@
+import 'package:alxza/utilis/static_data.dart';
 import 'package:alxza/view/home/edit_profile/edit_profile.dart';
 import 'package:alxza/view/home/home/controller.dart';
 import 'package:alxza/widget/button.dart';
@@ -41,11 +42,23 @@ class _MenueScreenState extends State<MenueScreen> {
                           transition: Transition.rightToLeft,
                         );
                       },
-                      child: Image.asset(
-                        "images/male.png",
-                        height: 40.h,
-                        width: 40.w,
-                      ),
+                      child: StaticData.userModel!.avatar.isNotEmpty
+                          ? CircleAvatar(
+                              radius: 20.r,
+                              backgroundImage: NetworkImage(
+                                StaticData.userModel!.avatar
+                                            .contains("assets") ||
+                                        StaticData.userModel!.avatar
+                                            .contains("upload")
+                                    ? "${StaticData.imageUrl}${StaticData.userModel!.avatar}"
+                                    : "${StaticData.userModel!.avatar}",
+                              ),
+                            )
+                          : Image.asset(
+                              "images/male.png",
+                              height: 40.h,
+                              width: 40.w,
+                            ),
                     ),
                     SizedBox(
                       width: 40.w,

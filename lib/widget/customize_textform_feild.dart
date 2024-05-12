@@ -69,7 +69,7 @@ class CustomTextFormField extends StatelessWidget {
       autovalidateMode: AutovalidateMode.disabled,
       maxLines: maxline ?? 1,
       focusNode: focusnode,
-      enabled: true,
+      enabled: enable ?? true,
       keyboardType: keyboardType,
       textInputAction: textInputAction,
       inputFormatters: inputFormatters,

@@ -1,3 +1,4 @@
+import 'package:alxza/utilis/static_data.dart';
 import 'package:alxza/view/home/home/controller.dart';
 import 'package:alxza/view/home/profile.dart/controller.dart';
 import 'package:alxza/widget/colors.dart';
@@ -64,20 +65,25 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         },
                         contentPadding: EdgeInsets.symmetric(
                             horizontal: 15.w, vertical: 5.h),
-                        leading: Container(
-                          height: 50.h,
-                          width: 50.w,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10.r),
-                          ),
-                          child: Center(
-                            child: Image.asset(
-                              "images/male.png",
-                            ),
-                          ),
-                        ),
+                        leading: StaticData.userModel!.avatar.isNotEmpty
+                            ? CircleAvatar(
+                                radius: 30.r,
+                                backgroundImage: NetworkImage(
+                                  StaticData.userModel!.avatar
+                                              .contains("assets") ||
+                                          StaticData.userModel!.avatar
+                                              .contains("upload")
+                                      ? "${StaticData.imageUrl}${StaticData.userModel!.avatar}"
+                                      : "${StaticData.userModel!.avatar}",
+                                ),
+                              )
+                            : Image.asset(
+                                "images/male.png",
+                                height: 40.h,
+                                width: 40.w,
+                              ),
                         title: TextWidget(
-                          text: "Andren Alison",
+                          text: "${StaticData.userModel!.name}",
                           color: textdarkgrey,
                           fontSize: 14.sp,
                           fontWeight: FontWeight.w600,
@@ -89,7 +95,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               height: 4.h,
                             ),
                             Subheading(
-                              text: "andrenalison@gmail.com",
+                              text: "${StaticData.userModel!.email}",
                               color: textgrey,
                             ),
                           ],

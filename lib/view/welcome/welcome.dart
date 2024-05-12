@@ -1,3 +1,4 @@
+import 'package:alxza/view/auth/signin/controller.dart';
 import 'package:alxza/view/auth/signup/signup.dart';
 import 'package:alxza/view/welcome/welcome_01.dart';
 import 'package:alxza/widget/button.dart';
@@ -101,6 +102,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 CustomContainer(
+                  onTap: () {
+                    Signin_page_controller.to.signInWithGoogle(context);
+                  },
                   height: 35.h,
                   width: 80.w,
                   borderColor: Colors.grey.shade300,

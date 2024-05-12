@@ -2,6 +2,7 @@ import 'package:alxza/view/auth/forgot_password/change_password/controller.dart'
 import 'package:alxza/view/auth/forgot_password/check_email/controller.dart';
 import 'package:alxza/view/auth/forgot_password/forgot/controller.dart';
 import 'package:alxza/view/auth/forgot_password/otp/controller.dart';
+import 'package:alxza/view/auth/signin/controller.dart';
 import 'package:alxza/view/auth/signup/controller.dart';
 import 'package:alxza/view/home/affiliate/controller.dart';
 import 'package:alxza/view/home/conjugaison%201/controller.dart';
@@ -61,6 +62,7 @@ class _MyCustomSplashScreenState extends State<MyCustomSplashScreen> {
     Get.put(CongugationController());
     Get.put(AdvanceDisctionaryController());
     Get.put(AiassistentController());
+    Get.put(Signin_page_controller());
     Splash_controller.to.splashgetintrovideo();
 
     super.initState();

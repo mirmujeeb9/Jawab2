@@ -1,6 +1,6 @@
 import 'package:alxza/view/auth/signin/signin.dart';
 import 'package:alxza/view/auth/signup/controller.dart';
-import 'package:alxza/view/home/home/home.dart';
+import 'package:alxza/view/auth/signup/model.dart';
 import 'package:alxza/widget/button.dart';
 import 'package:alxza/widget/colors.dart';
 import 'package:alxza/widget/custom_container.dart';
@@ -256,16 +256,30 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         SizedBox(
                           height: 20.h,
                         ),
-                        Button(
-                          onTap: () {
-                            if (formkey.currentState!.validate()) {
-                              Get.offAll(() => HomeScreen(),
-                                  transition: Transition.leftToRight);
-                            }
-                          },
-                          width: 335.w,
-                          text: "Sign Up",
-                          fontWeight: FontWeight.w500,
+                        Obx(
+                          () => obj.loading.value
+                              ? Center(
+                                  child: CircularProgressIndicator(
+                                  color: primaryColor,
+                                ))
+                              : Button(
+                                  onTap: () {
+                                    if (formkey.currentState!.validate()) {
+                                      obj.signup(SignupModel(
+                                        affiliateCode: "",
+                                        email: emailcontroller.text,
+                                        name: fullnamecontroller.text,
+                                        password: passwordcontroller.text,
+                                        passwordConfirmation:
+                                            confirmpasswordcontroller.text,
+                                        surname: fullnamecontroller.text,
+                                      ));
+                                    }
+                                  },
+                                  width: 335.w,
+                                  text: "Sign Up",
+                                  fontWeight: FontWeight.w500,
+                                ),
                         ),
                         SizedBox(
                           height: 20.h,

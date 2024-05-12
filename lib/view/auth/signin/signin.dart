@@ -1,7 +1,8 @@
+import 'dart:developer';
+
 import 'package:alxza/view/auth/forgot_password/forgot/forgot.dart';
 import 'package:alxza/view/auth/signin/controller.dart';
 import 'package:alxza/view/auth/signup/signup.dart';
-import 'package:alxza/view/home/home/home.dart';
 import 'package:alxza/widget/button.dart';
 import 'package:alxza/widget/colors.dart';
 import 'package:alxza/widget/custom_container.dart';
@@ -200,16 +201,26 @@ class _Signin_screenState extends State<Signin_screen> {
                     SizedBox(
                       height: 5.h,
                     ),
-                    Button(
-                      onTap: () {
-                        if (formkey.currentState!.validate()) {
-                          Get.offAll(() => const HomeScreen(),
-                              transition: Transition.rightToLeft);
-                        }
-                      },
-                      width: 335.w,
-                      text: "Sign In",
-                      fontWeight: FontWeight.w500,
+                    Obx(
+                      () => obj.loading.value
+                          ? Center(
+                              child: CircularProgressIndicator(
+                              color: primaryColor,
+                            ))
+                          : Button(
+                              onTap: () {
+                                if (formkey.currentState!.validate()) {
+                                  log("email is ${emailcontroller.text}");
+                                  log("password is ${passwordcontroller.text}");
+                                  obj.signin(
+                                      email: emailcontroller.text,
+                                      password: passwordcontroller.text);
+                                }
+                              },
+                              width: 335.w,
+                              text: "Sign In",
+                              fontWeight: FontWeight.w500,
+                            ),
                     ),
                     SizedBox(
                       height: 20.h,
