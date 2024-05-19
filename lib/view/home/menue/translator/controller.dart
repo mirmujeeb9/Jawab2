@@ -1,16 +1,41 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:speech_to_text/speech_to_text.dart';
 
 class TranslatorController extends GetxController {
   static TranslatorController get to => Get.find();
+  TextEditingController textEditingController = TextEditingController();
   Rx<bool> isEmpty = true.obs;
   Rx<bool> ismicOpen = false.obs;
+  String wordsspoken = '';
+
   void updatetext(bool value) {
     isEmpty.value = value;
   }
 
   void updatemic(bool value) {
     ismicOpen.value = value;
+  }
+
+  SpeechToText speechToText = SpeechToText();
+  void initspeech() async {
+    ismicOpen.value = await speechToText.initialize();
+    update();
+  }
+
+  void startListening() async {
+    await speechToText.listen(onResult: onSpeechResult);
+  }
+
+  void onSpeechResult(result) {
+    wordsspoken = "${result.recognizedWords}";
+    textEditingController.text = wordsspoken;
+    update();
+  }
+
+  void stopListening() async {
+    await speechToText.stop();
+    update();
   }
 }
 

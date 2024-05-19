@@ -23,8 +23,6 @@ class TranslateScreen extends StatefulWidget {
 class _TranslateScreenState extends State<TranslateScreen>
 // with WidgetsBindingObserver
 {
-  TextEditingController textEditingController = TextEditingController();
-
   // final tooltipController = JustTheController();
   @override
   void initState() {
@@ -34,12 +32,13 @@ class _TranslateScreenState extends State<TranslateScreen>
     // WidgetsBinding.instance.addObserver(this);
     TranslatorController.to.ismicOpen.value = false;
     TranslatorController.to.isEmpty.value = true;
+    TranslatorController.to.initspeech();
     super.initState();
   }
 
   @override
   void dispose() {
-    textEditingController.dispose();
+    TranslatorController.to.textEditingController.dispose();
 
     super.dispose();
   }
@@ -211,7 +210,7 @@ class _TranslateScreenState extends State<TranslateScreen>
                                             ? 11
                                             : 17,
                                     keyboardType: TextInputType.multiline,
-                                    controller: textEditingController,
+                                    controller: obj.textEditingController,
                                     textAlign: TextAlign.justify,
                                     decoration: InputDecoration(
                                       // filled: true,
@@ -219,7 +218,9 @@ class _TranslateScreenState extends State<TranslateScreen>
                                       border: InputBorder.none,
                                       hintText: obj.ismicOpen.value
                                           ? "Speak now ..."
-                                          : "Enter text ...",
+                                          : obj.speechToText.isListening
+                                              ? "Listening..."
+                                              : "Enter text ...",
                                       hintStyle: TextStyle(
                                         fontFamily: "Poppins",
                                         fontWeight: FontWeight.w600,
@@ -239,10 +240,10 @@ class _TranslateScreenState extends State<TranslateScreen>
                                           await Clipboard.getData(
                                               Clipboard.kTextPlain);
 
-                                      textEditingController.text =
+                                      obj.textEditingController.text =
                                           clipboardData!.text!;
-                                      if (textEditingController
-                                          .text.isNotEmpty) {
+                                      if (obj.textEditingController.text
+                                          .isNotEmpty) {
                                         obj.updatetext(false);
                                       }
                                     },
@@ -283,7 +284,7 @@ class _TranslateScreenState extends State<TranslateScreen>
                                         InkWell(
                                           onTap: () {
                                             Clipboard.setData(ClipboardData(
-                                                text: textEditingController
+                                                text: obj.textEditingController
                                                     .text));
                                           },
                                           child: SvgPicture.asset(
@@ -298,7 +299,7 @@ class _TranslateScreenState extends State<TranslateScreen>
                                         InkWell(
                                           onTap: () {
                                             Share.share(
-                                              textEditingController.text,
+                                              obj.textEditingController.text,
                                             );
                                           },
                                           child: SvgPicture.asset(
@@ -310,7 +311,7 @@ class _TranslateScreenState extends State<TranslateScreen>
                                         const Spacer(),
                                         InkWell(
                                           onTap: () {
-                                            textEditingController.clear();
+                                            obj.textEditingController.clear();
                                             obj.updatetext(true);
                                             obj.updatemic(false);
                                           },
@@ -397,8 +398,10 @@ class _TranslateScreenState extends State<TranslateScreen>
                               onPressed: () {
                                 if (obj.isEmpty.value) {
                                   if (obj.ismicOpen.value) {
+                                    obj.stopListening();
                                     obj.updatemic(false);
                                   } else {
+                                    obj.startListening();
                                     obj.updatemic(true);
                                   }
                                 }

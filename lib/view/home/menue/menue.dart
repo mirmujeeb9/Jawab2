@@ -130,7 +130,8 @@ class _MenueScreenState extends State<MenueScreen> {
                                     textAlign: TextAlign.center,
                                   ),
                                   TextWidget(
-                                    text: "100 000 words",
+                                    text:
+                                        "${StaticData.userModel!.remainingWords} words",
                                     fontSize: 11.sp,
                                     fontWeight: FontWeight.w600,
                                     color: whiteColor,
@@ -182,7 +183,8 @@ class _MenueScreenState extends State<MenueScreen> {
                                     textAlign: TextAlign.center,
                                   ),
                                   TextWidget(
-                                    text: "78 images",
+                                    text:
+                                        "${StaticData.userModel!.remainingImages} images",
                                     fontSize: 11.sp,
                                     fontWeight: FontWeight.w600,
                                     color: whiteColor,
