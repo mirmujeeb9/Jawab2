@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:developer';
-
 import 'package:alxza/utilis/static_data.dart';
 import 'package:alxza/view/home/home/home.dart';
 import 'package:alxza/view/splash/controller.dart';

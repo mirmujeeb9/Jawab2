@@ -1,6 +1,13 @@
+import 'dart:async';
+import 'dart:convert';
+import 'dart:developer';
+
+import 'package:alxza/utilis/static_data.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart' as http;
 import 'package:speech_to_text/speech_to_text.dart';
+import 'package:textwrap/textwrap.dart';
 
 class TranslatorController extends GetxController {
   static TranslatorController get to => Get.find();
@@ -8,7 +15,9 @@ class TranslatorController extends GetxController {
   Rx<bool> isEmpty = true.obs;
   Rx<bool> ismicOpen = false.obs;
   String wordsspoken = '';
-
+  int? message_id;
+  Rx<String> apiState = "pending".obs;
+  String generatedtext = '';
   void updatetext(bool value) {
     isEmpty.value = value;
   }
@@ -36,6 +45,71 @@ class TranslatorController extends GetxController {
   void stopListening() async {
     await speechToText.stop();
     update();
+  }
+
+  void generateApi({
+    required String text,
+  }) async {
+    apiState.value = "run";
+    try {
+      var response = await http.post(
+          Uri.parse("${StaticData.baseURL}${StaticData.aiwritergenerate}"),
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer ${StaticData.token}",
+          },
+          body: jsonEncode({
+            "post_type": "traducteur-ai-hC5y9W",
+            "openai_id": "52",
+            "maximum_length": "2000",
+            "number_of_results": "1",
+            "creativity": "1",
+            "tone_of_voice": "Professional",
+            "language": "ar-AE",
+            "texte": text
+          }));
+      log("response of generateApi ${response.statusCode}");
+      if (response.statusCode == 200) {
+        var data = jsonDecode(response.body);
+        message_id = data['message_id'];
+        log("message_id is ${message_id}");
+
+        textEditingController.text =
+            wrap(await fetchGeneratedText(33, 1, 2000, 1)).join('\n');
+
+        apiState.value = "complete";
+        log("generated text is ${generatedtext}");
+      } else {}
+    } catch (error) {
+      log("Error in generateApi: $error");
+    }
+  }
+
+  Future<String> fetchGeneratedText(
+      int messageId, int creativity, int maxLength, int numberOfResults) async {
+    final url = Uri.parse(
+        '${StaticData.baseURL}${StaticData.aiwritergenerateoutput}?message_id=$messageId&creativity=$creativity&maximum_length=$maxLength&number_of_results=$numberOfResults');
+    var request = new http.Request("POST", url);
+    request.headers["Content-Type"] = "application/json; charset=UTF-8";
+    request.headers["Authorization"] = "Bearer ${StaticData.token}";
+
+    var response = await http.Client().send(request);
+    log("Streaming response is ${response.statusCode}");
+    if (response.statusCode == 200) {
+      return listenToTextStream(response);
+    } else {
+      throw Exception('Failed to fetch generated text: ${response.statusCode}');
+    }
+  }
+
+  Future<String> listenToTextStream(http.StreamedResponse response) async {
+    final stringStream = response.stream;
+    final stringBuffer = StringBuffer();
+
+    await for (final chunk in stringStream) {
+      stringBuffer.write(utf8.decode(chunk)); // Decode each byte chunk
+    }
+    return stringBuffer.toString();
   }
 }
 

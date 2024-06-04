@@ -13,4 +13,8 @@ class StaticData {
   static const register = 'auth/register';
   static const profile = 'auth/profile';
   static const googlelogin = 'auth/google-login';
+
+  // AI Translator
+  static const aiwritergenerate = 'aiwriter/generate';
+  static const aiwritergenerateoutput = 'aiwriter/generate-output';
 }
