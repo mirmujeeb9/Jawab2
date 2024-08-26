@@ -46,7 +46,6 @@ class _MyCustomSplashScreenState extends State<MyCustomSplashScreen> {
     Get.put(FaqController());
     Get.put(AffiliateController());
     Get.put(InvoiceController());
-
     Get.put(HomeController());
     Get.put(SecurityController());
     Get.put(Upgrade_to_pro_Controller());
@@ -64,7 +63,6 @@ class _MyCustomSplashScreenState extends State<MyCustomSplashScreen> {
     Get.put(AiassistentController());
     Get.put(Signin_page_controller());
     Splash_controller.to.splashgetintrovideo();
-
     super.initState();
   }
 

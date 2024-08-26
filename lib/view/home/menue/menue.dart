@@ -1,7 +1,6 @@
 import 'package:alxza/utilis/static_data.dart';
 import 'package:alxza/view/home/edit_profile/edit_profile.dart';
 import 'package:alxza/view/home/home/controller.dart';
-import 'package:alxza/widget/button.dart';
 import 'package:alxza/widget/colors.dart';
 import 'package:alxza/widget/custom_container.dart';
 import 'package:alxza/widget/text_widget.dart';
@@ -76,144 +75,144 @@ class _MenueScreenState extends State<MenueScreen> {
                     ],
                   ),
                 ),
-                Card(
-                  elevation: 10,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25.r)),
-                  child: Container(
-                      height: 212.h,
-                      width: 335.w,
-                      decoration: BoxDecoration(
-                        color: primaryColor,
-                        borderRadius: BorderRadius.circular(25.r),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Row(
-                            children: [
-                              SizedBox(
-                                width: 30.w,
-                              ),
-                              TextWidget(
-                                text: "Your Plan : ",
-                                fontSize: 20.sp,
-                                fontWeight: FontWeight.w400,
-                                color: whiteColor,
-                              ),
-                              TextWidget(
-                                text: "Pack Starter",
-                                fontSize: 20.sp,
-                                fontWeight: FontWeight.w600,
-                                color: whiteColor,
-                              ),
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Column(
-                                children: [
-                                  Image.asset(
-                                    "images/aa.png",
-                                    height: 35.h,
-                                    width: 35.w,
-                                  ),
-                                  SizedBox(
-                                    height: 10.h,
-                                  ),
-                                  TextWidget(
-                                    text: "Token Left",
-                                    fontSize: 11.sp,
-                                    fontWeight: FontWeight.w300,
-                                    color: whiteColor,
-                                    textAlign: TextAlign.center,
-                                  ),
-                                  TextWidget(
-                                    text:
-                                        "${StaticData.userModel!.remainingWords} words",
-                                    fontSize: 11.sp,
-                                    fontWeight: FontWeight.w600,
-                                    color: whiteColor,
-                                    textAlign: TextAlign.center,
-                                  )
-                                ],
-                              ),
-                              Column(
-                                children: [
-                                  Image.asset(
-                                    "images/yy.png",
-                                    height: 35.h,
-                                    width: 35.w,
-                                  ),
-                                  SizedBox(
-                                    height: 10.h,
-                                  ),
-                                  TextWidget(
-                                    text: "Audio Left",
-                                    fontSize: 11.sp,
-                                    fontWeight: FontWeight.w300,
-                                    color: whiteColor,
-                                    textAlign: TextAlign.center,
-                                  ),
-                                  TextWidget(
-                                    text: "89 min",
-                                    fontSize: 11.sp,
-                                    fontWeight: FontWeight.w600,
-                                    color: whiteColor,
-                                    textAlign: TextAlign.center,
-                                  )
-                                ],
-                              ),
-                              Column(
-                                children: [
-                                  Image.asset(
-                                    "images/cc.png",
-                                    height: 35.h,
-                                    width: 35.w,
-                                  ),
-                                  SizedBox(
-                                    height: 10.h,
-                                  ),
-                                  TextWidget(
-                                    text: "Images Left",
-                                    fontSize: 11.sp,
-                                    fontWeight: FontWeight.w300,
-                                    color: whiteColor,
-                                    textAlign: TextAlign.center,
-                                  ),
-                                  TextWidget(
-                                    text:
-                                        "${StaticData.userModel!.remainingImages} images",
-                                    fontSize: 11.sp,
-                                    fontWeight: FontWeight.w600,
-                                    color: whiteColor,
-                                    textAlign: TextAlign.center,
-                                  )
-                                ],
-                              ),
-                            ],
-                          ),
-                          Button(
-                            onTap: () {
-                              HomeController.to.selectedItemPosition.value = 11;
-                              // Get.to(
-                              //   () => const Upgrade_to_pro(),
-                              //   transition: Transition.rightToLeft,
-                              // );
-                            },
-                            text: "Upgrade",
-                            width: 152.w,
-                            height: 35.h,
-                            borderRadius: 8.r,
-                            color: whiteColor,
-                            textColor: primaryColor,
-                            fontWeight: FontWeight.w500,
-                            fontsize: 11.sp,
-                          ),
-                        ],
-                      )),
-                ),
+                // Card(
+                //   elevation: 10,
+                //   shape: RoundedRectangleBorder(
+                //       borderRadius: BorderRadius.circular(25.r)),
+                //   child: Container(
+                //       height: 212.h,
+                //       width: 335.w,
+                //       decoration: BoxDecoration(
+                //         color: primaryColor,
+                //         borderRadius: BorderRadius.circular(25.r),
+                //       ),
+                //       child: Column(
+                //         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                //         children: [
+                //           Row(
+                //             children: [
+                //               SizedBox(
+                //                 width: 30.w,
+                //               ),
+                //               TextWidget(
+                //                 text: "Your Plan : ",
+                //                 fontSize: 20.sp,
+                //                 fontWeight: FontWeight.w400,
+                //                 color: whiteColor,
+                //               ),
+                //               TextWidget(
+                //                 text: "Pack Starter",
+                //                 fontSize: 20.sp,
+                //                 fontWeight: FontWeight.w600,
+                //                 color: whiteColor,
+                //               ),
+                //             ],
+                //           ),
+                //           Row(
+                //             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                //             children: [
+                //               Column(
+                //                 children: [
+                //                   Image.asset(
+                //                     "images/aa.png",
+                //                     height: 35.h,
+                //                     width: 35.w,
+                //                   ),
+                //                   SizedBox(
+                //                     height: 10.h,
+                //                   ),
+                //                   TextWidget(
+                //                     text: "Token Left",
+                //                     fontSize: 11.sp,
+                //                     fontWeight: FontWeight.w300,
+                //                     color: whiteColor,
+                //                     textAlign: TextAlign.center,
+                //                   ),
+                //                   TextWidget(
+                //                     text:
+                //                         "${StaticData.userModel!.remainingWords} words",
+                //                     fontSize: 11.sp,
+                //                     fontWeight: FontWeight.w600,
+                //                     color: whiteColor,
+                //                     textAlign: TextAlign.center,
+                //                   )
+                //                 ],
+                //               ),
+                //               Column(
+                //                 children: [
+                //                   Image.asset(
+                //                     "images/yy.png",
+                //                     height: 35.h,
+                //                     width: 35.w,
+                //                   ),
+                //                   SizedBox(
+                //                     height: 10.h,
+                //                   ),
+                //                   TextWidget(
+                //                     text: "Audio Left",
+                //                     fontSize: 11.sp,
+                //                     fontWeight: FontWeight.w300,
+                //                     color: whiteColor,
+                //                     textAlign: TextAlign.center,
+                //                   ),
+                //                   TextWidget(
+                //                     text: "89 min",
+                //                     fontSize: 11.sp,
+                //                     fontWeight: FontWeight.w600,
+                //                     color: whiteColor,
+                //                     textAlign: TextAlign.center,
+                //                   )
+                //                 ],
+                //               ),
+                //               Column(
+                //                 children: [
+                //                   Image.asset(
+                //                     "images/cc.png",
+                //                     height: 35.h,
+                //                     width: 35.w,
+                //                   ),
+                //                   SizedBox(
+                //                     height: 10.h,
+                //                   ),
+                //                   TextWidget(
+                //                     text: "Images Left",
+                //                     fontSize: 11.sp,
+                //                     fontWeight: FontWeight.w300,
+                //                     color: whiteColor,
+                //                     textAlign: TextAlign.center,
+                //                   ),
+                //                   TextWidget(
+                //                     text:
+                //                         "${StaticData.userModel!.remainingImages} images",
+                //                     fontSize: 11.sp,
+                //                     fontWeight: FontWeight.w600,
+                //                     color: whiteColor,
+                //                     textAlign: TextAlign.center,
+                //                   )
+                //                 ],
+                //               ),
+                //             ],
+                //           ),
+                //           Button(
+                //             onTap: () {
+                //               HomeController.to.selectedItemPosition.value = 11;
+                //               // Get.to(
+                //               //   () => const Upgrade_to_pro(),
+                //               //   transition: Transition.rightToLeft,
+                //               // );
+                //             },
+                //             text: "Upgrade",
+                //             width: 152.w,
+                //             height: 35.h,
+                //             borderRadius: 8.r,
+                //             color: whiteColor,
+                //             textColor: primaryColor,
+                //             fontWeight: FontWeight.w500,
+                //             fontsize: 11.sp,
+                //           ),
+                //         ],
+                //       )),
+                // ),
                 SizedBox(
                   height: 15.h,
                 ),

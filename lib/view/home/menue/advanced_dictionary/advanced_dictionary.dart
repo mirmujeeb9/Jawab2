@@ -3,7 +3,6 @@ import 'package:alxza/view/home/menue/advanced_dictionary/controller.dart';
 import 'package:alxza/view/home/menue/translator/controller.dart';
 import 'package:alxza/widget/button.dart';
 import 'package:alxza/widget/colors.dart';
-import 'package:alxza/widget/confirmation_dialogue.dart';
 import 'package:alxza/widget/custom_container.dart';
 import 'package:alxza/widget/customize_textform_feild.dart';
 import 'package:alxza/widget/text_widget.dart';
@@ -122,25 +121,25 @@ class _AdvanceDisctionaryScreenState extends State<AdvanceDisctionaryScreen>
                             //     ),
                             //   ),
                             //   child:
-                            InkWell(
-                              onTap: () {
-                                // tooltipController.showTooltip();
-                                Get.dialog(CreditDialogue(
-                                  onYesBtnClick: () {
-                                    Get.back();
-                                    HomeController
-                                        .to.selectedItemPosition.value = 11;
-                                    // Get.to(() => Upgrade_to_pro(),
-                                    //     transition: Transition.leftToRight);
-                                  },
-                                ));
-                              },
-                              child: Image.asset(
-                                "images/token.png",
-                                height: 35.h,
-                                width: 35.w,
-                              ),
-                            ),
+                            // InkWell(
+                            //   onTap: () {
+                            //     // tooltipController.showTooltip();
+                            //     Get.dialog(CreditDialogue(
+                            //       onYesBtnClick: () {
+                            //         Get.back();
+                            //         HomeController
+                            //             .to.selectedItemPosition.value = 11;
+                            //         // Get.to(() => Upgrade_to_pro(),
+                            //         //     transition: Transition.leftToRight);
+                            //       },
+                            //     ));
+                            //   },
+                            //   child: Image.asset(
+                            //     "images/token.png",
+                            //     height: 35.h,
+                            //     width: 35.w,
+                            //   ),
+                            // ),
                             // ),
                           ],
                         ),

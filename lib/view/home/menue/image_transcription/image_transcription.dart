@@ -124,25 +124,25 @@ class _ImageTranscriptionScreenState extends State<ImageTranscriptionScreen>
                               //     ),
                               //   ),
                               //   child:
-                              InkWell(
-                                onTap: () {
-                                  tooltipController.showTooltip();
-                                  Get.dialog(CreditDialogue(
-                                    onYesBtnClick: () {
-                                      Get.back();
-                                      HomeController
-                                          .to.selectedItemPosition.value = 11;
-                                      // Get.to(() => Upgrade_to_pro(),
-                                      //     transition: Transition.leftToRight);
-                                    },
-                                  ));
-                                },
-                                child: Image.asset(
-                                  "images/token.png",
-                                  height: 35.h,
-                                  width: 35.w,
-                                ),
-                              ),
+                              // InkWell(
+                              //   onTap: () {
+                              //     tooltipController.showTooltip();
+                              //     Get.dialog(CreditDialogue(
+                              //       onYesBtnClick: () {
+                              //         Get.back();
+                              //         HomeController
+                              //             .to.selectedItemPosition.value = 11;
+                              //         // Get.to(() => Upgrade_to_pro(),
+                              //         //     transition: Transition.leftToRight);
+                              //       },
+                              //     ));
+                              //   },
+                              //   child: Image.asset(
+                              //     "images/token.png",
+                              //     height: 35.h,
+                              //     width: 35.w,
+                              //   ),
+                              // ),
                               // ),
                             ],
                           ),
@@ -301,7 +301,6 @@ class _ImageTranscriptionScreenState extends State<ImageTranscriptionScreen>
                             if (v!.isEmpty) {
                               return "Please enter image URL";
                             }
-
                             return null;
                           },
                         ),
