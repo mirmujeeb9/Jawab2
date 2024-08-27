@@ -1,4 +1,3 @@
-// import 'package:alxza/view/home/menue/chatbot/chatBott2.dart';
 // import 'package:alxza/view/home/menue/translator/controller.dart';
 // import 'package:alxza/widget/colors.dart';
 // import 'package:alxza/widget/custom_container.dart';
@@ -6,16 +5,15 @@
 // import 'package:flutter/material.dart';
 // import 'package:flutter_screenutil/flutter_screenutil.dart';
 // import 'package:flutter_svg/svg.dart';
-// import 'package:get/get.dart';
 
-// class ChatBotScreen extends StatefulWidget {
-//   const ChatBotScreen({super.key});
+// class ChatBot2Screen extends StatefulWidget {
+//   const ChatBot2Screen({super.key});
 
 //   @override
-//   State<ChatBotScreen> createState() => _ChatBotScreenState();
+//   State<ChatBot2Screen> createState() => _ChatBot2ScreenState();
 // }
 
-// class _ChatBotScreenState extends State<ChatBotScreen>
+// class _ChatBot2ScreenState extends State<ChatBot2Screen>
 // // with WidgetsBindingObserver
 // {
 //   // final tooltipController = JustTheController();
@@ -83,18 +81,18 @@
 //                         //   controller: tooltipController,
 //                         //   backgroundColor: Colors.white,
 //                         //   offset: 0,
-//                         //   content:
-//                         // Padding(
-//                         //   padding: EdgeInsets.symmetric(
-//                         //       horizontal: 15.w, vertical: 3.h),
-//                         //   child: TextWidget(
-//                         //     text: "100 000 / 250 000",
-//                         //     fontSize: 12.sp,
-//                         //     color: primaryColor,
-//                         //     fontWeight: FontWeight.w500,
+//                         //   content: Padding(
+//                         //     padding: EdgeInsets.symmetric(
+//                         //         horizontal: 15.w, vertical: 3.h),
+//                         //     child: TextWidget(
+//                         //       text: "100 000 / 250 000",
+//                         //       fontSize: 12.sp,
+//                         //       color: primaryColor,
+//                         //       fontWeight: FontWeight.w500,
+//                         //     ),
 //                         //   ),
-//                         // ),
-//                         // child:
+//                         //   child:
+
 //                         InkWell(
 //                           onTap: () {
 //                             // tooltipController.showTooltip();
@@ -111,118 +109,126 @@
 //                   ),
 //                 ),
 //                 SizedBox(
-//                   height: 100.h,
+//                   height: 30.h,
 //                 ),
-//                 TextWidget(
-//                   text: "Type something like:",
-//                   fontSize: 14.sp,
-//                   color: const Color(0xff888888),
-//                   fontWeight: FontWeight.w500,
+//                 Row(
+//                   children: [
+//                     SizedBox(
+//                       width: 20.w,
+//                     ),
+//                     Card(
+//                       elevation: 10,
+//                       shape: RoundedRectangleBorder(
+//                         borderRadius: BorderRadius.only(
+//                           topLeft: const Radius.circular(11),
+//                           topRight: const Radius.circular(11),
+//                           bottomRight: Radius.circular(11.r),
+//                         ),
+//                       ),
+//                       color: const Color(0xff241649),
+//                       child: Container(
+//                         height: 80.h,
+//                         width: 220.w,
+//                         decoration: BoxDecoration(
+//                           borderRadius: BorderRadius.only(
+//                             topLeft: const Radius.circular(11),
+//                             topRight: const Radius.circular(11),
+//                             bottomRight: Radius.circular(11.r),
+//                           ),
+//                           color: const Color(0xff241649),
+//                         ),
+//                         child: Column(
+//                           mainAxisAlignment: MainAxisAlignment.center,
+//                           children: [
+//                             SizedBox(
+//                               height: 55.h,
+//                               width: 185.w,
+//                               child: TextWidget(
+//                                 text:
+//                                     "Write an art article\ndiscussing the benefits of\npracticing mindfulness in daily life",
+//                                 fontSize: 13.sp,
+//                                 color: Colors.white,
+//                                 fontWeight: FontWeight.w400,
+//                               ),
+//                             ),
+//                           ],
+//                         ),
+//                       ),
+//                     ),
+//                   ],
 //                 ),
 //                 SizedBox(
 //                   height: 20.h,
 //                 ),
-//                 Card(
-//                   elevation: 10,
-//                   shape: RoundedRectangleBorder(
-//                     borderRadius: BorderRadius.circular(13.r),
-//                   ),
-//                   child: Container(
-//                     height: 80.h,
-//                     width: 335.w,
-//                     decoration: BoxDecoration(
-//                         borderRadius: BorderRadius.circular(13.r),
-//                         color: Colors.white),
-//                     child: Column(
-//                       mainAxisAlignment: MainAxisAlignment.center,
+//                 Row(
+//                   crossAxisAlignment: CrossAxisAlignment.start,
+//                   children: [
+//                     SizedBox(
+//                       width: 80.w,
+//                     ),
+//                     Column(
 //                       children: [
-//                         SizedBox(
-//                           height: 40.h,
-//                           width: 289.w,
-//                           child: Center(
-//                             child: TextWidget(
-//                               text:
-//                                   "Write an art article discussing the benefits of\npracticing mindfulness in daily life ",
-//                               fontSize: 13.sp,
-//                               color: const Color(0xffAAAAAA),
-//                               fontWeight: FontWeight.w400,
-//                             ),
+//                         Padding(
+//                           padding: const EdgeInsets.all(8.0),
+//                           child: SvgPicture.asset(
+//                             "images/copy.svg",
+//                             height: 20.h,
+//                             width: 18.w,
+//                             color: Colors.grey,
+//                           ),
+//                         ),
+//                         Padding(
+//                           padding: const EdgeInsets.all(8.0),
+//                           child: SvgPicture.asset(
+//                             "images/share.svg",
+//                             height: 17.h,
+//                             width: 15.w,
+//                             color: Colors.grey,
 //                           ),
 //                         ),
 //                       ],
 //                     ),
-//                   ),
+//                     Card(
+//                       elevation: 10,
+//                       shape: RoundedRectangleBorder(
+//                         borderRadius: BorderRadius.only(
+//                           topLeft: const Radius.circular(11),
+//                           topRight: const Radius.circular(11),
+//                           bottomLeft: Radius.circular(11.r),
+//                         ),
+//                       ),
+//                       child: Container(
+//                         height: 424.h,
+//                         width: 244.w,
+//                         decoration: BoxDecoration(
+//                             borderRadius: BorderRadius.only(
+//                               topLeft: const Radius.circular(11),
+//                               topRight: const Radius.circular(11),
+//                               bottomLeft: Radius.circular(11.r),
+//                             ),
+//                             color: Colors.white),
+//                         child: Column(
+//                           mainAxisAlignment: MainAxisAlignment.center,
+//                           children: [
+//                             SizedBox(
+//                               height: 410.81.h,
+//                               width: 199.w,
+//                               child: TextWidget(
+//                                 text:
+//                                     "Write an art article\ndiscussing the benefits of\npracticing mindfulness in daily life\nWrite an art article\ndiscussing the benefits of\npracticing mindfulness in daily life\nWrite an art article\ndiscussing the benefits of\npracticing mindfulness in daily life\nWrite an art article\ndiscussing the benefits of\npracticing mindfulness in daily life\n ",
+//                                 fontSize: 13.sp,
+//                                 color: const Color(0xff7E7E7E),
+//                                 fontWeight: FontWeight.w400,
+//                               ),
+//                             ),
+//                           ],
+//                         ),
+//                       ),
+//                     ),
+//                   ],
 //                 ),
 //                 SizedBox(
 //                   height: 20.h,
-//                 ),
-//                 Card(
-//                   elevation: 10,
-//                   shape: RoundedRectangleBorder(
-//                     borderRadius: BorderRadius.circular(13.r),
-//                   ),
-//                   child: Container(
-//                     height: 80.h,
-//                     width: 335.w,
-//                     decoration: BoxDecoration(
-//                         borderRadius: BorderRadius.circular(13.r),
-//                         color: Colors.white),
-//                     child: Column(
-//                       mainAxisAlignment: MainAxisAlignment.center,
-//                       children: [
-//                         SizedBox(
-//                           height: 40.h,
-//                           width: 284.w,
-//                           child: Center(
-//                             child: TextWidget(
-//                               text:
-//                                   "Write an art article discussing the impact of\nelate change on the pointe",
-//                               fontSize: 13.sp,
-//                               color: const Color(0xffAAAAAA),
-//                               fontWeight: FontWeight.w400,
-//                             ),
-//                           ),
-//                         ),
-//                       ],
-//                     ),
-//                   ),
-//                 ),
-//                 SizedBox(
-//                   height: 20.h,
-//                 ),
-//                 Card(
-//                   elevation: 10,
-//                   shape: RoundedRectangleBorder(
-//                     borderRadius: BorderRadius.circular(13.r),
-//                   ),
-//                   child: Container(
-//                     height: 80.h,
-//                     width: 335.w,
-//                     decoration: BoxDecoration(
-//                         borderRadius: BorderRadius.circular(13.r),
-//                         color: Colors.white),
-//                     child: Column(
-//                       mainAxisAlignment: MainAxisAlignment.center,
-//                       children: [
-//                         SizedBox(
-//                           height: 40.h,
-//                           width: 313.w,
-//                           child: Center(
-//                             child: TextWidget(
-//                               text:
-//                                   "Write an art article discussing the importance of\nmaintaining a healthy work life balance",
-//                               fontSize: 13.sp,
-//                               color: const Color(0xffAAAAAA),
-//                               fontWeight: FontWeight.w400,
-//                             ),
-//                           ),
-//                         ),
-//                       ],
-//                     ),
-//                   ),
-//                 ),
-//                 SizedBox(
-//                   height: 100.h,
 //                 ),
 //                 Row(
 //                   children: [
@@ -267,12 +273,7 @@
 //                       width: 10.w,
 //                     ),
 //                     FloatingActionButton(
-//                       onPressed: () {
-//                         Get.to(
-//                           () => const ChatBot2Screen(),
-//                           transition: Transition.rightToLeft,
-//                         );
-//                       },
+//                       onPressed: () {},
 //                       materialTapTargetSize: MaterialTapTargetSize.padded,
 //                       backgroundColor: primaryColor,
 //                       shape:

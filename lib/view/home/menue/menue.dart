@@ -246,7 +246,10 @@ class _MenueScreenState extends State<MenueScreen> {
                         () => Card(
                           elevation: 6,
                           shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20.r)),
+                            borderRadius: BorderRadius.circular(
+                              20.r,
+                            ),
+                          ),
                           child: CustomContainer(
                             height: 135.h,
                             width: 130.w,
