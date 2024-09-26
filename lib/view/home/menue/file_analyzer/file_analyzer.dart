@@ -113,7 +113,9 @@ class _FileAnalyzerState extends State<FileAnalyzer>
                                         height: 40.h,
                                       ),
                                       Button(
-                                        onTap: () {},
+                                        onTap: () {
+                                          obj.pickPDF();
+                                        },
                                         height: 36.h,
                                         width: 250.w,
                                         text: "+ Upload a document",
@@ -162,17 +164,22 @@ class _FileAnalyzerState extends State<FileAnalyzer>
                             decoration: InputDecoration(
                               prefixIcon: Padding(
                                 padding: const EdgeInsets.all(8.0),
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    color: Colors.grey.shade400,
-                                    shape: BoxShape.circle,
-                                  ),
-                                  height: 30.h,
-                                  width: 30.w,
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(5.0),
-                                    child: Image.asset(
-                                      "images/document.png",
+                                child: InkWell(
+                                  onTap: () {
+                                    obj.pickPDF();
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: Colors.grey.shade400,
+                                      shape: BoxShape.circle,
+                                    ),
+                                    height: 30.h,
+                                    width: 30.w,
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(5.0),
+                                      child: Image.asset(
+                                        "images/document.png",
+                                      ),
                                     ),
                                   ),
                                 ),

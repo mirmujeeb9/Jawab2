@@ -120,7 +120,7 @@ class _MessageCardState extends State<MessageCard> {
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(11.r),
                     topRight: Radius.circular(11.r),
-                    bottomRight: Radius.circular(11.r)),
+                    bottomLeft: Radius.circular(11.r)),
               ),
               child: Container(
                 width: 230.w,
