@@ -70,7 +70,7 @@ class _MenueScreenState extends State<MenueScreen> {
                     children: [
                       Heading(
                         fontSize: 28.sp,
-                        text: "Salam aleykoum\nJuju Mitcheli !",
+                        text: "Salam aleykoum\n${StaticData.userModel?.name}",
                       ),
                     ],
                   ),
