@@ -3,6 +3,7 @@ import 'package:alxza/view/home/home/controller.dart';
 import 'package:alxza/view/home/invoices/controller.dart';
 import 'package:alxza/widget/colors.dart';
 import 'package:alxza/widget/custom_appbar.dart';
+import 'package:alxza/widget/custom_snackbar.dart';
 import 'package:alxza/widget/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -58,7 +59,7 @@ class _InvoiceScreenState extends State<InvoiceScreen> {
                         child: Dismissible(
                             background: stackBehindDismiss(),
                             secondaryBackground: secondarystackBehindDismiss(),
-                            key: ObjectKey(index),
+                    key: ValueKey(model.title),
                             child: Container(
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(13.r),
@@ -103,27 +104,30 @@ class _InvoiceScreenState extends State<InvoiceScreen> {
                               if (direction == DismissDirection.startToEnd) {
                                 print("Add to favorite");
                               } else {
-                                print('Remove item');
+                                                        obj.removeItem(index);
+                        
+                        showCustomSnackBar("Item Deleted");   
                               }
                             },
-                            confirmDismiss: (DismissDirection direction) async {
-                              if (direction == DismissDirection.startToEnd) {
-                                // if (filteredDocs.length == 1) {
-                                //   obj.flasstatus =
-                                //       "You can\'t delete last item";
-                                //   obj.update();
-                                //   return null;
-                                // } else {
-                                //   obj.showdeleteitemDialog(
-                                //       context, height, width, model.id!);
-                                // }
-                              } else {
-                                // obj.showupdateitemDialog(
-                                //     context, height, width, model.id!);
-                              }
+                            // confirmDismiss: (DismissDirection direction) async {
+                            //   if (direction == DismissDirection.startToEnd) {
+                            //     // if (filteredDocs.length == 1) {
+                            //     //   obj.flasstatus =
+                            //     //       "You can\'t delete last item";
+                            //     //   obj.update();
+                            //     //   return null;
+                            //     // } else {
+                            //     //   obj.showdeleteitemDialog(
+                            //     //       context, height, width, model.id!);
+                            //     // }
+                            //   } else {
+                            //     // obj.showupdateitemDialog(
+                            //     //     context, height, width, model.id!);
+                            //   }
 
-                              return null;
-                            }),
+                            //   return null;
+                            // }
+                            ),
                       ),
                     );
                   },

@@ -1,5 +1,6 @@
 import 'package:alxza/view/home/history/controller.dart';
 import 'package:alxza/widget/colors.dart';
+import 'package:alxza/widget/custom_snackbar.dart';
 import 'package:alxza/widget/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -13,7 +14,7 @@ class DocumentScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backGroundColor,
-      body: GetBuilder<HistoryController>(builder: (obj) {
+      body: GetBuilder<HistoryController>(autoRemove: true,builder: (obj) {
         return ListView.builder(
           padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
           // shrinkWrap: true,
@@ -32,7 +33,7 @@ class DocumentScreen extends StatelessWidget {
                 child: Dismissible(
                     background: stackBehindDismiss(),
                     secondaryBackground: secondarystackBehindDismiss(),
-                    key: ObjectKey(index),
+                    key: ValueKey(model.title),
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(13.r),
@@ -80,27 +81,33 @@ class DocumentScreen extends StatelessWidget {
                       if (direction == DismissDirection.startToEnd) {
                         print("Add to favorite");
                       } else {
-                        print('Remove item');
+                      int index = obj.historylist.indexOf(model);
+                        obj.removeItem(index);
+                        
+                        showCustomSnackBar("Item Deleted");                        
+    
+
                       }
                     },
-                    confirmDismiss: (DismissDirection direction) async {
-                      if (direction == DismissDirection.startToEnd) {
-                        // if (filteredDocs.length == 1) {
-                        //   obj.flasstatus =
-                        //       "You can\'t delete last item";
-                        //   obj.update();
-                        //   return null;
-                        // } else {
-                        //   obj.showdeleteitemDialog(
-                        //       context, height, width, model.id!);
-                        // }
-                      } else {
-                        // obj.showupdateitemDialog(
-                        //     context, height, width, model.id!);
-                      }
+                    // confirmDismiss: (DismissDirection direction) async {
+                    //   if (direction == DismissDirection.startToEnd) {
+                    //     // if (filteredDocs.length == 1) {
+                    //     //   obj.flasstatus =
+                    //     //       "You can\'t delete last item";
+                    //     //   obj.update();
+                    //     //   return null;
+                    //     // } else {
+                    //     //   obj.showdeleteitemDialog(
+                    //     //       context, height, width, model.id!);
+                    //     // }
+                    //   } else {
+                    //     // obj.showupdateitemDialog(
+                    //     //     context, height, width, model.id!);
+                    //   }
 
-                      return null;
-                    }),
+                    //   return null;
+                    // }
+                    ),
               ),
             );
           },
