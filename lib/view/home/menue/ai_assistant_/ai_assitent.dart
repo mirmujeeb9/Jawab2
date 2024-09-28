@@ -262,17 +262,22 @@ class _AiassistentScreenState extends State<AiassistentScreen>
                             decoration: InputDecoration(
                               prefixIcon: Padding(
                                 padding: const EdgeInsets.all(8.0),
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    color: Colors.grey.shade400,
-                                    shape: BoxShape.circle,
-                                  ),
-                                  height: 30.h,
-                                  width: 30.w,
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(5.0),
-                                    child: Image.asset(
-                                      "images/document.png",
+                                child: InkWell(
+                                  onTap: () {
+                                    obj.pickPDF();
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: Colors.grey.shade400,
+                                      shape: BoxShape.circle,
+                                    ),
+                                    height: 30.h,
+                                    width: 30.w,
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(5.0),
+                                      child: Image.asset(
+                                        "images/document.png",
+                                      ),
                                     ),
                                   ),
                                 ),

@@ -3,6 +3,7 @@ import 'package:alxza/view/home/home/controller.dart';
 import 'package:alxza/widget/colors.dart';
 import 'package:alxza/widget/custom_appbar.dart';
 import 'package:alxza/widget/custom_container.dart';
+import 'package:alxza/widget/custom_snackbar.dart';
 import 'package:alxza/widget/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -21,7 +22,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backGroundColor,
-      body: GetBuilder<HistoryController>(builder: (obj) {
+      body: GetBuilder<HistoryController>(autoRemove: true,builder: (obj) {
         return SizedBox(
           height: ScreenUtil().screenHeight,
           width: ScreenUtil().screenWidth,
@@ -72,7 +73,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                         child: Dismissible(
                             background: stackBehindDismiss(),
                             secondaryBackground: secondarystackBehindDismiss(),
-                            key: ObjectKey(index),
+                    key: ValueKey(model.title),
                             child: Container(
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(13.r),
@@ -117,27 +118,30 @@ class _HistoryScreenState extends State<HistoryScreen> {
                               if (direction == DismissDirection.startToEnd) {
                                 print("Add to favorite");
                               } else {
-                                print('Remove item');
-                              }
+                      int index = obj.historylist.indexOf(model);
+                        obj.removeItem(index);
+                        
+                        showCustomSnackBar("Item Deleted");                               }
                             },
-                            confirmDismiss: (DismissDirection direction) async {
-                              if (direction == DismissDirection.startToEnd) {
-                                // if (filteredDocs.length == 1) {
-                                //   obj.flasstatus =
-                                //       "You can\'t delete last item";
-                                //   obj.update();
-                                //   return null;
-                                // } else {
-                                //   obj.showdeleteitemDialog(
-                                //       context, height, width, model.id!);
-                                // }
-                              } else {
-                                // obj.showupdateitemDialog(
-                                //     context, height, width, model.id!);
-                              }
+                            // confirmDismiss: (DismissDirection direction) async {
+                            //   if (direction == DismissDirection.startToEnd) {
+                            //     // if (filteredDocs.length == 1) {
+                            //     //   obj.flasstatus =
+                            //     //       "You can\'t delete last item";
+                            //     //   obj.update();
+                            //     //   return null;
+                            //     // } else {
+                            //     //   obj.showdeleteitemDialog(
+                            //     //       context, height, width, model.id!);
+                            //     // }
+                            //   } else {
+                            //     // obj.showupdateitemDialog(
+                            //     //     context, height, width, model.id!);
+                            //   }
 
-                              return null;
-                            }),
+                            //   return null;
+                            // }
+                            ),
                       ),
                     );
                   },

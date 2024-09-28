@@ -29,4 +29,18 @@ class InvoiceController extends GetxController {
         title: "Subscription monthly",
         date: "May 17,2023   -   09:30am"),
   ];
+
+   void removeItem(int index) {
+    if (index < 0 || index >= invoicelist.length) {
+      return; // Ensure index is valid
+    }
+    invoicelist.removeAt(index);
+    update(); // Notify listeners
+  }
+
+  // Alternatively, you could remove by ID if you have a unique ID property
+  void removeItemById(String id) {
+    invoicelist.removeWhere((item) => item.title == id); // Assuming title is unique
+    update(); // Notify listeners
+  }
 }
