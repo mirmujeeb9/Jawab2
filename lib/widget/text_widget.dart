@@ -59,17 +59,19 @@ class Heading extends StatelessWidget {
   Heading({
     super.key,
     this.color,
+     this.textAlign,
     this.fontSize,
     required this.text,
   });
-
+ final TextAlign? textAlign;
   @override
   Widget build(BuildContext context) {
     return TextWidget(
       text: text,
       fontSize: fontSize ?? 30.sp,
-      color: color,
+      color: color,  textAlign: textAlign,
       fontWeight: FontWeight.w600,
+      
     );
   }
 }
@@ -80,6 +82,7 @@ class HeadingSmall extends StatelessWidget {
   HeadingSmall({
     super.key,
     this.color,
+    
     required this.text,
   });
 

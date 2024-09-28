@@ -12,13 +12,21 @@ class HomeController extends GetxController {
 
   // final ValueNotifier bottomsheetIndex = ValueNotifier(0);
   List<TabModel> tabsList = [
+    TabModel(name: "AI Assistant", image: "images/ai.png"),
     TabModel(name: "AI Translator", image: "images/langues.png"),
     TabModel(name: "Dictionary", image: "images/dictionnaire.png"),
-    TabModel(name: "Video to Text", image: "images/youtube.png"),
-    TabModel(name: "Image to Text", image: "images/camera.png"),
-    TabModel(name: "Conjugate", image: "images/livre.png"),
-    TabModel(name: "AI Assistant", image: "images/ai.png"),
+    TabModel(name: "Video to Text", image: "images/youtube.png"), 
+    TabModel(name: "Analyze PDF", image: "images/pdf.png"),
   ];
+
+  //  List<TabModel> previoustabsList = [
+  //   TabModel(name: "AI Translator", image: "images/langues.png"),
+  //   TabModel(name: "Dictionary", image: "images/dictionnaire.png"),
+  //   TabModel(name: "Video to Text", image: "images/youtube.png"),
+  //   TabModel(name: "Image to Text", image: "images/camera.png"),
+  //   TabModel(name: "Conjugate", image: "images/livre.png"),
+  //   TabModel(name: "AI Assistant", image: "images/ai.png"),
+  // ];
 }
 
 class TabModel {

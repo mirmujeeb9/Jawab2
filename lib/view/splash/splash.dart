@@ -13,7 +13,8 @@ import 'package:alxza/view/home/history/controller.dart';
 import 'package:alxza/view/home/home/controller.dart';
 import 'package:alxza/view/home/invoices/controller.dart';
 import 'package:alxza/view/home/menue/advanced_dictionary/controller.dart';
-import 'package:alxza/view/home/menue/ai_assistant/controller.dart';
+import 'package:alxza/view/home/menue/ai_assistant_/controller.dart';
+import 'package:alxza/view/home/menue/file_analyzer/controller.dart';
 import 'package:alxza/view/home/menue/image_transcription/controller.dart';
 import 'package:alxza/view/home/menue/translator/controller.dart';
 import 'package:alxza/view/home/menue/video_transcription/controller.dart';
@@ -46,7 +47,6 @@ class _MyCustomSplashScreenState extends State<MyCustomSplashScreen> {
     Get.put(FaqController());
     Get.put(AffiliateController());
     Get.put(InvoiceController());
-
     Get.put(HomeController());
     Get.put(SecurityController());
     Get.put(Upgrade_to_pro_Controller());
@@ -61,10 +61,10 @@ class _MyCustomSplashScreenState extends State<MyCustomSplashScreen> {
     Get.put(ImageTranscriptionController());
     Get.put(CongugationController());
     Get.put(AdvanceDisctionaryController());
-    Get.put(AiassistentController());
     Get.put(Signin_page_controller());
+    Get.put(FileAnalyzerController());
+    Get.put(AiAssistentController());
     Splash_controller.to.splashgetintrovideo();
-
     super.initState();
   }
 

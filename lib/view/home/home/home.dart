@@ -1,7 +1,6 @@
 import 'dart:ui';
 
 import 'package:alxza/view/home/affiliate/affiliate.dart';
-import 'package:alxza/view/home/conjugaison%201/conjugaison1.dart';
 import 'package:alxza/view/home/edit_profile/edit_profile.dart';
 import 'package:alxza/view/home/faq/faq.dart';
 import 'package:alxza/view/home/folder/folder.dart';
@@ -9,8 +8,8 @@ import 'package:alxza/view/home/history/history.dart';
 import 'package:alxza/view/home/home/controller.dart';
 import 'package:alxza/view/home/invoices/invoices.dart';
 import 'package:alxza/view/home/menue/advanced_dictionary/advanced_dictionary.dart';
-import 'package:alxza/view/home/menue/ai_assistant/ai_assistant.dart';
-import 'package:alxza/view/home/menue/image_transcription/image_transcription.dart';
+import 'package:alxza/view/home/menue/ai_assistant_/ai_assitent.dart';
+import 'package:alxza/view/home/menue/file_analyzer/file_analyzer.dart';
 import 'package:alxza/view/home/menue/menue.dart';
 import 'package:alxza/view/home/menue/translator/translator.dart';
 import 'package:alxza/view/home/menue/video_transcription/video_transcription.dart';
@@ -404,23 +403,24 @@ class _HomeScreenState extends State<HomeScreen>
                           : obj.selectedItemPosition.value == 3
                               ? Container()
                               : obj.selectedItemPosition.value == 4
-                                  ? const TranslateScreen()
+                                  ? const AiassistentScreen()
                                   : obj.selectedItemPosition.value == 5
-                                      ? const AdvanceDisctionaryScreen()
+                                      ? const TranslateScreen()
                                       : HomeController.to.selectedItemPosition
                                                   .value ==
                                               6
-                                          ? const VideoTranscriptionScreen()
+                                          ? const AdvanceDisctionaryScreen()
                                           : obj.selectedItemPosition.value == 7
-                                              ? const ImageTranscriptionScreen()
+                                              ? const VideoTranscriptionScreen()
                                               : obj.selectedItemPosition
                                                           .value ==
                                                       8
-                                                  ? const Conjugaison_1()
+                                                  ? FileAnalyzer()
+                                                  //  const Conjugaison_1()
                                                   : obj.selectedItemPosition
                                                               .value ==
                                                           9
-                                                      ? const AiassistentScreen()
+                                                      ? SizedBox()
                                                       : obj.selectedItemPosition
                                                                   .value ==
                                                               10
