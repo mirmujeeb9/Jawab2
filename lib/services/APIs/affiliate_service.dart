@@ -5,7 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class AffiliateService {
   // Base URL for your Laravel API
-  final String baseUrl = 'https://localhost/8000';
+  final String baseUrl = 'https://localhost/5500';
 
   // Get affiliate info
   Future<Map<String, dynamic>> getAffiliateInfo(String token) async {

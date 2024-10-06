@@ -1,4 +1,4 @@
-import 'package:alxza/lib/services/APIs/affiliate_service.dart';
+import 'package:alxza/services/APIs/affiliate_service.dart';
 import 'package:flutter/material.dart';
 //import 'package:jawab_io/services/APIs/affiliate_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';

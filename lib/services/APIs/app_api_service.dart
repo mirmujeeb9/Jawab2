@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class AppApiService {
-  final String baseUrl = "https://localhost/8000";
+  final String baseUrl = "https://localhost/5500";
 
   // Get Email Confirmation Setting
   Future<Map<String, dynamic>> getEmailConfirmationSetting(String token) async {

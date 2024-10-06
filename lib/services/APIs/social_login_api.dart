@@ -3,7 +3,7 @@ import 'dart:convert';
 
 class SocialLoginApi {
   // Base API URL
-  static const String baseUrl = 'https://localhost/8000';
+  static const String baseUrl = 'https://localhost/5500';
 
   // Google Login API
   Future<Map<String, dynamic>> googleLogin(
