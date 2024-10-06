@@ -1,6 +1,5 @@
-import 'package:Jawab2/lib/services/APIs/user_service.dart';
+import 'package:alxza/services/APIs/user_service.dart';
 import 'package:flutter/material.dart';
-import 'package:jawab_io/services/APIs/user_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class UserProfileScreen extends StatefulWidget {

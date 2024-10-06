@@ -1,6 +1,6 @@
-import 'package:Jawab2/services/APIs/app_api_service.dart';
+import 'package:alxza/services/APIs/app_api_service.dart';
 import 'package:flutter/material.dart';
-import 'package:jawab_io/services/APIs/app_api_service.dart';
+//import 'package:jawab_io/services/APIs/app_api_service.dart';
 
 class EmailConfirmationSettingScreen extends StatefulWidget {
   final String token;
