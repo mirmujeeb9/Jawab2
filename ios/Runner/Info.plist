@@ -2,10 +2,18 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleName</key>
+	<string>Jawab</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
 	<string>Alxza</string>
+	<key>CFBundleURLName</key>
+            <string>com.example.Jawab</string> <!-- Replace with your app's bundle identifier -->
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>yourapp</string> <!-- Replace with your custom scheme -->
+            </array>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>

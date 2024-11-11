@@ -131,6 +131,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 //   ),
                 // ),
                 CustomContainer(
+                  onTap: () {
+                    Signin_page_controller.to.signInWithFacebook();
+                  },
                   height: 35.h,
                   width: 80.w,
                   borderColor: Colors.grey.shade300,

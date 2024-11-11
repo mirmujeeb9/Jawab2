@@ -46,12 +46,7 @@ class _Edit_profileState extends State<Edit_profile> {
     // Edit_profile_controller.to.selectedcountry = null;
     fullnamecontroller.text = StaticData.userModel!.name;
     emailcontroller.text = StaticData.userModel!.email;
-    phonecontroller.text = StaticData.userModel!.phone ?? "";
-    Edit_profile_controller.to.selectedcountry = c.countries.firstWhere(
-      (element) => element.name == StaticData.userModel!.country,
-      orElse: () => c.countries[0],
-    );
-
+    
     super.initState();
   }
 
@@ -90,29 +85,33 @@ class _Edit_profileState extends State<Edit_profile> {
                               GetBuilder<Edit_profile_controller>(
                                 id: 'image',
                                 builder: (image) {
-                                  return StaticData.userModel!.avatar.isNotEmpty
+                                  return (StaticData.userModel!.avatar !=
+                                              null &&
+                                          StaticData
+                                              .userModel!.avatar!.isNotEmpty)
                                       ? obj.image != null
                                           ? CircleAvatar(
                                               radius: 70.r,
                                               backgroundImage:
-                                                  FileImage(obj.image!))
+                                                  FileImage(obj.image!),
+                                            )
                                           : CircleAvatar(
                                               radius: 70.r,
                                               backgroundImage: NetworkImage(
-                                                StaticData.userModel!.avatar
+                                                StaticData.userModel!.avatar!
                                                             .contains(
                                                                 "assets") ||
                                                         StaticData
-                                                            .userModel!.avatar
+                                                            .userModel!.avatar!
                                                             .contains("upload")
                                                     ? "${StaticData.imageUrl}${StaticData.userModel!.avatar}"
                                                     : "${StaticData.userModel!.avatar}",
                                               ),
                                             )
-                                      : Image.asset(
-                                          "images/male.png",
-                                          height: 70.h,
-                                          width: 70.w,
+                                      : CircleAvatar(
+                                          radius: 70.r,
+                                          child: Icon(Icons
+                                              .person), // Fallback if avatar is null or empty
                                         );
                                 },
                               ),
@@ -508,6 +507,7 @@ class _Edit_profileState extends State<Edit_profile> {
                                     if (formkey.currentState!.validate()) {
                                       obj.updateProfile(
                                           name: fullnamecontroller.text,
+                                          email: emailcontroller.text,
                                           phone: phonecontroller.text,
                                           country: obj.selectedcountry!.name);
                                     }

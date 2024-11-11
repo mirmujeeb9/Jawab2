@@ -18,11 +18,10 @@ class ForgotScreen extends StatefulWidget {
 }
 
 class _ForgotScreenState extends State<ForgotScreen> {
-  TextEditingController emailcontroller = TextEditingController();
+  final ForgotController forgotController = Get.put(ForgotController());
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
   @override
   void dispose() {
-    emailcontroller.dispose();
     super.dispose();
   }
 
@@ -81,7 +80,7 @@ class _ForgotScreenState extends State<ForgotScreen> {
                             ),
                             hint: "example@gmail.com",
                             fontFamily: 'Poppins',
-                            controller: emailcontroller,
+                            controller: forgotController.emailController,
                             validator: (v) {
                               if (v!.isEmpty) {
                                 return "Please enter email";
@@ -100,11 +99,12 @@ class _ForgotScreenState extends State<ForgotScreen> {
                         Button(
                           onTap: () {
                             if (formkey.currentState!.validate()) {
-                              Get.to(
+                              ForgotController.to.sendResetLinkEmail();
+                              /*Get.to(
                                   () => CheckEmailScreen(
                                         email: emailcontroller.text,
                                       ),
-                                  transition: Transition.rightToLeft);
+                                  transition: Transition.rightToLeft);*/
                             }
                           },
                           text: "Send",

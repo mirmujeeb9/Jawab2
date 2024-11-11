@@ -88,11 +88,13 @@ class _CheckEmailScreenState extends State<CheckEmailScreen> {
                         ),
                         Button(
                           onTap: () {
-                            Get.to(
+                            
+                            /*Get.to(
+                              
                                 () => OtpScreen(
                                       email: widget.email,
                                     ),
-                                transition: Transition.rightToLeft);
+                                transition: Transition.rightToLeft);*/
                           },
                           text: "Open Email App",
                           fontWeight: FontWeight.w500,

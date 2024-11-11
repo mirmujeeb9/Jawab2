@@ -97,20 +97,6 @@ class _FolderScreenState extends State<FolderScreen> {
                                 ),
                               ],
                             ),
-                            Column(
-                              children: [
-                                SizedBox(
-                                  height: 108.h,
-                                  //  color: Colors.black,
-                                  child: Image.asset("images/doucoments.png"),
-                                ),
-                                TextWidget(
-                                  text: "Pictures",
-                                  fontSize: 16.sp,
-                                  fontWeight: FontWeight.w500,
-                                )
-                              ],
-                            ),
                           ],
                         ),
                   Container(
@@ -121,36 +107,7 @@ class _FolderScreenState extends State<FolderScreen> {
                       ? const SizedBox()
                       : Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Column(
-                              children: [
-                                SizedBox(
-                                  height: 108.h,
-                                  //  color: Colors.black,
-                                  child: Image.asset("images/doucoments.png"),
-                                ),
-                                TextWidget(
-                                  text: "Videos",
-                                  fontSize: 16.sp,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ],
-                            ),
-                            Column(
-                              children: [
-                                SizedBox(
-                                  height: 108.h,
-                                  //  color: Colors.black,
-                                  child: Image.asset("images/+.png"),
-                                ),
-                                TextWidget(
-                                  text: "New Folder",
-                                  fontSize: 16.sp,
-                                  fontWeight: FontWeight.w500,
-                                )
-                              ],
-                            ),
-                          ],
+                          children: [],
                         ),
                   obj.isdocumentclick.value ? const SizedBox() : const Spacer(),
                   obj.isdocumentclick.value

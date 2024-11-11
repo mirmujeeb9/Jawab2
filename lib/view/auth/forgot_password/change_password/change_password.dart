@@ -18,6 +18,8 @@ class ChangePasswordScreen extends StatefulWidget {
 }
 
 class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
+  String? token;
+  String? email;
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
 
   @override

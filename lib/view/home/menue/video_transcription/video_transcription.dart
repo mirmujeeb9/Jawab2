@@ -1,3 +1,114 @@
+/*import 'package:flutter/material.dart';
+import 'dart:io';
+import 'package:file_picker/file_picker.dart';
+import 'package:get/get.dart';
+import 'package:alxza/view/home/menue/video_transcription/controller.dart';
+
+class VideoTranscriptionScreen extends StatefulWidget {
+  const VideoTranscriptionScreen({super.key});
+
+  @override
+  State<VideoTranscriptionScreen> createState() =>
+      _VideoTranscriptionScreenState();
+}
+
+class _VideoTranscriptionScreenState extends State<VideoTranscriptionScreen>
+// with WidgetsBindingObserver
+{
+  TextEditingController controller.videourlcontroller = TextEditingController();
+  final VideoTranscriptionController controller =
+      Get.put(VideoTranscriptionController());
+  GlobalKey<FormState> formkey = GlobalKey<FormState>();
+  // final tooltipController = JustTheController();
+  @override
+  void initState() {
+    // SchedulerBinding.instance.addPostFrameCallback((_) {
+    //   tooltipController.showTooltip();
+    // });
+    // WidgetsBinding.instance.addObserver(this);
+    VideoTranscriptionController.to.isEmpty.value = true;
+    VideoTranscriptionController.to.transcriptStatus.value = "empty";
+
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    controller.videourlcontroller.dispose();
+
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Video Transcription'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Text field to display transcribed text
+            Obx(() => TextField(
+                  controller: TextEditingController(
+                      text: controller.transcribedText.value),
+                  maxLines: 10,
+                  readOnly: true,
+                  decoration: InputDecoration(
+                    labelText: 'Transcribed Text',
+                    border: OutlineInputBorder(),
+                    hintText: 'The transcribed text will appear here...',
+                  ),
+                )),
+            SizedBox(height: 20),
+
+            // Upload File button
+            ElevatedButton(
+              onPressed: () async {
+                // Pick a video file
+                FilePickerResult? result = await FilePicker.platform.pickFiles(
+                  type: FileType.video,
+                );
+
+                if (result != null && result.files.isNotEmpty) {
+                  // Get the selected file
+                  File videoFile = File(result.files.single.path!);
+                  controller
+                      .uploadVideo(videoFile); // Call the uploadVideo method
+                }
+              },
+              child: Text('Upload Video File'),
+            ),
+
+            // Display loading or error messages
+            SizedBox(height: 20),
+            Obx(() {
+              if (controller.transcriptStatus.value == "run") {
+                return Center(
+                    child:
+                        CircularProgressIndicator()); // Show loading indicator
+              } else if (controller.transcriptStatus.value == "error") {
+                return Text(
+                  'Error: ${controller.transcribedText.value}',
+                  style: TextStyle(color: Colors.red),
+                );
+              } else if (controller.transcriptStatus.value == "complete") {
+                return Text(
+                  'Transcription complete!',
+                  style: TextStyle(color: Colors.green),
+                );
+              }
+              return SizedBox(); // Empty space if no status
+            }),
+          ],
+        ),
+      ),
+    );
+  }
+}*/
+
 import 'package:alxza/view/home/home/controller.dart';
 import 'package:alxza/view/home/menue/translator/controller.dart';
 import 'package:alxza/view/home/menue/video_transcription/controller.dart';
@@ -7,6 +118,7 @@ import 'package:alxza/widget/confirmation_dialogue.dart';
 import 'package:alxza/widget/custom_container.dart';
 import 'package:alxza/widget/customize_textform_feild.dart';
 import 'package:alxza/widget/text_widget.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -14,6 +126,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:share_plus/share_plus.dart';
+import 'dart:io';
 
 class VideoTranscriptionScreen extends StatefulWidget {
   const VideoTranscriptionScreen({super.key});
@@ -28,6 +141,8 @@ class _VideoTranscriptionScreenState extends State<VideoTranscriptionScreen>
 {
   TextEditingController videourlcontroller = TextEditingController();
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
+  final VideoTranscriptionController controller =
+      Get.put(VideoTranscriptionController());
   // final tooltipController = JustTheController();
   @override
   void initState() {
@@ -55,8 +170,6 @@ class _VideoTranscriptionScreenState extends State<VideoTranscriptionScreen>
           builder: (context, child, isKeyboardVisible) {
         return GetBuilder<VideoTranscriptionController>(builder: (obj) {
           return Obx(() {
-            // log("hii $isKeyboardVisible");
-
             return Form(
               key: formkey,
               child: SizedBox(
@@ -194,8 +307,16 @@ class _VideoTranscriptionScreenState extends State<VideoTranscriptionScreen>
                                           ? SingleChildScrollView(
                                               child: TextWidget(
                                                 textAlign: TextAlign.start,
-                                                text:
-                                                    "Social Media: Bridging the Gap, Expanding Connections Social media has revolutionized communication, connecting people across borders and cultures. It fosters a sense of unity, allowing individuals to exchange ideas, collaborate, and find like-minded communities. However, its impact extends beyond personal connections. Social media has transformed marketing strategies, political campaigns, and social activism, amplifying voices and sparking global movements. ",
+                                                text: VideoTranscriptionController
+                                                        .to
+                                                        .transcribedText
+                                                        .value
+                                                        .isNotEmpty
+                                                    ? VideoTranscriptionController
+                                                        .to
+                                                        .transcribedText
+                                                        .value
+                                                    : "No transcription available.",
                                                 fontWeight: FontWeight.w400,
                                                 color: textgrey,
                                                 fontSize: 13.sp,
@@ -206,7 +327,7 @@ class _VideoTranscriptionScreenState extends State<VideoTranscriptionScreen>
                                                 TextWidget(
                                                   textAlign: TextAlign.center,
                                                   text:
-                                                      "Create a transcription from a file audio or video or from a URL",
+                                                      "Create a transcription from a file video",
                                                   fontWeight: FontWeight.w600,
                                                   color: textgrey,
                                                   fontSize: 20.sp,
@@ -216,7 +337,7 @@ class _VideoTranscriptionScreenState extends State<VideoTranscriptionScreen>
                                                 ),
                                                 Subheading(
                                                   text:
-                                                      ".mp3, .mp4, .mpeg, .mpga, .m4a, .wav, .webm allowed. Max files size : 25 MB",
+                                                      ".mp4, .mpeg allowed. Max files size : 25 MB",
                                                   textAlign: TextAlign.center,
                                                   color: textgrey,
                                                 ),
@@ -248,7 +369,8 @@ class _VideoTranscriptionScreenState extends State<VideoTranscriptionScreen>
                                           InkWell(
                                             onTap: () {
                                               Share.share(
-                                                videourlcontroller.text,
+                                                controller
+                                                    .videourlcontroller.text,
                                               );
                                             },
                                             child: SvgPicture.asset(
@@ -259,7 +381,8 @@ class _VideoTranscriptionScreenState extends State<VideoTranscriptionScreen>
                                           const Spacer(),
                                           InkWell(
                                             onTap: () {
-                                              videourlcontroller.clear();
+                                              controller.videourlcontroller
+                                                  .clear();
 
                                               obj.updatetranscriptStatus(
                                                   "empty");
@@ -283,17 +406,17 @@ class _VideoTranscriptionScreenState extends State<VideoTranscriptionScreen>
                       SizedBox(
                         height: 20.h,
                       ),
-                      SizedBox(
+                      /*SizedBox(
                         width: 334.w,
                         child: CustomTextFormField(
                           hint: "Enter your youtube video URL",
                           fontFamily: 'Poppins',
-                          controller: videourlcontroller,
+                          controller: controller.videourlcontroller,
                           suffixIcon: obj.isEmpty.value
                               ? const SizedBox()
                               : IconButton(
                                   onPressed: () {
-                                    videourlcontroller.clear();
+                                    controller.videourlcontroller.clear();
                                     obj.updatetranscriptStatus("empty");
                                   },
                                   icon: Icon(
@@ -317,15 +440,28 @@ class _VideoTranscriptionScreenState extends State<VideoTranscriptionScreen>
                             return null;
                           },
                         ),
-                      ),
+                      ),*/
                       SizedBox(
                         height: 20.h,
                       ),
                       Button(
-                        onTap: () {},
+                        onTap: () async {
+                          // Pick a video file
+                          FilePickerResult? result =
+                              await FilePicker.platform.pickFiles(
+                            type: FileType.video,
+                          );
+
+                          if (result != null && result.files.isNotEmpty) {
+                            // Get the selected file
+                            File videoFile = File(result.files.single.path!);
+                            controller.uploadVideo(
+                                videoFile); // Call the uploadVideo method
+                          }
+                        },
                         height: 36.h,
                         width: 217.w,
-                        text: "Or upload directly",
+                        text: "Upload directly",
                         fontWeight: FontWeight.w500,
                         borderRadius: 50.r,
                       ),

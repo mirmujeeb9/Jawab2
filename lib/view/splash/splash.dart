@@ -60,9 +60,10 @@ class _MyCustomSplashScreenState extends State<MyCustomSplashScreen> {
     Get.put(VideoTranscriptionController());
     Get.put(ImageTranscriptionController());
     Get.put(CongugationController());
-    Get.put(AdvanceDisctionaryController());
+    Get.put(AdvanceDictionaryController());
     Get.put(Signin_page_controller());
     Get.put(FileAnalyzerController());
+    Get.put(VideoTranscriptionController());
     Get.put(AiAssistentController());
     Splash_controller.to.splashgetintrovideo();
     super.initState();

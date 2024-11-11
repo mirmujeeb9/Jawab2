@@ -1,10 +1,10 @@
 import 'package:alxza/view/home/home/controller.dart';
 import 'package:alxza/view/home/menue/file_analyzer/controller.dart';
 import 'package:alxza/view/home/menue/file_analyzer/message_card/message_card.dart';
-import 'package:alxza/view/home/menue/file_analyzer/model/model.dart';
 import 'package:alxza/view/home/menue/translator/controller.dart';
 import 'package:alxza/widget/button.dart';
 import 'package:alxza/widget/colors.dart';
+import 'package:alxza/view/home/menue/ai_assistant_/controller.dart';
 import 'package:alxza/widget/custom_container.dart';
 import 'package:alxza/widget/text_widget.dart';
 import 'package:flutter/material.dart';
@@ -23,20 +23,26 @@ class _FileAnalyzerState extends State<FileAnalyzer>
 // with WidgetsBindingObserver
 {
   // final tooltipController = JustTheController();
+  // Singleton instance
+  static FileAnalyzerController get to => Get.find();
+
+  // Controller for user messages
+  TextEditingController messageController = TextEditingController();
+
+  // List of messages
+  List<Message> messageList = [];
+
   @override
   void initState() {
     // SchedulerBinding.instance.addPostFrameCallback((_) {
     //   tooltipController.showTooltip();
     // });
-    // WidgetsBinding.instance.addObserver(this);
-    FileAnalyzerController.to.messagecontropller = TextEditingController();
-    FileAnalyzerController.to.messagellist.clear();
+
     super.initState();
   }
 
   @override
   void dispose() {
-    FileAnalyzerController.to.messagecontropller.dispose();
     super.dispose();
   }
 
@@ -96,7 +102,7 @@ class _FileAnalyzerState extends State<FileAnalyzer>
                     builder: (obj) {
                       return Expanded(
                         child: Center(
-                          child: obj.messagellist.isEmpty
+                          child: obj.messageList.isEmpty
                               ? Container(
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
@@ -112,23 +118,13 @@ class _FileAnalyzerState extends State<FileAnalyzer>
                                       SizedBox(
                                         height: 40.h,
                                       ),
-                                      Button(
-                                        onTap: () {
-                                          obj.pickPDF();
-                                        },
-                                        height: 36.h,
-                                        width: 250.w,
-                                        text: "+ Upload a document",
-                                        fontWeight: FontWeight.w500,
-                                        borderRadius: 50.r,
-                                      ),
                                     ],
                                   ),
                                 )
                               : ListView.builder(
-                                  itemCount: obj.messagellist.length,
+                                  itemCount: obj.messageList.length,
                                   itemBuilder: (context, index) {
-                                    Message model = obj.messagellist[index];
+                                    Message model = obj.messageList[index];
 
                                     return MessageCard(
                                       message: model,
@@ -156,7 +152,7 @@ class _FileAnalyzerState extends State<FileAnalyzer>
                         child: Padding(
                           padding: EdgeInsets.only(left: 10.w),
                           child: TextFormField(
-                            controller: obj.messagecontropller,
+                            controller: obj.messageController,
                             maxLines: 5,
                             minLines: 1,
                             autovalidateMode:
@@ -166,7 +162,7 @@ class _FileAnalyzerState extends State<FileAnalyzer>
                                 padding: const EdgeInsets.all(8.0),
                                 child: InkWell(
                                   onTap: () {
-                                    obj.pickPDF();
+                                    obj.pickFile();
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(
@@ -211,7 +207,7 @@ class _FileAnalyzerState extends State<FileAnalyzer>
                     ),
                     FloatingActionButton(
                       onPressed: () {
-                        obj.addmessage();
+                        obj.sendMessage();
                       },
                       materialTapTargetSize: MaterialTapTargetSize.padded,
                       backgroundColor: primaryColor,

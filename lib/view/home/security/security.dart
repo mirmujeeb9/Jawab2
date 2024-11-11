@@ -19,6 +19,7 @@ class SecurityScreen extends StatefulWidget {
 }
 
 class _SecurityScreenState extends State<SecurityScreen> {
+  final SecurityController controller = Get.put(SecurityController());
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
   TextEditingController oldPasswordcontroller = TextEditingController();
   TextEditingController newPasswordcontroller = TextEditingController();
@@ -202,7 +203,14 @@ class _SecurityScreenState extends State<SecurityScreen> {
                     ),
                     Button(
                       onTap: () {
-                        if (formkey.currentState!.validate()) {}
+                        if (formkey.currentState!.validate()) {
+                          // Retrieve user input
+                          controller.updatePassword(
+                            oldPasswordcontroller.text.trim(),
+                            newPasswordcontroller.text.trim(),
+                            confirmnewPasswordcontroller.text.trim(),
+                          );
+                        }
                       },
                       width: 301.w,
                       text: "Save",

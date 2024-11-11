@@ -15,25 +15,30 @@ class SignUpContoller extends GetxController {
   bool password = true;
   bool confirmpassword = true;
   Rx<bool> loading = false.obs;
+
   void setloading(bool value) {
     loading.value = value;
   }
 
-  void signup(
-    SignupModel model,
-  ) async {
+  void signup(SignupModel model) async {
     setloading(true);
     var response = await http.post(
-        Uri.parse("${StaticData.baseURL}${StaticData.register}"),
-        headers: {"Content-Type": "application/json"},
-        body: jsonEncode(model.toJson()));
+      Uri.parse("${StaticData.mainURL}createUser"),
+      headers: {"Content-Type": "application/json"},
+      body: jsonEncode(model.toJson()),
+    );
     log("response of signup ${response.statusCode}");
-    if (response.statusCode == 200) {
+
+    if (response.statusCode == 201) {
       setloading(false);
       Get.offAll(() => Signin_screen(), transition: Transition.leftToRight);
+    } else if (response.statusCode == 422) {
+      setloading(false);
+      var errorData = jsonDecode(response.body);
+      showCustomSnackBar(errorData.toString(), isError: true);
     } else {
       setloading(false);
-      showCustomSnackBar("Invalid Input", isError: true);
+      showCustomSnackBar("An unexpected error occurred", isError: true);
     }
   }
 }

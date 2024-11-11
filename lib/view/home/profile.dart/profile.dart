@@ -65,13 +65,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         },
                         contentPadding: EdgeInsets.symmetric(
                             horizontal: 15.w, vertical: 5.h),
-                        leading: StaticData.userModel!.avatar.isNotEmpty
+                        leading: (StaticData.userModel?.avatar != null &&
+                                StaticData.userModel!.avatar!.isNotEmpty)
                             ? CircleAvatar(
                                 radius: 30.r,
                                 backgroundImage: NetworkImage(
-                                  StaticData.userModel!.avatar
+                                  StaticData.userModel!.avatar!
                                               .contains("assets") ||
-                                          StaticData.userModel!.avatar
+                                          StaticData.userModel!.avatar!
                                               .contains("upload")
                                       ? "${StaticData.imageUrl}${StaticData.userModel!.avatar}"
                                       : "${StaticData.userModel!.avatar}",

@@ -41,13 +41,14 @@ class _MenueScreenState extends State<MenueScreen> {
                           transition: Transition.rightToLeft,
                         );
                       },
-                      child: StaticData.userModel!.avatar.isNotEmpty
+                      child: (StaticData.userModel?.avatar != null &&
+                              StaticData.userModel!.avatar!.isNotEmpty)
                           ? CircleAvatar(
                               radius: 20.r,
                               backgroundImage: NetworkImage(
-                                StaticData.userModel!.avatar
+                                StaticData.userModel!.avatar!
                                             .contains("assets") ||
-                                        StaticData.userModel!.avatar
+                                        StaticData.userModel!.avatar!
                                             .contains("upload")
                                     ? "${StaticData.imageUrl}${StaticData.userModel!.avatar}"
                                     : "${StaticData.userModel!.avatar}",

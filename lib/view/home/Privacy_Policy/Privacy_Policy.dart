@@ -89,11 +89,11 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
                         width: 280.24.w,
                         child: ScrollbarTheme(
                           data: ScrollbarThemeData(
-                            trackVisibility: MaterialStateProperty.all(true),
+                            trackVisibility: WidgetStateProperty.all(true),
                             interactive: true,
                             trackColor:
-                                MaterialStatePropertyAll(Colors.grey.shade300),
-                            thumbColor: MaterialStateProperty.all(Colors.grey),
+                                WidgetStatePropertyAll(Colors.grey.shade300),
+                            thumbColor: WidgetStateProperty.all(Colors.grey),
                           ),
                           child: Scrollbar(
                             controller: controller,
@@ -174,18 +174,18 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
                         width: 280.24.w,
                         child: ScrollbarTheme(
                           data: ScrollbarThemeData(
-                            trackVisibility: MaterialStateProperty.all(true),
+                            trackVisibility: WidgetStateProperty.all(true),
                             interactive: true,
                             // radius: const Radius.circular(10.0),
 
                             // trackColor: MaterialStateProperty.all(textgrey),
                             trackColor:
-                                MaterialStatePropertyAll(Colors.grey.shade300),
+                                WidgetStatePropertyAll(Colors.grey.shade300),
 
                             // thickness: MaterialStateProperty.all(5.0),
                             // minThumbLength: 100,
 
-                            thumbColor: MaterialStateProperty.all(Colors.grey),
+                            thumbColor: WidgetStateProperty.all(Colors.grey),
                           ),
                           child: Scrollbar(
                             controller: controller,

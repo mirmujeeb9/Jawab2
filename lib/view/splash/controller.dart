@@ -57,7 +57,7 @@ class Splash_controller extends GetxController {
 
   Future getuser() async {
     var response = await http.get(
-      Uri.parse("${StaticData.baseURL}${StaticData.profile}"),
+      Uri.parse("${StaticData.mainURL}user/profile"),
       headers: {
         "Content-Type": "application/json",
         "Authorization": "Bearer ${StaticData.token}",

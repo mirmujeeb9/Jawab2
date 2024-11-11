@@ -26,23 +26,26 @@ class Signin_page_controller extends GetxController {
     required String email,
     required String password,
   }) async {
-    setloading(true);
-    var response = await http.post(
-        Uri.parse("${StaticData.baseURL}${StaticData.login}"),
-        headers: {"Content-Type": "application/json"},
-        body: jsonEncode({"email": email, "password": password}));
-    log("response of login ${response.body}");
-    if (response.statusCode == 201) {
-      var data = jsonDecode(response.body);
-      saveUserSession(data["token"]);
-      Splash_controller.to.getuser().then((value) {
-        showCustomSnackBar("Succesfully Sign In", isError: false);
+    try {
+      setloading(true);
+      var response = await http.post(Uri.parse("${StaticData.mainURL}login"),
+          headers: {"Content-Type": "application/json"},
+          body: jsonEncode({"email": email, "password": password}));
+      log("response of login ${response.body}");
+      if (response.statusCode == 200) {
+        var data = jsonDecode(response.body);
+        saveUserSession(data["token"]);
+        Splash_controller.to.getuser().then((value) {
+          showCustomSnackBar("Succesfully Sign In", isError: false);
+          setloading(false);
+          Get.offAll(() => HomeScreen(), transition: Transition.leftToRight);
+        });
+      } else {
         setloading(false);
-        Get.offAll(() => HomeScreen(), transition: Transition.leftToRight);
-      });
-    } else {
-      setloading(false);
-      showCustomSnackBar("Invalid Credentials", isError: true);
+        showCustomSnackBar("Invalid Credentials", isError: true);
+      }
+    } catch (e) {
+      print("ERROR: ${e}");
     }
   }
 

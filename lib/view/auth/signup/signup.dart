@@ -266,13 +266,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   onTap: () {
                                     if (formkey.currentState!.validate()) {
                                       obj.signup(SignupModel(
-                                        affiliateCode: "",
                                         email: emailcontroller.text,
                                         name: fullnamecontroller.text,
                                         password: passwordcontroller.text,
                                         passwordConfirmation:
-                                            confirmpasswordcontroller.text,
-                                        surname: fullnamecontroller.text,
+                                            confirmpasswordcontroller.text,  
                                       ));
                                     }
                                   },

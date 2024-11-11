@@ -1,4 +1,4 @@
-class Message {
+/*class Message {
   String? toId;
   String? msg;
   String? read;
@@ -52,4 +52,4 @@ class Message {
 enum Type {
   text,
   pdf,
-}
+}*/

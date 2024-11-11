@@ -1,16 +1,22 @@
 import 'package:alxza/view/splash/splash.dart';
 import 'package:alxza/widget/colors.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide CarouselController;
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:alxza/view/home/home/controller.dart';
+import 'package:alxza/view/home/menue/ai_assistant_/controller.dart';
+import 'package:alxza/view/home/menue/advanced_dictionary/controller.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   await Firebase.initializeApp();
+  Get.put(AdvanceDictionaryController());
+  Get.put(HomeController());
+  Get.put(AiAssistentController());
   runApp(const MyApp());
 }
 

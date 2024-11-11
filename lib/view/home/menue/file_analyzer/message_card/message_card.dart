@@ -1,4 +1,3 @@
-import 'package:alxza/view/home/menue/file_analyzer/model/model.dart';
 import 'package:alxza/widget/colors.dart';
 import 'package:alxza/widget/text_widget.dart';
 import 'package:flutter/material.dart';
@@ -6,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:alxza/view/home/menue/ai_assistant_/controller.dart';
 
 class MessageCard extends StatefulWidget {
   const MessageCard({

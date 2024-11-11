@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
 
@@ -33,21 +34,16 @@ class Edit_profile_controller extends GetxController {
   void updateProfile({
     required String name,
     // required String surname,
+    required String email,
     required String phone,
     required String country,
   }) async {
     setloading(true);
-    final Uri url = Uri.parse("${StaticData.baseURL}${StaticData.profile}");
-
-    var request = http.MultipartRequest('POST', url);
-
-    request.fields['name'] = name;
-    request.fields['_method'] = "PATCH";
     // request.fields['surname'] = surname;
-    request.fields['phone'] = phone;
-    request.fields['country'] = country;
+    //request.fields['phone'] = phone;
+    //request.fields['country'] = country;
 
-    if (image != null) {
+    /*if (image != null) {
       request.files.add(
         await http.MultipartFile.fromPath(
           'avatar',
@@ -55,16 +51,19 @@ class Edit_profile_controller extends GetxController {
           filename: basename(image!.path),
         ),
       );
-    }
+    }*/
 
     try {
-      request.headers.addAll(
-        {
-          "Content-Type": "multipart/form-data",
-          "Authorization": "Bearer ${StaticData.token}"
+      final response = await http.put(
+        Uri.parse("${StaticData.mainURL}user/profile"),
+        headers: {
+          "Authorization": "Bearer ${StaticData.token}",
+          "Content-Type": "application/json"
         },
+        body: jsonEncode(
+            {'name': name, 'email': email, 'phone': phone, 'address': country}),
       );
-      var response = await request.send();
+
       if (response.statusCode == 200) {
         setloading(false);
 
@@ -73,14 +72,18 @@ class Edit_profile_controller extends GetxController {
             update(['image']);
           });
         }
+        StaticData.userModel!.name = name;
+        StaticData.userModel!.email = email;
+        StaticData.userModel!.phone = phone;
+        StaticData.userModel!.country = country;
         showCustomSnackBar('Successfully updated', isError: false);
       } else {
         setloading(false);
-        log('Error: ${response.statusCode}');
+        print('Error: ${response.body}');
       }
     } catch (e) {
       setloading(false);
-      log('Error: $e');
+      print('Error: $e');
     }
   }
 }
