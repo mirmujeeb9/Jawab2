@@ -64,7 +64,7 @@ php artisan migrate
 php artisan serve
 ```
 
-- If running for an Android emulator, specify the host IP:
+- If running for an Android apk, specify the host IP:
 
 ```bash
 php artisan serve --host={your_ip} --port=8000
