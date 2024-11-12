@@ -194,6 +194,9 @@ class _TranslateScreenState extends State<TranslateScreen>
 {
   TextEditingController textEditingController = TextEditingController();
 
+  final List<String> languages = ["Arabic", "English", "French", "Spanish"];
+  String selectedLanguage = "Arabic"; // Default language
+
   // final tooltipController = JustTheController();
   @override
   void initState() {
@@ -534,11 +537,33 @@ class _TranslateScreenState extends State<TranslateScreen>
                           width: 135.w,
                           color: primaryColor.withOpacity(0.2),
                           child: Center(
-                            child: TextWidget(
-                              fontSize: 14.sp,
-                              fontWeight: FontWeight.w500,
-                              text: "Arabic",
-                              color: primaryColor,
+                            child: Center(
+                              child: DropdownButton<String>(
+                                value: selectedLanguage,
+                                underline: SizedBox(),
+                                dropdownColor: Colors.white,
+                                onChanged: (String? newLanguage) {
+                                  setState(() {
+                                    selectedLanguage = newLanguage!;
+                                    // Call a function in TranslatorController if needed to handle language change
+                                  });
+                                },
+                                items: languages.map<DropdownMenuItem<String>>(
+                                  (String language) {
+                                    return DropdownMenuItem<String>(
+                                      value: language,
+                                      child: Text(
+                                        language,
+                                        style: TextStyle(
+                                          fontSize: 14.sp,
+                                          fontWeight: FontWeight.w500,
+                                          color: primaryColor,
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ).toList(),
+                              ),
                             ),
                           ),
                         ),
@@ -576,8 +601,8 @@ class _TranslateScreenState extends State<TranslateScreen>
                                     if (obj.textEditingController.text
                                         .isNotEmpty) {
                                       obj.generateApi(
-                                        text: obj.textEditingController.text,
-                                      );
+                                          text: obj.textEditingController.text,
+                                          language: selectedLanguage);
                                     }
 
                                     if (obj.isEmpty.value) {

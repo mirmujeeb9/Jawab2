@@ -217,18 +217,17 @@ class TranslatorController extends GetxController {
     update();
   }
 
-  void generateApi({
-    required String text,
-  }) async {
+  void generateApi({required String text, required String language}) async {
     apiState.value = "run";
     try {
+      print(language);
       var response = await http.post(
         Uri.parse("${StaticData.mainURL}gpt/translate"),
         headers: {
           "Content-Type": "application/json",
           "Authorization": "Bearer ${StaticData.token}",
         },
-        body: jsonEncode({"language": "ar-AE", "sentence": text}),
+        body: jsonEncode({"language": language, "sentence": text}),
       );
       print("response of generateApi ${response.statusCode}");
       if (response.statusCode == 200) {
