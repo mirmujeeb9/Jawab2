@@ -41,7 +41,8 @@ class _MenueScreenState extends State<MenueScreen> {
                           transition: Transition.rightToLeft,
                         );
                       },
-                      child: StaticData.userModel!.avatar.isNotEmpty
+                      child: StaticData.userModel != null &&
+                              StaticData.userModel!.avatar.isNotEmpty
                           ? CircleAvatar(
                               radius: 20.r,
                               backgroundImage: NetworkImage(
@@ -50,7 +51,7 @@ class _MenueScreenState extends State<MenueScreen> {
                                         StaticData.userModel!.avatar
                                             .contains("upload")
                                     ? "${StaticData.imageUrl}${StaticData.userModel!.avatar}"
-                                    : "${StaticData.userModel!.avatar}",
+                                    : StaticData.userModel!.avatar,
                               ),
                             )
                           : Image.asset(

@@ -15,7 +15,7 @@ class HomeController extends GetxController {
     TabModel(name: "AI Assistant", image: "images/ai.png"),
     TabModel(name: "AI Translator", image: "images/langues.png"),
     TabModel(name: "Dictionary", image: "images/dictionnaire.png"),
-    TabModel(name: "Video to Text", image: "images/youtube.png"), 
+    TabModel(name: "Video to Text", image: "images/youtube.png"),
     TabModel(name: "Analyze PDF", image: "images/pdf.png"),
   ];
 

@@ -24,14 +24,12 @@ class _AffiliateInfoScreenState extends State<AffiliateInfoScreen> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String? token = prefs.getString('auth_token'); // Retrieve the stored token
 
-    if (token != null) {
-      fetchAffiliateInfo(token); // Call the API method using the token
-    } else {
-      setState(() {
-        isLoading = false;
-      });
+    if (token == null) {
       print('Token not found');
+      return;
     }
+
+    fetchAffiliateInfo(token); // Call the API method using the token
   }
 
   // Call the API method

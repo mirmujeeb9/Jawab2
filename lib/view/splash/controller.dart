@@ -26,31 +26,16 @@ class Splash_controller extends GetxController {
       );
     SharedPreferences prefs = await SharedPreferences.getInstance();
     // prefs.clear();
-    videoPlayerController?.addListener(
-      () async {
-        if (videoPlayerController!.value.position >=
-            videoPlayerController!.value.duration) {
-          if (!callfunction) {
-            callfunction = true;
-            videoPlayerController!.pause();
-            String? value = prefs.getString('token');
-            if (value != null) {
-              StaticData.token = value;
-              getuser().then((value) {
-                Get.offAll(() => const HomeScreen());
-              });
-            } else {
-              if (prefs.getBool('firsttime') == null) {
-                prefs.setBool('firsttime', true);
-                Get.offAll(() => const LaunchPageView());
-              } else {
-                Get.offAll(() => const WelcomeScreen());
-              }
-            }
-          }
+    videoPlayerController?.addListener(() async {
+      if (videoPlayerController!.value.position >=
+          videoPlayerController!.value.duration) {
+        if (!callfunction) {
+          callfunction = true;
+          videoPlayerController!.pause();
+          Get.offAll(() => const WelcomeScreen());
         }
-      },
-    );
+      }
+    });
   }
 
   VideoPlayerController? videoPlayerController;

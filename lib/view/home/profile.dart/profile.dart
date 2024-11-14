@@ -58,14 +58,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       child: ListTile(
                         onTap: () {
                           HomeController.to.selectedItemPosition.value = 12;
-                          // Get.to(
-                          //   () => const Edit_profile(),
-                          //   transition: Transition.rightToLeft,
-                          // );
                         },
                         contentPadding: EdgeInsets.symmetric(
                             horizontal: 15.w, vertical: 5.h),
-                        leading: StaticData.userModel!.avatar.isNotEmpty
+                        leading: (StaticData.userModel != null &&
+                                StaticData.userModel!.avatar.isNotEmpty)
                             ? CircleAvatar(
                                 radius: 30.r,
                                 backgroundImage: NetworkImage(
@@ -74,7 +71,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                           StaticData.userModel!.avatar
                                               .contains("upload")
                                       ? "${StaticData.imageUrl}${StaticData.userModel!.avatar}"
-                                      : "${StaticData.userModel!.avatar}",
+                                      : StaticData.userModel!.avatar,
                                 ),
                               )
                             : Image.asset(
@@ -83,7 +80,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 width: 40.w,
                               ),
                         title: TextWidget(
-                          text: "${StaticData.userModel!.name}",
+                          text: StaticData.userModel?.name ?? 'Guest User',
                           color: textdarkgrey,
                           fontSize: 14.sp,
                           fontWeight: FontWeight.w600,
@@ -91,11 +88,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         subtitle: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            SizedBox(
-                              height: 4.h,
-                            ),
+                            SizedBox(height: 4.h),
                             Subheading(
-                              text: "${StaticData.userModel!.email}",
+                              text: StaticData.userModel?.email ?? 'No Email',
                               color: textgrey,
                             ),
                           ],
