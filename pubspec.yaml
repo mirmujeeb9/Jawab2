@@ -44,7 +44,16 @@ dependencies:
   # flutter_snake_navigationbar: ^0.6.1
   flutter_svg: ^2.0.9
   just_the_tooltip: ^0.0.12
+<<<<<<< Updated upstream
   carousel_slider: ^4.2.1
+=======
+<<<<<<< Updated upstream
+  carousel_slider: ^5.0.0
+=======
+  # carousel_slider: 4.2.0
+  flutter_carousel_widget: ^2.1.2
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
   dotted_border: ^2.1.0
   share_plus: ^7.2.1
   avatar_glow: ^3.0.1
