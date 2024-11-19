@@ -16,7 +16,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
   String? affiliateCode;
 
   void register() async {
-    final authApi = AuthApi('https://localhost/8000');
+    final authApi = AuthApi();
 
     if (_formKey.currentState!.validate()) {
       bool success = await authApi.register(

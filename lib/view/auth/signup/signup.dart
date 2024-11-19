@@ -265,14 +265,28 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               : Button(
                                   onTap: () {
                                     if (formkey.currentState!.validate()) {
+                                      // Extract the surname as the last word and the name as the remaining part
+                                      final fullName =
+                                          fullnamecontroller.text.trim();
+                                      final nameParts = fullName.split(' ');
+                                      final surname = nameParts.isNotEmpty
+                                          ? nameParts.removeLast()
+                                          : ''; // Last word as surname
+                                      final name = nameParts
+                                          .join(' '); // Remaining words as name
+
                                       obj.signup(SignupModel(
                                         affiliateCode: "",
-                                        email: emailcontroller.text,
-                                        name: fullnamecontroller.text,
+                                        email: emailcontroller.text.trim(),
+                                        name: name.isEmpty
+                                            ? surname
+                                            : name, // Handle case where no first name
                                         password: passwordcontroller.text,
                                         passwordConfirmation:
                                             confirmpasswordcontroller.text,
-                                        surname: fullnamecontroller.text,
+                                        surname: surname.isEmpty
+                                            ? name
+                                            : surname, // Handle case where no surname
                                       ));
                                     }
                                   },

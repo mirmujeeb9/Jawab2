@@ -1,11 +1,9 @@
 import 'dart:convert';
-
 import 'package:http/http.dart' as http;
+import '../../config.dart';
 
 class AuthApi {
-  final String baseUrl;
-
-  AuthApi(this.baseUrl);
+  final String baseUrl = Config.baseUrl;
 
   Future<bool> register({
     required String name,
@@ -29,7 +27,8 @@ class AuthApi {
     );
 
     if (response.statusCode == 200 || response.statusCode == 201) {
-      return true; // Registration successful
+      print(jsonDecode(response.body)); // Registration successful
+      return true;
     } else {
       // Handle error
       print('Error: ${response.body}');
