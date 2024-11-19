@@ -254,6 +254,9 @@ class _Signin_screenState extends State<Signin_screen> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         CustomContainer(
+                          onTap: () {
+                            Signin_page_controller.to.signInWithGoogle();
+                          },
                           height: 35.h,
                           width: 80.w,
                           borderColor: Colors.grey.shade300,

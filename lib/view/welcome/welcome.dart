@@ -103,7 +103,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               children: [
                 CustomContainer(
                   onTap: () {
-                    Signin_page_controller.to.signInWithGoogle(context);
+                    Signin_page_controller.to.signInWithGoogle();
                   },
                   height: 35.h,
                   width: 80.w,
